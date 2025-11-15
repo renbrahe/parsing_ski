@@ -22,3 +22,4 @@ class Product:
 
     def sizes_as_str(self) -> str:
         return ", ".join(self.sizes) if self.sizes else ""
+
