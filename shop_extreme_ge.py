@@ -1,11 +1,13 @@
+# shop_extreme_ge.py
 import time
-import csv
 import re
-import os
+from typing import List, Tuple, Optional
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, urljoin
 
 import requests
 from bs4 import BeautifulSoup
+
+from models import Product
 
 
 BASE_URL = "https://www.xtreme.ge/en/shop/category/ski-skis-2"
@@ -19,12 +21,6 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-# ---------- НАСТРОЙКИ РЕЖИМА ОБХОДА СТРАНИЦ ----------
-
-TEST_MODE = True
-TEST_MAX_PAGES = 1
-
-CSV_FILENAME = "xtreme_ski_table.csv"
 SHOP_NAME = "xtreme.ge"
 
 
@@ -34,59 +30,88 @@ def get_soup(url: str) -> BeautifulSoup:
     return BeautifulSoup(resp.text, "html.parser")
 
 
-def build_page_url(base_url: str, page: int) -> str:
-    parsed = urlparse(base_url)
-    q = parse_qs(parsed.query)
-    q["page"] = [str(page)]
-    new_query = urlencode(q, doseq=True)
-    new_parsed = parsed._replace(query=new_query)
-    return urlunparse(new_parsed)
+# ---------- LIST PAGES ----------
 
 
-# ---------- СБОР ССЫЛОК НА ТОВАРЫ ----------
+def _normalize_page_url(url: str, base_url: str) -> str:
+    """
+    Убираем всякий мусор из query-параметров, чтобы ссылки не дублировались.
+    """
+    parsed = urlparse(url)
+    base_parsed = urlparse(base_url)
 
-def extract_product_links_from_soup(soup: BeautifulSoup, base_url: str) -> list[str]:
-    links: list[str] = []
+    # нормализуем схему/домен, если вдруг относительные
+    scheme = parsed.scheme or base_parsed.scheme
+    netloc = parsed.netloc or base_parsed.netloc
 
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
+    qs = parse_qs(parsed.query)
+    # оставим только минимум нужных параметров, если очень надо
+    allowed_keys = {"page", "category_id"}
+    qs_filtered = {k: v for k, v in qs.items() if k in allowed_keys}
 
-        if not href.startswith("/en/shop/"):
+    new_query = urlencode(qs_filtered, doseq=True)
+
+    normalized = urlunparse(
+        (
+            scheme,
+            netloc,
+            parsed.path,
+            parsed.params,
+            new_query,
+            parsed.fragment,
+        )
+    )
+    return normalized
+
+
+def extract_product_links_from_soup(soup: BeautifulSoup, base_url: str) -> List[str]:
+    """
+    Из HTML категории вытаскиваем ссылки на карточки товаров.
+    Под текущую верстку xtreme (Odoo) товары лежат в .oe_product.
+    """
+    links: List[str] = []
+
+    # Каждый товар — div.oe_product
+    for product in soup.select("div.oe_product"):
+        # Основная ссылка — по картинке
+        a = product.select_one("a.oe_product_image_link")
+        if a is None:
+            # fallback — по заголовку
+            a = product.select_one("h6.o_wsale_products_item_title a")
+        if not a:
             continue
-        if "/en/shop/category/" in href:
-            continue
-        if href.startswith("/en/shop/cart"):
-            continue
-        if href.startswith("/en/shop/change_pricelist"):
-            continue
-        if href.startswith("/en/shop/product/"):
+
+        href = a.get("href")
+        if not href:
             continue
 
         full_url = urljoin(base_url, href)
+        # Нормализуем URL (убираем лишние query-параметры и т.п.)
+        full_url = _normalize_page_url(full_url, base_url)
         links.append(full_url)
 
     unique_links = sorted(set(links))
     return unique_links
 
 
-def parse_all_list_pages(base_url: str, max_pages: int | None = None) -> list[str]:
+def parse_all_list_pages(base_url: str, max_pages: Optional[int] = None) -> List[str]:
     all_product_urls: set[str] = set()
 
     page = 1
-    print(f"[INFO] Получаю страницу {page}: {base_url}")
+    print(f"[INFO] Fetch page {page}: {base_url}")
     soup = get_soup(base_url)
     page_links = extract_product_links_from_soup(soup, base_url)
     first_page_count = len(page_links)
-    print(f"[INFO] Найдено ссылок на товары на странице {page}: {first_page_count}")
+    print(f"[INFO] Found {first_page_count} product links on page {page}")
 
     if first_page_count == 0:
-        print("[WARN] На первой странице не найдено ни одной ссылки на товар.")
+        print("[WARN] No product links found on first page.")
         try:
             with open("debug_xtreme_page_1.html", "w", encoding="utf-8") as f:
                 f.write(soup.prettify())
-            print("[DEBUG] HTML первой страницы сохранён в debug_xtreme_page_1.html")
+            print("[DEBUG] Saved HTML of first page to debug_xtreme_page_1.html")
         except Exception as e:
-            print(f"[DEBUG] Не удалось сохранить HTML первой страницы: {e}")
+            print(f"[DEBUG] Failed to save first page HTML: {e}")
         return []
 
     all_product_urls.update(page_links)
@@ -94,33 +119,41 @@ def parse_all_list_pages(base_url: str, max_pages: int | None = None) -> list[st
     page = 2
     while True:
         if max_pages is not None and page > max_pages:
-            print(f"[INFO] Достигнут лимит страниц: max_pages={max_pages}")
+            print(f"[INFO] Reached max_pages={max_pages}")
             break
 
-        page_url = build_page_url(base_url, page)
-        print(f"[INFO] Получаю страницу {page}: {page_url}")
+        next_url = f"{base_url}?page={page}"
+        print(f"[INFO] Fetch page {page}: {next_url}")
 
         try:
-            soup = get_soup(page_url)
+            soup = get_soup(next_url)
+        except requests.HTTPError as e:
+            status = e.response.status_code if e.response is not None else None
+            print(f"[INFO] Stop on page={page}, HTTP {status}")
+            break
         except Exception as e:
-            print(f"[ERROR] Не удалось загрузить страницу {page}: {e}")
+            print(f"[WARN] Failed to fetch page {page}: {e}")
             break
 
-        page_links = extract_product_links_from_soup(soup, base_url)
-        count = len(page_links)
-
-        if count == 0:
-            print("[INFO] На странице нет ссылок на товары – страниц больше нет.")
-            break
-
-        print(f"[INFO] Найдено ссылок на товары на странице {page}: {count}")
-
-        new_links = [u for u in page_links if u not in all_product_urls]
+        new_links = extract_product_links_from_soup(soup, base_url)
         if not new_links:
-            print("[INFO] Новых ссылок на товары не появилось – останавливаемся.")
+            print(f"[INFO] No product links on page {page}, stop.")
             break
 
+        before = len(all_product_urls)
         all_product_urls.update(new_links)
+        after = len(all_product_urls)
+        delta = after - before
+
+        print(
+            f"[INFO] Page {page}: found {len(new_links)} links, total unique {after} "
+            f"(+{delta})"
+        )
+
+        # 🔴 ВОТ ЗДЕСЬ ОГРАНИЧИТЕЛЬ: если новых ссылок нет — выходим
+        if delta == 0:
+            print(f"[INFO] No new unique products on page {page}, stopping pagination.")
+            break
 
         page += 1
         time.sleep(1.0)
@@ -128,13 +161,14 @@ def parse_all_list_pages(base_url: str, max_pages: int | None = None) -> list[st
     return sorted(all_product_urls)
 
 
-# ---------- ВСПОМОГАТЕЛЬНОЕ: очистка длины и цен ----------
+# ---------- HELPERS: length & price ----------
+
 
 def _clean_length_text(text: str) -> str:
     if not text:
         return ""
     digits = re.sub(r"\D+", "", text)
-    return digits or text.strip()
+    return digits or ""
 
 
 def split_price(text: str) -> tuple[str, str]:
@@ -163,7 +197,19 @@ def split_price(text: str) -> tuple[str, str]:
     return number, currency
 
 
-# ---------- ПАРСИНГ КАРТОЧКИ ТОВАРА ----------
+def _price_to_float(value: str) -> Optional[float]:
+    if not value:
+        return None
+    # remove thousands separators, keep decimal point
+    normalized = value.replace(" ", "").replace(",", "")
+    try:
+        return float(normalized)
+    except ValueError:
+        return None
+
+
+# ---------- PRODUCT PAGE ----------
+
 
 def parse_product_page(url: str) -> dict:
     """
@@ -173,7 +219,7 @@ def parse_product_page(url: str) -> dict:
     try:
         soup = get_soup(url)
     except Exception as e:
-        print(f"[ERROR] Не удалось загрузить {url}: {e}")
+        print(f"[ERROR] Failed to load {url}: {e}")
         return {
             "brand": "N/A",
             "model": "N/A",
@@ -198,11 +244,12 @@ def parse_product_page(url: str) -> dict:
         title_tag = soup.find("h1")
         if title_tag:
             parts = [t.strip() for t in title_tag.stripped_strings if t.strip()]
-            if len(parts) >= 2:
-                brand = parts[0]
-                model = " ".join(parts[1:])
-            elif len(parts) == 1:
-                model = parts[0]
+            title = " ".join(parts)
+            # простая эвристика: попробуем разделить по первому слову
+            tokens = title.split()
+            if tokens:
+                brand = tokens[0]
+                model = " ".join(tokens[1:]) if len(tokens) > 1 else "N/A"
 
     full_title = f"{brand} {model}".strip() if (brand != "N/A" or model != "N/A") else "N/A"
 
@@ -234,14 +281,7 @@ def parse_product_page(url: str) -> dict:
         if val:
             all_size_texts.append(val)
 
-    sizes = (
-        sorted(
-            set(all_size_texts),
-            key=lambda x: int(re.sub(r"\D+", "", x) or 0),
-        )
-        if all_size_texts
-        else []
-    )
+    sizes = sorted(set(all_size_texts))
 
     return {
         "brand": brand if brand else "N/A",
@@ -253,158 +293,73 @@ def parse_product_page(url: str) -> dict:
     }
 
 
-# ---------- РАБОТА С CSV ----------
-
-def load_existing_rows(filename: str) -> list[dict]:
-    if not os.path.exists(filename):
-        return []
-    with open(filename, "r", encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f, delimiter=";")
-        return list(reader)
+# ---------- PUBLIC API ----------
 
 
-def main():
-    max_pages = TEST_MAX_PAGES if TEST_MODE else None
-    mode_label = (
-        f"ТЕСТОВЫЙ режим: только первые {TEST_MAX_PAGES} страниц"
-        if TEST_MODE
-        else "БОЕВОЙ режим: обходим все страницы"
-    )
-    print(f"[INFO] {mode_label}")
+def scrape_xtreme(
+    test_mode: bool = False,
+    max_pages: Optional[int] = None,
+) -> List[Product]:
+    """
+    Основная функция: обходит xtreme.ge и возвращает список Product.
 
-    today_str = time.strftime("%Y-%m-%d")
-    price_col_today = f"price_new_{today_str}"
+    :param test_mode: если True — берём только первую страницу списка товаров
+    :param max_pages: явное ограничение на количество страниц (перебивает test_mode)
+    """
+    print(f"[INFO] Start scraping {SHOP_NAME}")
 
-    # 1. загружаем существующий CSV
-    existing_rows = load_existing_rows(CSV_FILENAME)
-    print(f"[INFO] Загружено существующих строк из CSV: {len(existing_rows)}")
+    # если включен test_mode и max_pages не задан явно — ограничиваемся 1 страницей
+    if test_mode and max_pages is None:
+        effective_max_pages = 1
+    else:
+        effective_max_pages = max_pages
 
-    existing_by_key: dict[tuple[str, str], dict] = {}
-    known_urls: set[str] = set()
-    not_interesting_urls: set[str] = set()
+    product_urls = parse_all_list_pages(BASE_URL, max_pages=effective_max_pages)
+    print(f"[INFO] Total unique product URLs: {len(product_urls)}")
 
-    NOT_INTERESTING_VALUES = {"0", "no", "n", "false", "-", "нет", "не"}
+    products: List[Product] = []
 
-    for row in existing_rows:
-        url = row.get("product_url", "")
-        size = row.get("size", "")
-        if url:
-            known_urls.add(url)
-        key = (url, size)
-        existing_by_key[key] = row
-
-        flag = (row.get("is_interesting", "") or "").strip().lower()
-        if url and flag in NOT_INTERESTING_VALUES:
-            not_interesting_urls.add(url)
-
-    # 2. получаем все ссылки на товары
-    product_urls = parse_all_list_pages(BASE_URL, max_pages=max_pages)
-    print(f"\n[INFO] Всего уникальных товаров по ссылкам: {len(product_urls)}")
-
-    # 3. парсим карточки для новых и "интересных" товаров
     for idx, url in enumerate(product_urls, start=1):
-        is_new_product = url not in known_urls
-        product_interesting = url not in not_interesting_urls  # по умолчанию да
-
-        needs_update = is_new_product or product_interesting
-
-        if not needs_update:
-            print(f"[SKIP] ({idx}/{len(product_urls)}) {url} — помечен как неинтересный, пропускаю.")
-            continue
-
-        print(f"[DETAIL] ({idx}/{len(product_urls)}) Парсю {url}")
+        print(f"[INFO] [{idx}/{len(product_urls)}] Parse product: {url}")
         detail = parse_product_page(url)
 
-        price_new_val, price_new_cur = split_price(detail["price_new_raw"])
-        price_old_val, price_old_cur = split_price(detail["price_old_raw"])
+        price_new_num, currency = split_price(detail["price_new_raw"])
+        price_old_num, _ = split_price(detail["price_old_raw"])
 
-        # одна общая валюта
-        currency = price_new_cur or price_old_cur or "GEL"
+        current_price = _price_to_float(price_new_num)
+        old_price = _price_to_float(price_old_num)
 
-        sizes = detail["sizes"] or ["N/A"]
+        sizes = detail.get("sizes") or []
+        if not sizes:
+            sizes = [""]
 
         for size in sizes:
-            key = (url, size)
-            row = existing_by_key.get(key)
+            p = Product(
+                shop=SHOP_NAME,
+                url=url,
+                brand=None if detail["brand"] == "N/A" else detail["brand"],
+                model=None if detail["model"] == "N/A" else detail["model"],
+                title=None if detail["full_name"] == "N/A" else detail["full_name"],
+                sizes=[size] if size else [],
+                current_price=current_price,
+                old_price=old_price,
+                currency=currency or "GEL",
+                in_stock=True,
+                quantity=None,
+                shop_sku=None,
+                condition="new",
+            )
+            products.append(p)
 
-            if row is None:
-                # новая строка — по умолчанию интересна (1)
-                is_interesting_val = "0" if url in not_interesting_urls else "1"
-                row = {
-                    "shop_name": SHOP_NAME,
-                    "is_interesting": is_interesting_val,
-                    "brand": detail["brand"],
-                    "model": detail["model"],
-                    "full_name": detail["full_name"],
-                    "size": size,
-                    "price_old": price_old_val,
-                    "currency": currency,
-                    "product_url": url,
-                }
-                existing_rows.append(row)
-                existing_by_key[key] = row
-            else:
-                # обновляем общую инфу
-                if detail["brand"] and detail["brand"] != "N/A":
-                    row["brand"] = detail["brand"]
-                if detail["model"] and detail["model"] != "N/A":
-                    row["model"] = detail["model"]
-                if detail["full_name"] and detail["full_name"] != "N/A":
-                    row["full_name"] = detail["full_name"]
+        time.sleep(0.3)
 
-                if price_old_val:
-                    row["price_old"] = price_old_val
-                if currency:
-                    row["currency"] = currency
+    print(f"[OK] Finished {SHOP_NAME}, total rows: {len(products)}")
+    return products
 
-            # сегодняшнее значение цены
-            row[price_col_today] = price_new_val
-
-        time.sleep(0.5)
-
-    # 4. собираем список колонок
-    all_fieldnames = set()
-    for row in existing_rows:
-        all_fieldnames.update(row.keys())
-
-    base_fields = [
-        "shop_name",
-        "is_interesting",
-        "brand",
-        "model",
-        "full_name",
-        "size",
-        "price_old",
-        "currency",
-        "product_url",
-    ]
-    for bf in base_fields:
-        all_fieldnames.add(bf)
-
-    price_cols = sorted([c for c in all_fieldnames if c.startswith("price_new_")])
-
-    fieldnames = (
-        ["shop_name", "is_interesting", "brand", "model", "full_name", "size"]
-        + ["price_old", "currency"]
-        + price_cols
-        + ["product_url"]
-    )
-
-    # заполняем отсутствующие ключи пустыми строками
-    for row in existing_rows:
-        for fn in fieldnames:
-            row.setdefault(fn, "")
-
-    # 5. сохраняем CSV
-    with open(CSV_FILENAME, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter=";")
-        writer.writeheader()
-        for row in existing_rows:
-            writer.writerow(row)
-
-    print(f"\n[OK] Сохранено {len(existing_rows)} строк в файл {CSV_FILENAME}")
-    print(f"[OK] Добавлена/обновлена колонка: {price_col_today}")
 
 
 if __name__ == "__main__":
-    main()
+    # standalone debug run
+    res = scrape_xtreme(test_mode=True)  # одна страница
+    print(f"Scraped {len(res)} rows from {SHOP_NAME}")
+
