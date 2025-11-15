@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html data-add2cart-redirect="1" data-main-object="product.template(103353,)" data-website-id="1" lang="en-US">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Odoo" name="generator"/>
+  <meta content="website" property="og:type"/>
+  <meta content="REDSTER J2 70-90 + COLT 5 GW" property="og:title"/>
+  <meta content="xtreme" property="og:site_name"/>
+  <meta content="https://www.xtreme.ge/en/shop/redster-j2-70-90-colt-5-gw-103353" property="og:url"/>
+  <meta content="https://www.xtreme.ge/web/image/product.template/103353/image_1024?unique=f0aed0e" property="og:image"/>
+  <meta property="og:description"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="REDSTER J2 70-90 + COLT 5 GW" name="twitter:title"/>
+  <meta content="https://www.xtreme.ge/web/image/product.template/103353/image_1024?unique=f0aed0e" name="twitter:image"/>
+  <meta name="twitter:description"/>
+  <link href="https://www.xtreme.ge/en/shop/redster-j2-70-90-colt-5-gw-103353" rel="canonical"/>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <title>
+   REDSTER J2 70-90 + COLT 5 GW | xtreme
+  </title>
+  <link href="/web/image/website/1/favicon?unique=bb7ec8a" rel="shortcut icon" type="image/x-icon"/>
+  <link as="font" crossorigin="" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+  <link href="/web/assets/1/ec89591/web.assets_frontend.min.css" rel="stylesheet" type="text/css"/>
+  <script id="web.layout.odooscript" type="text/javascript">
+   var odoo = {
+                csrf_token: "25cc67fe4beff68577f2b07dacf2a2fd6150fd8bo1794743923",
+                debug: "",
+            };
+  </script>
+  <script type="text/javascript">
+   odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_public": true, "is_internal_user": false, "is_website_user": true, "uid": null, "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": true, "currencies": {"125": {"symbol": "\u20ac", "position": "after", "digits": [69, 6]}, "80": {"symbol": "\u10da", "position": "after", "digits": [69, 2]}, "1": {"symbol": "$", "position": "before", "digits": [69, 6]}}, "quick_login": true, "bundle_params": {"lang": "en_US", "website_id": 1}, "test_mode": false, "websocket_worker_version": "18.0-5", "translationURL": "/website/translations", "cache_hashes": {"translations": "d636d0df0b8f0e36869c6f0e92c302d1d0888106"}, "geoip_country_code": "GE", "geoip_phone_code": 995, "lang_url_code": "en"};
+            if (!/(^|;\s)tz=/.test(document.cookie)) {
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.cookie = `tz=${userTZ}; path=/`;
+            }
+  </script>
+  <script defer="defer" onerror="__odooAssetError=1" src="/web/assets/1/dd357f5/web.assets_frontend_minimal.min.js" type="text/javascript">
+  </script>
+  <script data-src="/web/assets/1/0d06bd9/web.assets_frontend_lazy.min.js" defer="defer" onerror="__odooAssetError=1" type="text/javascript">
+  </script>
+  <script>
+   if (!window.odoo) {
+                    window.odoo = {};
+                }
+                odoo.__session_info__ = odoo.__session_info__ || {
+                    websocket_worker_version: "18.0-5"
+                }
+                odoo.__session_info__ = Object.assign(odoo.__session_info__, {
+                    livechatData: {
+                        isAvailable: false,
+                        serverUrl: "https://dvsport.odoo.com",
+                        options: {},
+                    },
+                });
+  </script>
+  <style>
+   /* Price container with ribbon */
+        .product_price .price-with-ribbon {
+          position: relative;
+          display: inline-block;
+        }
+
+        /* SALE ribbon styling */
+        .sale-ribbon {
+          background: linear-gradient(45deg, #e60000, #cc0000) !important;
+          color: white !important;
+          font-size: 10px !important;
+          font-weight: bold !important;
+          padding: 2px 6px !important;
+          border-radius: 3px !important;
+          margin-left: 8px !important;
+          position: relative !important;
+          top: -2px !important;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.5px !important;
+        }
+  </style>
+  <script type="text/javascript">
+   (function() {
+                    'use strict';
+
+                    console.log('🚀 Auto-sort on load');
+
+                    let isProcessing = false;
+                    let observer = null;
+
+                    // Start immediately when DOM loads
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', init);
+                    } else {
+                        init();
+                    }
+
+                    function init() {
+                        console.log('🔄 Initializing auto-sort...');
+
+                        // Check current URL immediately
+                        checkUrlAndSort();
+
+                        // Setup observer to watch for new products loading
+                        setupProductObserver();
+
+                        // Also monitor URL changes
+                        monitorUrlChanges();
+                    }
+
+                    function checkUrlAndSort() {
+                        let currentUrl = window.location.href;
+                        console.log('🔍 Checking URL:', currentUrl);
+
+                        if (currentUrl.includes('order=list_price')) {
+                            let sortOrder = currentUrl.includes('desc') ? 'desc' : 'asc';
+                            console.log('🎯 Price sort URL detected:', sortOrder);
+
+                            // Try to sort immediately, then retry if no products found
+                            attemptSort(sortOrder, 0);
+                        }
+                    }
+
+                    function attemptSort(sortOrder, retryCount) {
+                        console.log('🔄 Attempt', retryCount + 1, 'to sort...');
+
+                        let products = findProducts();
+
+                        if (products.length > 0) {
+                            console.log('✅ Products found, starting sort...');
+                            performSort(sortOrder, products);
+                        } else if (retryCount < 10) {
+                            console.log('⏳ No products yet, retrying in 500ms...');
+                            setTimeout(function() {
+                                attemptSort(sortOrder, retryCount + 1);
+                            }, 500);
+                        } else {
+                            console.log('❌ Max retries reached, no products found');
+                        }
+                    }
+
+                    function setupProductObserver() {
+                        console.log('👀 Setting up product observer...');
+
+                        observer = new MutationObserver(function(mutations) {
+                            let productsAdded = false;
+
+                            mutations.forEach(function(mutation) {
+                                if (mutation.addedNodes.length > 0) {
+                                    for (let node of mutation.addedNodes) {
+                                        if (node.nodeType === 1 && (
+                                            node.classList.contains('oe_product') ||
+                                            node.querySelector && node.querySelector('.oe_product')
+                                        )) {
+                                            productsAdded = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            });
+
+                            if (productsAdded) {
+                                console.log('👀 New products detected by observer');
+                                setTimeout(function() {
+                                    checkUrlAndSort();
+                                }, 100);
+                            }
+                        });
+
+                        observer.observe(document.body, {
+                            childList: true,
+                            subtree: true
+                        });
+                    }
+
+                    function monitorUrlChanges() {
+                        let lastUrl = window.location.href;
+
+                        setInterval(function() {
+                            let currentUrl = window.location.href;
+
+                            if (currentUrl !== lastUrl) {
+                                lastUrl = currentUrl;
+                                console.log('🔄 URL changed to:', currentUrl);
+
+                                setTimeout(function() {
+                                    checkUrlAndSort();
+                                }, 200);
+                            }
+                        }, 1000);
+                    }
+
+                    function performSort(sortOrder, products) {
+                        if (isProcessing) {
+                            console.log('⏳ Already processing sort...');
+                            return;
+                        }
+
+                        isProcessing = true;
+                        console.log('🚀 Starting sort:', sortOrder, 'for', products.length, 'products');
+
+                        try {
+                            let container = products[0].parentElement;
+
+                            // Extract prices
+                            products.forEach(function(product, index) {
+                                let price = extractPrice(product);
+                                product.dataset.effectivePrice = price;
+
+                                if (index < 3) {
+                                    console.log('Product', index + 1, 'price:', price);
+                                }
+                            });
+
+                            // Sort array
+                            products.sort(function(a, b) {
+                                let priceA = parseFloat(a.dataset.effectivePrice) || 0;
+                                let priceB = parseFloat(b.dataset.effectivePrice) || 0;
+
+                                return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
+                            });
+
+                            // Reorder in DOM
+                            let fragment = document.createDocumentFragment();
+                            products.forEach(function(product) {
+                                fragment.appendChild(product);
+                            });
+                            container.appendChild(fragment);
+
+                            console.log('✅ Sort completed successfully');
+                            // showNotification('✅ პროდუქტები გადალაგდა ფასდაკლების მიხედვით!'); // Removed notification
+
+                        } catch (error) {
+                            console.error('❌ Sort error:', error);
+                        } finally {
+                            setTimeout(function() {
+                                isProcessing = false;
+                            }, 1000);
+                        }
+                    }
+
+                    function findProducts() {
+                        // Try multiple ways to find products
+                        let products = [];
+
+                        // Method 1: Main window
+                        products = Array.from(document.querySelectorAll('.oe_product'));
+                        if (products.length > 0) {
+                            console.log('Found products in main window:', products.length);
+                            return products;
+                        }
+
+                        // Method 2: Iframe
+                        let iframe = document.querySelector('iframe.o_ignore_in_tour');
+                        if (iframe && iframe.contentDocument) {
+                            products = Array.from(iframe.contentDocument.querySelectorAll('.oe_product'));
+                            if (products.length > 0) {
+                                console.log('Found products in iframe:', products.length);
+                                return products;
+                            }
+                        }
+
+                        // Method 3: Any element with product-like classes
+                        let selectors = [
+                            '.product-item',
+                            '.o_wsale_product_card',
+                            '[itemtype*="Product"]',
+                            '.card[data-product-id]'
+                        ];
+
+                        for (let selector of selectors) {
+                            products = Array.from(document.querySelectorAll(selector));
+                            if (products.length > 0) {
+                                console.log('Found products with selector', selector, ':', products.length);
+                                return products;
+                            }
+                        }
+
+                        console.log('No products found with any method');
+                        return [];
+                    }
+
+                    function extractPrice(productElement) {
+                        // Method 1: Red price (sale price)
+                        let redSelectors = [
+                            '[style*="color:#e60000"]',
+                            '[style*="color: #e60000"]',
+                            '.text-danger',
+                            '[style*="color:red"]'
+                        ];
+
+                        for (let selector of redSelectors) {
+                            let redEl = productElement.querySelector(selector);
+                            if (redEl) {
+                                let text = redEl.textContent;
+                                let match = text.match(/(\d+)/);
+                                if (match) {
+                                    console.log('Red price found:', match[1]);
+                                    return parseFloat(match[1]);
+                                }
+                            }
+                        }
+
+                        // Method 2: Any price with currency
+                        let allText = productElement.textContent;
+                        let matches = allText.match(/(\d+)\s*[ლ₾]/g);
+                        if (matches && matches.length > 0) {
+                            let firstPrice = matches[0].match(/(\d+)/);
+                            if (firstPrice) {
+                                console.log('Currency price found:', firstPrice[1]);
+                                return parseFloat(firstPrice[1]);
+                            }
+                        }
+
+                        console.log('No price found');
+                        return 0;
+                    }
+
+                    function showNotification(message) {
+                        let notification = document.createElement('div');
+                        notification.textContent = message;
+                        notification.style.cssText =
+                            'position:fixed;top:20px;right:20px;background:#28a745;color:white;' +
+                            'padding:10px 15px;border-radius:5px;z-index:9999;font-weight:bold;';
+
+                        document.body.appendChild(notification);
+
+                        setTimeout(function() {
+                            notification.remove();
+                        }, 3000);
+                    }
+
+                })();
+  </script>
+  <style type="text/css">
+   /* Inline CSS (safe selectors) */
+			#top_menu a,
+			header .navbar-nav .nav-link,
+			.navbar .nav-link,
+			.navbar-nav > li > a,
+			.navbar-nav .nav-item .nav-link {
+				font-weight: 700 !important;
+				color: #000000 !important;
+			}
+			
+			/* Language selector button - default state: white background */
+			.js_language_selector .btn-outline-secondary {
+				background-color: #FFFFFF !important;
+				border-color: #543b3b !important;
+				color: #543b3b !important;
+			}
+			
+			/* Language selector button - white background on hover and active */
+			.js_language_selector .btn-outline-secondary:hover,
+			.js_language_selector .btn-outline-secondary:active,
+			.js_language_selector .btn-outline-secondary:focus {
+				background-color: #FFFFFF !important;
+				border-color: #543b3b !important;
+				color: #543b3b !important;
+			}
+			
+			/* Language selector button - white background when active */
+			.js_language_selector .btn-outline-secondary.active,
+			.js_language_selector .btn-outline-secondary.show {
+				background-color: #FFFFFF !important;
+				border-color: #543b3b !important;
+				color: #543b3b !important;
+			}
+  </style>
+  <style>
+   /* ყველა კალათის აიქონი საიტზე (მაგრამ არა მთავარ პროდუქტის გვერდზე) */
+                body:not(.o_product_page) .fa-shopping-cart,
+                body:not([data-view-xmlid*="product"]) .fa-shopping-cart {
+                    display: none !important; 
+                }
+                
+                /* ყველა კალათის ღილაკი საიტზე (მაგრამ არა მთავარ პროდუქტის გვერდზე) */
+                body:not(.o_product_page) button.js_add_cart,
+                body:not(.o_product_page) .btn.js_add_cart,
+                body:not(.o_product_page) form.js_add_cart_variants button,
+                body:not(.o_product_page) .a-submit,
+                body:not(.o_product_page) .o_wsale_product_btn,
+                body:not([data-view-xmlid*="product"]) button.js_add_cart,
+                body:not([data-view-xmlid*="product"]) .btn.js_add_cart,
+                body:not([data-view-xmlid*="product"]) form.js_add_cart_variants button,
+                body:not([data-view-xmlid*="product"]) .a-submit,
+                body:not([data-view-xmlid*="product"]) .o_wsale_product_btn {
+                    display: none !important;
+                }
+                
+                /* სპეციფიკური ხედები რომლებშიც ყოველთვის უნდა იყოს დამალული */
+                .oe_product_cart .js_add_cart,
+                .oe_optional_products_modal .js_add_cart,
+                .oe_upsell_products .js_add_cart {
+                    display: none !important;
+                }
+                
+                /* პროდუქტის ბმულების მიმართ თავისუფლება */
+                .product_link .js_add_cart,
+                .product_item .js_add_cart,
+                .product_snippet .js_add_cart {
+                    display: none !important;
+                }
+  </style>
+ </head>
+ <body>
+  <div class="" id="wrapwrap">
+   <a class="o_skip_to_content btn btn-primary rounded-0 visually-hidden-focusable position-absolute start-0" href="#wrap">
+    Skip to Content
+   </a>
+   <header class="" data-anchor="true" data-extra-items-toggle-aria-label="Extra items button" data-name="Header" id="top" style=" ">
+    <nav aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc o_header_force_no_radius d-none d-lg-block p-0 shadow-sm" data-name="Navbar">
+     <div class="o_main_nav" id="o_main_nav">
+      <div class="o_header_hide_on_scroll">
+       <div aria-label="Top" class="o_header_sales_two_top py-1">
+        <ul class="navbar-nav container d-grid h-100 px-3 o_grid_header_3_cols">
+         <li class="o_header_language_selector" data-name="Language Selector">
+          <div class="js_language_selector d-flex align-items-center h-100 dropdown d-print-none">
+           <button aria-expanded="true" aria-haspopup="true" class="border-0 dropdown-toggle btn btn-sm btn-outline-secondary border-0" data-bs-toggle="dropdown" type="button">
+            <img alt="" class="o_lang_flag" loading="lazy" src="/base/static/img/country_flags/us.png?height=25"/>
+            <span class="">
+             English (US)
+            </span>
+           </button>
+           <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item js_change_lang active" data-url_code="en" href="/en/shop/redster-j2-70-90-colt-5-gw-103353?category=2" role="menuitem" title="English (US)">
+             <img alt="" class="o_lang_flag" loading="lazy" src="/base/static/img/country_flags/us.png?height=25"/>
+             <span class="">
+              English (US)
+             </span>
+            </a>
+            <a class="dropdown-item js_change_lang" data-url_code="ka" href="/shop/redster-j2-70-90-colt-5-gw-103353?category=2" role="menuitem" title=" ქართული ენა">
+             <img alt="" class="o_lang_flag" loading="lazy" src="/base/static/img/country_flags/ge.png?height=25"/>
+             <span class="">
+              ქართული ენა
+             </span>
+            </a>
+           </div>
+          </div>
+         </li>
+         <li class="d-flex align-items-center">
+          <div class="s_text_block d-flex align-items-center mx-auto" data-name="Text">
+           ​​​​
+           <a class="btn btn-custom bg-o-color-5 rounded-circle btn-sm mb-2" href="/en/brendi" style="border-width: 1px; border-style: solid;">
+            <span style="font-size: 1.125rem;">
+             <strong>
+              Brands
+             </strong>
+            </span>
+           </a>
+           <a class="btn btn-custom bg-o-color-5 rounded-circle btn-sm mb-2" href="/en/mdebareoba" style="border-width: 1px; border-style: solid;">
+            <span style="font-size: 1.125rem;">
+             <strong style="display: inline-block;">
+              Address
+             </strong>
+            </span>
+           </a>
+           <a class="btn btn-custom bg-o-color-5 rounded-circle btn-sm mb-2" href="/en/outlet" style="border-width: 1px; border-style: solid; color: rgb(255, 15, 15);">
+            <span style="font-size: 1.125rem;">
+             <strong>
+              Outlet
+             </strong>
+            </span>
+            <strong>
+             ​​​​​
+            </strong>
+           </a>
+           <font class="bg-o-color-4">
+           </font>
+          </div>
+         </li>
+         <li class="o_header_sales_two_social_links_placeholder">
+         </li>
+        </ul>
+       </div>
+       <div aria-label="Middle" class="container d-flex justify-content-between align-items-center py-1">
+        <a class="navbar-brand logo me-4" data-name="Navbar Logo" href="/en">
+         <span aria-label="Logo of xtreme" role="img" title="xtreme">
+          <img alt="xtreme" class="img img-fluid" height="40" loading="lazy" src="/web/image/website/1/logo/xtreme?unique=bb7ec8a" width="95"/>
+         </span>
+        </a>
+        <ul class="navbar-nav align-items-center gap-1">
+         <li class="">
+          <form action="/en/website/search" class="o_searchbar_form s_searchbar_input" data-snippet="s_searchbar_input" method="get">
+           <div class="input-group" role="search">
+            <input class="search-query form-control oe_search_box rounded-start-pill ps-3 text-bg-light border-0 bg-light" data-display-description="true" data-display-detail="true" data-display-extra-link="true" data-display-image="true" data-limit="5" data-order-by="name asc" data-search-type="all" name="search" placeholder="Search..." type="search" value=""/>
+            <button aria-label="Search" class="btn oe_search_button rounded-end-pill p-3 bg-o-color-3 lh-1" title="Search" type="submit">
+             <i class="oi oi-search">
+             </i>
+            </button>
+           </div>
+           <input class="o_search_order_by" name="order" type="hidden" value="name asc"/>
+          </form>
+         </li>
+         <li class="divider d-none">
+         </li>
+         <li class="o_wsale_my_cart d-none">
+          <a aria-label="eCommerce cart" class="btn d-flex align-items-center fw-bold text-reset o_navlink_background_hover" href="/en/shop/cart">
+           <div class="position-relative me-2 rounded-circle border p-2 bg-o-color-3 o_border_contrast">
+            <i class="fa fa-shopping-cart fa-stack">
+            </i>
+            <sup class="my_cart_quantity badge bg-primary position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill d-none" data-order-id="">
+             0
+            </sup>
+           </div>
+           <span class="small">
+            My Cart
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div aria-label="Bottom" class="border-top o_border_contrast">
+       <div class="container d-flex justify-content-between">
+        <ul class="nav navbar-nav top_menu o_menu_loading mx-auto p-2" id="top_menu" role="menu">
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Ski
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1 pb4">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/1">
+                 Skis
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link px-0" href="/en/shop/category/2">
+                 Ski
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/3">
+                 Ski bindings​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/4">
+                 Climbing skins​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/5">
+                 Ski boots​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/6">
+                 Ski poles​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/7">
+                 Ski goggles​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/8">
+                 Ski helmet​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/9">
+                 Ski backpack​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/10">
+                 Ski and boots bags​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/13">
+                 Buff/headbands​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/1">
+                 <font class="text-black" style="display: inline-block;">
+                  ​
+                 </font>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link px-0" href="/en/shop/category/14">
+                 Ski socks​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/15">
+                 Ski gloves​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/16">
+                 Winter hat​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/17">
+                 Ski jacket​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/18">
+                 Ski pants​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/19">
+                 Ski clothes set​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/20">
+                 Fleece/softshell​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/21">
+                 Thermal wear​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/22">
+                 Vest​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/23">
+                 Clothes accessories​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/1">
+                 <font class="text-black" style="display: inline-block;">
+                  ​
+                 </font>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link px-0" href="/en/shop/category/24">
+                 Mountain/sun glasses​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/25">
+                 Watches/accessories​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/26">
+                 Tuning tools​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/27">
+                 Ski racks​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/28">
+                 Travel bags​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/29">
+                 Insoles​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/30">
+                 Ski exoskeleton​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/272">
+                 Ski protection​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/270">
+                 Balaclava​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/275">
+                 Textile protection​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/1">
+                 <font class="text-black" style="display: inline-block;">
+                  ​
+                 </font>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link px-0" href="/en/shop/category/246">
+                 Shovel
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/268">
+                 Heater/Dryer
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Snowboard
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/31">
+                 Snowboard​
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/32">
+                 Snowboard​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/33">
+                 Snowboard binding​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/128">
+                 Ski goggles​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/129">
+                 Snowboard boots​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/130">
+                 Ski helmet​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/131">
+                 Ski backpack​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/132">
+                 Ski and boots bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/133">
+                 Ski protection​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/134">
+                 Balaclava​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/136">
+                 Buff/headbands​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a aria-describedby="popover579543" class="nav-link p-0 text-black" href="/en/shop/category/31">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/137">
+                 Ski socks
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/138">
+                 Ski gloves​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/139">
+                 Winter hat​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/140">
+                 Ski jacket​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/141">
+                 Ski pants​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/142">
+                 Ski clothes set​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/143">
+                 Fleece/softshell​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/144">
+                 Thermal wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/145">
+                 Vest​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/146">
+                 Clothes accessories​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/31">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/147">
+                 Mountain/sun glasses​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/148">
+                 Watches/accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/149">
+                 Tuning tools​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/150">
+                 Ski racks​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/151">
+                 Travel bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/152">
+                 Insoles​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/276">
+                 Textile protection​​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/248">
+                 Shovel​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/269">
+                 Heater/Dryer
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Climbing
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a aria-describedby="popover184381" class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/54">
+                 climbing
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/55">
+                 Tent​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/56">
+                 Sleeping bag​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/57">
+                 Camping mat​
+                </a>
+                <a aria-describedby="popover440641" class="nav-link o_default_snippet_text px-0" href="/en/shop/category/265">
+                 Mountain backpack​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/59">
+                 Camping gas​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/60">
+                 Mountain accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/61">
+                 Climbing harness​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/62">
+                 Carabiners​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/63">
+                 Ropes​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/64">
+                 Ice-axe​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/54">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/65">
+                 Mountain roll​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/66">
+                 Mountain crampons​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/67">
+                 Gaiter​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/68">
+                 Knife​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/69">
+                 Flashlight​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/70">
+                 Shovel​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/71">
+                 Thermos​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/72">
+                 Bottles​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/73">
+                 Watches/accessories​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/74">
+                 Climbing shoes​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/54">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/75">
+                 Camping furniture​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/76">
+                 Camping cooking gear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/77">
+                 Mountain/sun glasses​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/78">
+                 Mountain/sun glasses​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/79">
+                 Trekking footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/80">
+                 Mountain helmet​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/81">
+                 Mini bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/82">
+                 Refrigerator​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/85">
+                 Two-way radio​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/86">
+                 Raincoat
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/54">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/87">
+                 Mountain wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/88">
+                 Balaclava​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/89">
+                 Buff/headbands​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/90">
+                 Textile protection​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/91">
+                 Compass​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/274">
+                 Fleece/softshell​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/260">
+                 Summer hat​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/262">
+                 Thermal wear
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/277">
+                 Binoculars​
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Bike/Moto
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/34">
+                 Bike/Moto​
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/35">
+                 Bicycle
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/36">
+                 E-bikes​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/37">
+                 Cycling accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/38">
+                 Bicycle helmet​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/39">
+                 Tires/tubes​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/40">
+                 Cycling bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/41">
+                 Cycling tools​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/42">
+                 Protection (other)​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/43">
+                 Cycling gloves​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/44">
+                 Bottles​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a aria-describedby="popover835608" class="nav-link p-0 text-black" href="/en/shop/category/34">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/45">
+                 Cycling wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/46">
+                 Raincoat​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/47">
+                 Racks for cycling​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/48">
+                 Mountain/sun glasses​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/49">
+                 Buff/headbands​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/50">
+                 Mini bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/51">
+                 Scooter (cycling)​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/52">
+                 Pump​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/53">
+                 Moto accessories
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Swimming
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/92">
+                 swimming
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/99">
+                 Swimming accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/100">
+                 Sea equipment​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/101">
+                 Pools footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/102">
+                 Swimming (sea) footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/103">
+                 Swimming goggle​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/104">
+                 Swimming hat​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/105">
+                 Swimming fins​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/106">
+                 Diving​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/107">
+                 Life jacket​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/108">
+                 Swimming wear​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a aria-describedby="popover429073" class="nav-link p-0 text-black" href="/en/shop/category/92">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/109">
+                 Towel​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/110">
+                 Sports bag​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/111">
+                 Backpack​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/266">
+                 Swimming pool
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Tennis
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/93">
+                 tennis
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/112">
+                 Tennis racket​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/113">
+                 Tennis balls​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/114">
+                 Tennis strings​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/115">
+                 Tennis accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/116">
+                 Tennis bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/117">
+                 Travel bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/118">
+                 Sport socks​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/119">
+                 Tennis wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/120">
+                 Tennis footwear​
+                </a>
+                <a aria-describedby="popover152704" class="nav-link o_default_snippet_text px-0" href="/en/shop/category/261">
+                 Summer hat​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/93">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/122">
+                 Table tennis​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/123">
+                 Table tennis ball​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/124">
+                 Table tennis racket /accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/125">
+                 Padel tennis​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/126">
+                 Pickleball​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/127">
+                 Squash​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/259">
+                 Bottle
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Clothing
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/94">
+                 clothing
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/153">
+                 Ski jacket​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/154">
+                 Ski pants​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/155">
+                 Ski clothes set​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/156">
+                 Mountain wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/157">
+                 Fleece/softshell​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/158">
+                 Thermal wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/159">
+                 Vest​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/160">
+                 Casual clothes​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/161">
+                 Sports wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/162">
+                 Tennis footwear​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/94">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/163">
+                 Cycling wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/164">
+                 Raincoat​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/165">
+                 Balaclava​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/166">
+                 Buff/headbands​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/167">
+                 Ski gloves
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/168">
+                 Clothes accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/169">
+                 Sport socks​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/170">
+                 Ski socks​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/171">
+                 Summer hat​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/172">
+                 Winter hat​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/94">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/173">
+                 Textile protection​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/250">
+                 Swimming wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/263">
+                 Tennis wear
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Shoes
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/95">
+                 shoes
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/174">
+                 Running footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/175">
+                 Trekking footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/176">
+                 Mountain footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/177">
+                 Tennis footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/179">
+                 Casual footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/180">
+                 Soccer shoes​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/181">
+                 Snow boots​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/278">
+                 Snowshoes​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/182">
+                 Pools footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/264">
+                 Swimming (sea) footwear​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a aria-describedby="popover306701" class="nav-link p-0 text-black" href="/en/shop/category/95">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/183">
+                 Sport socks​​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/184">
+                 Ski socks​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/271">
+                 Gaiter
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/185">
+                 Insoles​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/186">
+                 Textile protection​
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Fitness/Boxing
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="o_default_snippet_text text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link o_default_snippet_text p-0 text-black" href="/en/shop/category/96">
+                 Fitness, Boxing
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/187">
+                 Training apparatus​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/188">
+                 Dumbbels​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/189">
+                 Fitness training balls​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/190">
+                 Fitness accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/191">
+                 Fitness mat​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/192">
+                 Sports wear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/193">
+                 Running footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/194">
+                 Running footwear​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/195">
+                 Towel​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/196">
+                 Ball (sport)
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a aria-describedby="popover107240" class="nav-link p-0 text-black" href="/en/shop/category/96">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/197">
+                 Darts/arrows​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/198">
+                 Sports bag​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/199">
+                 Backpack​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/200">
+                 Boxing glove​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/201">
+                 Boxing accessory​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/202">
+                 Boxing bag​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/203">
+                 Karate / judo​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/245">
+                 Mini bags​​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/258">
+                 Bottle
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item dropdown position-static" role="presentation">
+          <a class="nav-link dropdown-toggle o_mega_menu_toggle" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+           <span>
+            Miscellaneous​
+           </span>
+          </a>
+          <div class="dropdown-menu o_mega_menu fetchEcomCategories" data-name="Mega Menu" role="menuitem">
+           <section class="s_mega_menu_odoo_menu pt16 o_colored_level o_cc o_cc1">
+            <div class="container">
+             <div class="row">
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/98">
+                 miscellaneous
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/211">
+                 Sledge accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/212">
+                 Golf​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/213">
+                 Sledge​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/214">
+                 Sports equipments (various)​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/215">
+                 Badminton​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/216">
+                 Ball (sport)​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/217">
+                 Darts/arrows​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/218">
+                 Travel bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/219">
+                 Racks for cycling​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/220">
+                 Ski racks​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/98">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/221">
+                 Closed rack​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/222">
+                 Rack bars​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/223">
+                 Rack tools​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/224">
+                 Mini bags​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/225">
+                 Towel​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/226">
+                 Key chine​
+                </a>
+                <a class="nav-link px-0" href="/shop/category/227">
+                 Various​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/228">
+                 Refrigerator
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/229">
+                 Bottles​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/230">
+                 Cup​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/98">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/231">
+                 Medals/accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/232">
+                 Protection (other)​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/233">
+                 Pump
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/234">
+                 Souvenirs (Toys)
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/235">
+                 Watches/accessories​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/236">
+                 Sports Entertainment Toys
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/237">
+                 Insoles​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/238">
+                 Textile protection​
+                </a>
+                <a class="nav-link o_default_snippet_text px-0" href="/en/shop/category/239">
+                 Mask​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/244">
+                 Sports bag​
+                </a>
+               </nav>
+              </div>
+              <div class="col-12 col-lg-3 pt16 pb24 o_colored_level">
+               <h4 class="text-uppercase h5 fw-bold mt-0">
+                <a class="nav-link p-0 text-black" href="/en/shop/category/98">
+                 <br/>
+                </a>
+               </h4>
+               <div class="s_hr pt4 pb16 o_colored_level" data-name="Separator">
+                <hr class="w-100 mx-auto border-black" style="border-top-width: 2px;"/>
+               </div>
+               <nav class="nav flex-column">
+                <a class="nav-link px-0" href="/en/shop/category/247">
+                 Shovel​​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/249">
+                 Thermos
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/251">
+                 Knife
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/255">
+                 Mountain/sun glasses​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/267">
+                 Swimming pool
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/204">
+                 Roller-skate​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/205">
+                 Skateboard/longboard​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/207">
+                 Ice-skate​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/209">
+                 Bicycle helmet​
+                </a>
+                <a class="nav-link px-0" href="/en/shop/category/279">
+                 E-Scooter
+                </a>
+               </nav>
+              </div>
+             </div>
+            </div>
+           </section>
+          </div>
+         </li>
+         <li class="nav-item" role="presentation">
+          <a class="nav-link" href="https://dvsport.odoo.com/outlet" role="menuitem">
+           <span>
+            Outlet
+           </span>
+          </a>
+         </li>
+        </ul>
+        <ul class="navbar-nav">
+        </ul>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <nav aria-label="Mobile" class="navbar navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none shadow-sm o_header_force_no_radius" data-name="Navbar">
+     <div class="o_main_nav container flex-wrap justify-content-between">
+      <a class="navbar-brand logo" data-name="Navbar Logo" href="/en">
+       <span aria-label="Logo of xtreme" role="img" title="xtreme">
+        <img alt="xtreme" class="img img-fluid" height="40" loading="lazy" src="/web/image/website/1/logo/xtreme?unique=bb7ec8a" width="95"/>
+       </span>
+      </a>
+      <ul class="o_header_mobile_buttons_wrap navbar-nav flex-row align-items-center gap-2 mb-0">
+       <li class="divider d-none">
+       </li>
+       <li class="o_wsale_my_cart d-none">
+        <a aria-label="eCommerce cart" class="o_navlink_background_hover btn position-relative rounded-circle border-0 p-1 text-reset" href="/en/shop/cart">
+         <div class="">
+          <i class="fa fa-shopping-cart fa-stack">
+          </i>
+          <sup class="my_cart_quantity badge bg-primary position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill d-none" data-order-id="">
+           0
+          </sup>
+         </div>
+        </a>
+       </li>
+       <li class="o_not_editable">
+        <button aria-controls="top_menu_collapse_mobile" aria-expanded="false" aria-label="Toggle navigation" class="nav-link btn me-auto p-2" data-bs-target="#top_menu_collapse_mobile" data-bs-toggle="offcanvas" type="button">
+         <span class="navbar-toggler-icon">
+         </span>
+        </button>
+       </li>
+      </ul>
+      <div class="offcanvas offcanvas-end o_navbar_mobile" id="top_menu_collapse_mobile">
+       <div class="offcanvas-header justify-content-end o_not_editable">
+        <button aria-label="Close" class="nav-link btn-close" data-bs-dismiss="offcanvas" type="button">
+        </button>
+       </div>
+       <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100">
+        <ul class="navbar-nav">
+         <li class="">
+          <form action="/en/website/search" class="o_searchbar_form s_searchbar_input" data-snippet="s_searchbar_input" method="get">
+           <div class="input-group mb-3" role="search">
+            <input class="search-query form-control oe_search_box rounded-start-pill text-bg-light ps-3 border-0 bg-light" data-display-description="true" data-display-detail="true" data-display-extra-link="true" data-display-image="true" data-limit="0" data-order-by="name asc" data-search-type="all" name="search" placeholder="Search..." type="search" value=""/>
+            <button aria-label="Search" class="btn oe_search_button rounded-end-pill bg-o-color-3 pe-3" title="Search" type="submit">
+             <i class="oi oi-search">
+             </i>
+            </button>
+           </div>
+           <input class="o_search_order_by" name="order" type="hidden" value="name asc"/>
+          </form>
+         </li>
+         <ul class="nav navbar-nav top_menu" role="menu">
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Ski
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Snowboard
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Climbing
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Bike/Moto
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Swimming
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Tennis
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Clothing
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Shoes
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Fitness/Boxing
+            </span>
+           </a>
+          </li>
+          <li class="nav-item dropdown position-static" role="presentation">
+           <a class="nav-link dropdown-toggle o_mega_menu_toggle d-flex justify-content-between align-items-center" data-bs-display="static" data-bs-toggle="dropdown" href="#" role="menuitem">
+            <span>
+             Miscellaneous​
+            </span>
+           </a>
+          </li>
+          <li class="nav-item" role="presentation">
+           <a class="nav-link" href="https://dvsport.odoo.com/outlet" role="menuitem">
+            <span>
+             Outlet
+            </span>
+           </a>
+          </li>
+         </ul>
+         <li class="">
+          <div class="s_text_block mt-2 border-top pt-2 o_border_contrast" data-name="Text">
+           ​​​​
+           <a class="btn btn-custom bg-o-color-5 rounded-circle btn-sm mb-2" href="/en/brendi" style="border-width: 1px; border-style: solid;">
+            <span style="font-size: 1.125rem;">
+             <strong>
+              Brands
+             </strong>
+            </span>
+           </a>
+           <a class="btn btn-custom bg-o-color-5 rounded-circle btn-sm mb-2" href="/en/mdebareoba" style="border-width: 1px; border-style: solid;">
+            <span style="font-size: 1.125rem;">
+             <strong style="display: inline-block;">
+              Address
+             </strong>
+            </span>
+           </a>
+           <a class="btn btn-custom bg-o-color-5 rounded-circle btn-sm mb-2" href="/en/outlet" style="border-width: 1px; border-style: solid; color: rgb(255, 15, 15);">
+            <span style="font-size: 1.125rem;">
+             <strong>
+              Outlet
+             </strong>
+            </span>
+            <strong>
+             ​​​​​
+            </strong>
+           </a>
+           <font class="bg-o-color-4">
+           </font>
+          </div>
+         </li>
+        </ul>
+        <ul class="navbar-nav gap-2 mt-3 w-100">
+         <li class="o_header_language_selector" data-name="Language Selector">
+          <div class="js_language_selector dropup dropdown d-print-none">
+           <button aria-expanded="true" aria-haspopup="true" class="border-0 dropdown-toggle btn btn-outline-primary d-flex align-items-center w-100" data-bs-toggle="dropdown" type="button">
+            <img alt="" class="o_lang_flag me-2" loading="lazy" src="/base/static/img/country_flags/us.png?height=25"/>
+            <span class="me-auto small">
+             English (US)
+            </span>
+           </button>
+           <div class="dropdown-menu w-100" role="menu">
+            <a class="dropdown-item js_change_lang active" data-url_code="en" href="/en/shop/redster-j2-70-90-colt-5-gw-103353?category=2" role="menuitem" title="English (US)">
+             <img alt="" class="o_lang_flag me-2" loading="lazy" src="/base/static/img/country_flags/us.png?height=25"/>
+             <span class="me-auto small">
+              English (US)
+             </span>
+            </a>
+            <a class="dropdown-item js_change_lang" data-url_code="ka" href="/shop/redster-j2-70-90-colt-5-gw-103353?category=2" role="menuitem" title=" ქართული ენა">
+             <img alt="" class="o_lang_flag me-2" loading="lazy" src="/base/static/img/country_flags/ge.png?height=25"/>
+             <span class="me-auto small">
+              ქართული ენა
+             </span>
+            </a>
+           </div>
+          </div>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </nav>
+   </header>
+   <main>
+    <div class="js_sale o_wsale_product_page ecom-zoomable zoomodoo-next" data-ecom-zoom-auto="1" id="wrap" itemscope="itemscope" itemtype="http://schema.org/Product">
+     <div class="oe_structure oe_empty oe_structure_not_nearest" data-editor-message="DROP BUILDING BLOCKS HERE TO MAKE THEM AVAILABLE ACROSS ALL PRODUCTS" id="oe_structure_website_sale_product_1">
+     </div>
+     <section class="oe_website_sale container my-3 my-lg-4" data-view-track="1" id="product_detail">
+      <div class="row align-items-center">
+       <div class="col d-flex align-items-center order-1 order-lg-0">
+        <ol class="o_wsale_breadcrumb breadcrumb p-0 mb-4 m-lg-0">
+         <li class="o_not_editable breadcrumb-item d-none d-lg-inline-block">
+          <a href="/en/shop">
+           <i class="oi oi-chevron-left d-lg-none me-1" role="presentation">
+           </i>
+           All Products
+          </a>
+         </li>
+         <li class="breadcrumb-item">
+          <a class="py-2 py-lg-0" href="/en/shop/category/ski-skis-2">
+           <i class="oi oi-chevron-left d-lg-none me-1" role="presentation">
+           </i>
+           Skis
+          </a>
+         </li>
+         <li class="breadcrumb-item d-none d-lg-inline-block active">
+          <span>
+           REDSTER J2 70-90 + COLT 5 GW
+          </span>
+         </li>
+        </ol>
+       </div>
+       <div class="col-lg-4 d-flex align-items-center">
+        <div class="d-flex justify-content-between w-100">
+         <form action="/en/shop/category/ski-skis-2?category=2" class="o_searchbar_form s_searchbar_input o_wsale_products_searchbar_form me-auto flex-grow-1 mb-4 mb-lg-0" data-snippet="s_searchbar_input" method="get">
+          <div class="input-group me-sm-2" role="search">
+           <input class="search-query form-control oe_search_box border-0 text-bg-light border-0 bg-light" data-display-description="true" data-display-detail="true" data-display-extra-link="true" data-display-image="true" data-limit="5" data-order-by="name asc" data-search-type="products" name="search" placeholder="Search..." type="search"/>
+           <button aria-label="Search" class="btn oe_search_button btn btn-light" title="Search" type="submit">
+            <i class="oi oi-search">
+            </i>
+           </button>
+          </div>
+          <input class="o_search_order_by" name="order" type="hidden" value="name asc"/>
+         </form>
+         <div class="o_pricelist_dropdown dropdown d-none">
+          <a class="dropdown-toggle btn btn-light" data-bs-toggle="dropdown" href="#" role="button">
+           საწყისი
+          </a>
+          <div class="dropdown-menu" role="menu">
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="row" data-image_layout="carousel" data-image_width="50_pc" data-name="Product Page" id="product_detail_main">
+       <div class="col-lg-6 mt-lg-4 o_wsale_product_images position-relative" data-image-amount="1">
+        <div class="carousel slide position-sticky mb-3 overflow-hidden o_carousel_product_left_indicators d-flex" data-bs-ride="true" data-name="Product Carousel" id="o-carousel-product">
+         <div class="o_carousel_product_outer carousel-outer position-relative d-flex align-items-center w-100 overflow-hidden">
+          <div class="carousel-inner h-100">
+           <div class="carousel-item h-100 text-center active">
+            <div class="position-relative d-inline-flex overflow-hidden m-auto h-100">
+             <span class="o_ribbon d-none z-1" style="">
+             </span>
+             <div class="d-flex align-items-start justify-content-center h-100 oe_unmovable" name="o_img_with_max_suggested_width">
+              <img alt="REDSTER J2 70-90 + COLT 5 GW" class="img img-fluid oe_unmovable product_detail_img mh-100" loading="lazy" src="/web/image/product.product/103377/image_1024/REDSTER%20J2%2070-90%20+%20COLT%205%20GW?unique=cf88076"/>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="col-lg-6 mt-md-4" id="product_details">
+        <h1 class="o_wsale_product_page_title" itemprop="name">
+         <div class="brand-name-detail" style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #000000 !important;">
+          <span>
+           ATOMIC
+          </span>
+         </div>
+         <div class="product-name-detail" style="font-size: 1em; color: #000000 !important;">
+          <span>
+           REDSTER J2 70-90 + COLT 5 GW
+          </span>
+         </div>
+        </h1>
+        <span itemprop="url" style="display:none;">
+         https://www.xtreme.ge/shop/redster-j2-70-90-colt-5-gw-103353
+        </span>
+        <span itemprop="image" style="display:none;">
+         https://www.xtreme.ge/web/image/product.template/103353/image_1920?unique=f0aed0e
+        </span>
+        <form action="/en/shop/cart/update" method="POST">
+         <input name="csrf_token" type="hidden" value="25cc67fe4beff68577f2b07dacf2a2fd6150fd8bo1794743923"/>
+         <div class="js_product js_main_product mb-3">
+          <div>
+           <div class="product_price">
+            <span class="oe_price text-danger" style="color: red !important; font-weight: bold !important; font-size: 1.2em;">
+             559 ₾
+            </span>
+            <span class="oe_price text-muted" style="text-decoration: line-through !important; color: gray !important; margin-left: 10px;">
+             699 ₾
+            </span>
+           </div>
+          </div>
+          <input class="product_id" name="product_id" type="hidden" value="103377"/>
+          <input class="product_template_id" name="product_template_id" type="hidden" value="103353"/>
+          <input class="product_category_id" name="product_category_id" type="hidden" value="2"/>
+          <ul class="list-unstyled js_add_cart_variants mb-0 flex-column" data-attribute_exclusions='{"exclusions": {"143150": [], "143151": [], "143152": [], "143153": [], "188298": []}, "archived_combinations": [], "parent_exclusions": {}, "parent_combination": [], "parent_product_name": null, "mapped_attribute_names": {"143150": "Brand: ATOMIC", "143151": "Color: RED/BLACK", "143152": "Size: 70", "143153": "BMW: Junior", "188298": "BMW: Junior"}}'>
+           <li class="variant_attribute d-none" data-attribute_display_type="radio" data-attribute_id="2916" data-attribute_name="Brand">
+            <strong class="attribute_name">
+             Brand
+            </strong>
+            <ul class="list-inline list-unstyled o_wsale_product_attribute" data-attribute_id="2916">
+             <li class="list-inline-item mb-3 js_attribute_value" style="margin: 0;">
+              <label class="col-form-label">
+               <div class="form-check">
+                <input checked="True" class="form-check-input js_variant_change always" data-attribute-value-id="48030" data-attribute_name="Brand" data-is_single="True" data-value_id="143150" data-value_name="ATOMIC" name="ptal-143147" type="radio" value="143150"/>
+                <div class="radio_input_value form-check-label">
+                 <span>
+                  ATOMIC
+                 </span>
+                </div>
+               </div>
+              </label>
+             </li>
+            </ul>
+           </li>
+           <li class="variant_attribute d-none" data-attribute_display_type="radio" data-attribute_id="11622" data-attribute_name="Color">
+            <strong class="attribute_name">
+             Color
+            </strong>
+            <ul class="list-inline list-unstyled o_wsale_product_attribute" data-attribute_id="11622">
+             <li class="list-inline-item mb-3 js_attribute_value" style="margin: 0;">
+              <label class="col-form-label">
+               <div class="form-check">
+                <input checked="True" class="form-check-input js_variant_change always" data-attribute-value-id="65438" data-attribute_name="Color" data-is_single="True" data-value_id="143151" data-value_name="RED/BLACK" name="ptal-143148" type="radio" value="143151"/>
+                <div class="radio_input_value form-check-label">
+                 <span>
+                  RED/BLACK
+                 </span>
+                </div>
+               </div>
+              </label>
+             </li>
+            </ul>
+           </li>
+           <li class="variant_attribute d-none" data-attribute_display_type="radio" data-attribute_id="14555" data-attribute_name="Size">
+            <strong class="attribute_name">
+             Size
+            </strong>
+            <ul class="list-inline list-unstyled o_wsale_product_attribute" data-attribute_id="14555">
+             <li class="list-inline-item mb-3 js_attribute_value" style="margin: 0;">
+              <label class="col-form-label">
+               <div class="form-check">
+                <input checked="True" class="form-check-input js_variant_change always" data-attribute-value-id="67666" data-attribute_name="Size" data-is_single="True" data-value_id="143152" data-value_name="70" name="ptal-143149" type="radio" value="143152"/>
+                <div class="radio_input_value form-check-label">
+                 <span>
+                  70
+                 </span>
+                </div>
+               </div>
+              </label>
+             </li>
+            </ul>
+           </li>
+           <li class="variant_attribute d-none" data-attribute_display_type="radio" data-attribute_id="14556" data-attribute_name="BMW">
+            <strong class="attribute_name">
+             BMW
+            </strong>
+            <ul class="list-inline list-unstyled o_wsale_product_attribute" data-attribute_id="14556">
+             <li class="list-inline-item mb-3 js_attribute_value" style="margin: 0;">
+              <label class="col-form-label">
+               <div class="form-check">
+                <input checked="True" class="form-check-input js_variant_change always" data-attribute-value-id="68351" data-attribute_name="BMW" data-is_single="True" data-value_id="143153" data-value_name="Junior" name="ptal-143150" type="radio" value="143153"/>
+                <div class="radio_input_value form-check-label">
+                 <span>
+                  Junior
+                 </span>
+                </div>
+               </div>
+              </label>
+             </li>
+            </ul>
+           </li>
+           <li class="variant_attribute d-none" data-attribute_display_type="select" data-attribute_id="14558" data-attribute_name="BMW">
+            <strong class="attribute_name">
+             BMW
+            </strong>
+            <select class="form-select css_attribute_select o_wsale_product_attribute js_variant_change always" data-attribute_id="14558" name="ptal-188290">
+             <option data-attribute-value-id="68681" data-attribute_name="BMW" data-is_single="True" data-value_id="188298" data-value_name="Junior" selected="True" value="188298">
+              <span>
+               Junior
+              </span>
+             </option>
+            </select>
+           </li>
+          </ul>
+          <p class="css_not_available_msg alert alert-warning">
+           This combination does not exist.
+          </p>
+          <div class="d-flex flex-wrap align-items-center" id="o_wsale_cta_wrapper">
+           <div class="d-inline-flex align-items-center mb-2 me-auto" id="add_to_cart_wrap">
+            <a class="btn btn-primary js_check_product a-submit flex-grow-1" data-animation-selector=".o_wsale_product_images" href="#" id="add_to_cart" role="button">
+             <i class="fa fa-shopping-cart me-2">
+             </i>
+             Add to cart
+            </a>
+           </div>
+           <div class="d-flex flex-wrap w-100" id="product_option_block">
+           </div>
+          </div>
+          <div class="availability_messages o_not_editable">
+          </div>
+         </div>
+        </form>
+        <div class="alternative-products-container mt-2" data-main-product-id="103353">
+         <div class="main-product-color mb-3">
+          <div class="main-product-color-value">
+           <span class="main-color-badge" title="RED/BLACK">
+            RED/BLACK
+           </span>
+          </div>
+         </div>
+         <div class="alternative-products-simple-grid">
+         </div>
+         <div class="main-product-sizes mt-3">
+          <div class="main-product-sizes-grid">
+           <span class="main-size-badge" title="70">
+            70
+           </span>
+          </div>
+         </div>
+         <div class="alternative-product-sizes mt-3">
+          <div class="alternative-product-sizes-grid">
+           <span class="alternative-size-badge-clickable" data-product-id="103354" title="80">
+            80
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="d-none oe_structure oe_structure_solo" id="contact_us_wrapper">
+         <section class="s_text_block" data-name="Text" data-snippet="s_text_block">
+          <div class="container">
+           <a class="btn btn-primary btn_cta" href="/en/contactus">
+            Contact Us
+           </a>
+          </div>
+         </section>
+        </div>
+        <div class="d-flex justify-content-between flex-column flex-md-row align-items-md-end gap-3 mb-3" id="o_product_terms_and_share">
+         <p class="text-muted mb-0">
+          <a class="text-muted" href="/en/terms">
+           <u style="display: inline-block;">
+            წესები და პირობები
+           </u>
+           <span style="font-size: 1.25rem;">
+           </span>
+          </a>
+         </p>
+         <div class="s_share text-start o_no_link_popover" data-name="Share" data-snippet="s_share">
+          <h4 class="s_share_title d-none o_default_snippet_text">
+           Share
+          </h4>
+         </div>
+        </div>
+        <input id="wsale_user_email" type="hidden" value=""/>
+        <hr>
+         <p class="text-muted">
+          <b>
+           Barcode:
+          </b>
+          <span data-oe-expression="product[field.name]" data-oe-type="char">
+           10103189
+          </span>
+          <br>
+          </br>
+         </p>
+        </hr>
+       </div>
+      </div>
+     </section>
+     <div class="oe_structure oe_structure_solo oe_unremovable oe_unmovable" id="oe_structure_website_sale_recommended_products">
+      <section class="oe_unmovable oe_unremovable s_dynamic_snippet_products o_wsale_alternative_products s_dynamic o_colored_level s_product_product_horizontal_card o_snippet_invisible pt0 pb0 d-lg-none o_snippet_desktop_invisible o_dynamic_snippet_empty o_conditional_hidden" data-arrow-position="bottom" data-bs-original-title="" data-carousel-interval="5000" data-extra-classes="o_carousel_multiple_rows" data-filter-id="11" data-name="Alternative Products" data-number-of-elements="3" data-number-of-elements-small-devices="1" data-number-of-records="16" data-product-category-id="all" data-row-per-slide="2" data-show-variants="" data-snippet="s_dynamic_snippet_products" data-template-key="website_sale.dynamic_filter_template_product_product_horizontal_card" data-visibility="conditional" title="">
+       <div class="o_not_editable container">
+        <div class="css_non_editable_mode_hidden">
+         <div class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none o_default_snippet_text">
+          Your Dynamic Snippet will be displayed here...
+                                This message is displayed because youy did not provide both a filter and a template to use.
+         </div>
+        </div>
+        <div class="dynamic_snippet_template">
+        </div>
+       </div>
+      </section>
+     </div>
+     <div class="oe_structure oe_empty oe_structure_not_nearest mt16" data-editor-message="DROP BUILDING BLOCKS HERE TO MAKE THEM AVAILABLE ACROSS ALL PRODUCTS" id="oe_structure_website_sale_product_2">
+     </div>
+    </div>
+    <div class="oe_unremovable" id="o_shared_blocks">
+    </div>
+   </main>
+   <footer class="o_footer o_colored_level o_cc" data-anchor="true" data-name="Footer" id="bottom">
+    <div class="oe_structure oe_structure_solo" id="footer">
+     <section class="s_text_block pb32" data-name="Text" data-snippet="s_text_block">
+      <div class="container">
+       <div class="row o_grid_mode" data-row-count="2">
+        <div class="o_colored_level o_grid_item g-col-lg-3 g-height-2 col-lg-3" style="z-index: 3; grid-area: 1 / 10 / 3 / 13;">
+         <div class="s_social_media o_not_editable text-center" data-name="Social Media" data-snippet="s_social_media">
+          <h5 class="s_social_media_title d-none">
+           Follow us
+          </h5>
+          <a class="s_social_media_instagram" href="/en/website/social/instagram" target="_blank">
+           <i class="fa fa-instagram m-1 o_editable_media fa-2x">
+           </i>
+          </a>
+          <a aria-label="Facebook" class="s_social_media_facebook" href="/en/website/social/facebook" target="_blank">
+           <i class="fa fa-2x m-1 o_editable_media fa-facebook">
+           </i>
+          </a>
+          <a aria-label="pinterest" class="s_social_media_pinterest" href="https://www.pinterest.com/xtreme_ge/" target="_blank">
+           <i class="fa m-1 o_editable_media fa-2x fa-pinterest">
+           </i>
+          </a>
+         </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-start o_colored_level o_grid_item g-height-2 g-col-lg-5 col-lg-5" style="z-index: 2; grid-area: 1 / 5 / 3 / 10;">
+         <ul class="list-inline mb-0 ms-3">
+          <li class="list-inline-item">
+           <a href="/en/contactus">
+            <font class="text-black">
+             <strong>
+              Contact us
+             </strong>
+            </font>
+           </a>
+           <strong>
+            |
+           </strong>
+          </li>
+          <a href="/en/mdebareoba">
+           <font class="text-black">
+            <strong>
+             Address
+            </strong>
+           </font>
+          </a>
+          <font class="text-black">
+           <strong>
+            |
+           </strong>
+          </font>
+          <font class="text-o-color-5">
+           <strong>
+           </strong>
+          </font>
+          <strong>
+           <a href="/en/our-services">
+            <font class="text-black">
+             Service
+            </font>
+           </a>
+           |
+           <a href="/en/sasach-uk-re-barat-i">
+            <font class="text-black">
+             Gift card
+            </font>
+           </a>
+           <u>
+           </u>
+          </strong>
+         </ul>
+        </div>
+        <div class="o_colored_level o_grid_item o_grid_item_image g-height-2 g-col-lg-2 col-lg-2" style="z-index: 1; grid-area: 1 / 2 / 3 / 4;">
+         <a class="o_footer_logo logo" href="/en">
+          <img alt="" class="img-fluid mx-auto img o_we_custom_image" data-mimetype="image/webp" data-mimetype-before-conversion="image/png" data-original-id="167543" data-original-src="/web/image/167543-4876b2b4/download.png" data-resize-width="NaN" loading="lazy" src="/web/image/167549-876ed3ad/download.webp"/>
+         </a>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+   </footer>
+  </div>
+ </body>
+</html>
