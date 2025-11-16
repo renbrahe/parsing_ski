@@ -9,6 +9,8 @@ from shop_burosports_ge import (
     scrape_burosports,
     product_to_unified_rows as burosports_product_to_unified_rows,
 )
+from shop_megasport_ge import scrape_megasport
+
 from export_unified import export_unified_to_csv
 
 
@@ -56,7 +58,7 @@ def parse_args():
     parser.add_argument(
         "--shops",
         nargs="+",
-        choices=["xtreme", "snowmania", "burosports"],
+        choices=["xtreme", "snowmania", "burosports", "megasport"],
         required=True,
         help="Shops to scrape",
     )
@@ -101,6 +103,7 @@ def build_runners(test_mode: bool) -> Dict[str, Callable[[], List[Product]]]:
         "xtreme": xtreme_runner,
         "snowmania": snowmania_runner,
         "burosports": burosports_runner,
+        "megasport": scrape_megasport,
     }
 
 

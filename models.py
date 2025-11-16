@@ -4,8 +4,8 @@ from typing import List, Optional
 
 # Глобальные параметры фильтра длины лыж (в сантиметрах)
 # Используются, чтобы отфильтровать "подходящие" лыжи на разных магазинах.
-MIN_SKI_LENGTH_CM: int = 160
-MAX_SKI_LENGTH_CM: int = 194
+MIN_SKI_LENGTH_CM: int = 90
+MAX_SKI_LENGTH_CM: int = 210
 
 
 @dataclass
