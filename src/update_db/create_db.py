@@ -101,7 +101,9 @@ def create_schema(conn: sqlite3.Connection) -> None:
         CREATE INDEX IF NOT EXISTS idx_scrape_runs_run_at
             ON scrape_runs (run_at);
 
+        --------------------------------------------------------------------
         -- Представление с актуальной ценой и скидкой
+        --------------------------------------------------------------------
         CREATE VIEW IF NOT EXISTS v_latest_prices AS
         WITH last_price AS (
             SELECT
@@ -132,8 +134,42 @@ def create_schema(conn: sqlite3.Connection) -> None:
                 ELSE NULL
             END                 AS discount_pct
         FROM skis s
-        JOIN shops sh    ON sh.id = s.shop_id
+        JOIN shops sh      ON sh.id = s.shop_id
         JOIN last_price lp ON lp.ski_id = s.id AND lp.rn = 1;
+
+        --------------------------------------------------------------------
+        -- История изменений/цен по трём таблицам: price_history + skis + scrape_runs
+        --------------------------------------------------------------------
+        CREATE VIEW IF NOT EXISTS v_changes_history AS
+        SELECT
+            ph.id              AS price_history_id,
+            sr.id              AS run_id,
+            sr.run_at          AS run_at,
+            sr.source_file     AS source_file,
+
+            s.id               AS ski_id,
+            sh.code            AS shop_code,
+            s.brand,
+            s.model,
+            s.length_cm,
+            s.condition,
+            s.url,
+
+            s.orig_price,
+            ph.price           AS price,
+            CASE
+                WHEN s.orig_price IS NOT NULL AND s.orig_price > 0 THEN
+                    ROUND((s.orig_price - ph.price) * 100.0 / s.orig_price, 1)
+                ELSE NULL
+            END                 AS discount_pct,
+
+            s.first_seen_at,
+            s.last_seen_at,
+            s.is_active
+        FROM price_history ph
+        JOIN skis       s   ON s.id = ph.ski_id
+        JOIN shops      sh  ON sh.id = s.shop_id
+        JOIN scrape_runs sr ON sr.id = ph.run_id;
         """
     )
 

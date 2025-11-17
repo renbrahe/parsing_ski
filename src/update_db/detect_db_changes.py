@@ -250,12 +250,22 @@ def main():
             old_run_id = args.old_run_id
             new_run_id = args.new_run_id
         else:
-            old_run_id, new_run_id = get_last_two_runs(conn)
+            try:
+                old_run_id, new_run_id = get_last_two_runs(conn)
+            except RuntimeError as e:
+                logging.info(
+                    "Пропускаем детект изменений: %s. "
+                    "В scrape_runs пока меньше двух записей — для первого запуска это нормально.",
+                    e,
+                )
+                logging.info("DB CHANGES DETECTION SKIPPED (NOT ENOUGH RUNS)")
+                return
 
         detect_changes(conn, old_run_id, new_run_id)
         logging.info("DB CHANGES DETECTION FINISHED")
     finally:
         conn.close()
+
 
 
 if __name__ == "__main__":

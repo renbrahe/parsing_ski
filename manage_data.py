@@ -208,22 +208,34 @@ def run_db_init():
 
 def run_db_all():
     """
-    Последовательно выполняет: бэкфил -> детект изменений -> импорт CSV.
+    Полный цикл обновления БД:
+      1) импорт новых CSV в БД (scrape_runs + price_history),
+      2) бэкфил orig_price в таблице skis,
+      3) детект изменений между двумя последними scrape_runs.
+
+    CSV читаются только на шаге импорта, все остальные шаги работают ТОЛЬКО с БД.
     """
     setup_logging("db_all")
     logger = logging.getLogger(__name__)
-    logger.info("Старт полной процедуры обновления БД (бэкфил -> детект -> импорт).")
+    logger.info(
+        "Старт полной процедуры обновления БД "
+        "(импорт CSV -> бэкфил -> детект изменений)."
+    )
 
-    db_backfill_safe()
-    logger.info("Бэкфил БД завершён.")
-
-    detect_db_changes_safe()
-    logger.info("Детект изменений в БД завершён.")
-
+    # 1) Импорт новых CSV в БД
     import_csv_safe()
     logger.info("Импорт CSV в БД завершён.")
 
+    # 2) Бэкфил orig_price
+    db_backfill_safe()
+    logger.info("Бэкфил БД завершён.")
+
+    # 3) Детект изменений между двумя последними run'ами
+    detect_db_changes_safe()
+    logger.info("Детект изменений в БД завершён.")
+
     logger.info("Полная процедура обновления БД успешно завершена.")
+
 
 
 def run_db_backfill():
