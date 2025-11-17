@@ -88,6 +88,35 @@ def create_schema(conn: sqlite3.Connection) -> None:
             processed_at    TEXT NOT NULL
         );
 
+        --------------------------------------------------------------------
+        -- Таблицы изменений (их раньше создавал detect_db_changes.py)
+        --------------------------------------------------------------------
+        CREATE TABLE IF NOT EXISTS changes_new_arrival (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            run_id     INTEGER NOT NULL REFERENCES scrape_runs(id),
+            ski_id     INTEGER NOT NULL REFERENCES skis(id),
+            created_at TEXT NOT NULL,
+            UNIQUE(run_id, ski_id)
+        );
+
+        CREATE TABLE IF NOT EXISTS changes_sold_out (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            run_id     INTEGER NOT NULL REFERENCES scrape_runs(id),
+            ski_id     INTEGER NOT NULL REFERENCES skis(id),
+            created_at TEXT NOT NULL,
+            UNIQUE(run_id, ski_id)
+        );
+
+        CREATE TABLE IF NOT EXISTS changes_price_change (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            run_id     INTEGER NOT NULL REFERENCES scrape_runs(id),
+            ski_id     INTEGER NOT NULL REFERENCES skis(id),
+            old_price  REAL NOT NULL,
+            new_price  REAL NOT NULL,
+            created_at TEXT NOT NULL,
+            UNIQUE(run_id, ski_id, old_price, new_price)
+        );
+
         -- Индексы
         CREATE INDEX IF NOT EXISTS idx_skis_shop_url_len_cond
             ON skis (shop_id, url, length_cm, condition);
@@ -138,17 +167,15 @@ def create_schema(conn: sqlite3.Connection) -> None:
         JOIN last_price lp ON lp.ski_id = s.id AND lp.rn = 1;
 
         --------------------------------------------------------------------
-        -- История изменений/цен по трём таблицам: price_history + skis + scrape_runs
+        -- История цен с флагами new_arrival / price_change
         --------------------------------------------------------------------
         CREATE VIEW IF NOT EXISTS v_changes_history AS
         SELECT
-            ph.id              AS price_history_id,
-            sr.id              AS run_id,
-            sr.run_at          AS run_at,
-            sr.source_file     AS source_file,
+            sr.id          AS run_id,
+            sr.run_at      AS run_at,
+            sh.code        AS shop_code,
+            s.id           AS ski_id,
 
-            s.id               AS ski_id,
-            sh.code            AS shop_code,
             s.brand,
             s.model,
             s.length_cm,
@@ -156,25 +183,58 @@ def create_schema(conn: sqlite3.Connection) -> None:
             s.url,
 
             s.orig_price,
-            ph.price           AS price,
+            ph.price       AS price,
             CASE
                 WHEN s.orig_price IS NOT NULL AND s.orig_price > 0 THEN
                     ROUND((s.orig_price - ph.price) * 100.0 / s.orig_price, 1)
                 ELSE NULL
-            END                 AS discount_pct,
+            END            AS discount_pct,
 
-            s.first_seen_at,
-            s.last_seen_at,
-            s.is_active
+            -- новые в этом run
+            CASE WHEN EXISTS (
+                SELECT 1
+                FROM changes_new_arrival na
+                WHERE na.run_id = sr.id
+                  AND na.ski_id = s.id
+            ) THEN 1 ELSE 0 END AS is_new_arrival,
+
+            -- изменившие цену в этом run
+            CASE WHEN EXISTS (
+                SELECT 1
+                FROM changes_price_change pc
+                WHERE pc.run_id = sr.id
+                  AND pc.ski_id = s.id
+            ) THEN 1 ELSE 0 END AS is_price_change
+
         FROM price_history ph
         JOIN skis       s   ON s.id = ph.ski_id
         JOIN shops      sh  ON sh.id = s.shop_id
         JOIN scrape_runs sr ON sr.id = ph.run_id;
+
+        --------------------------------------------------------------------
+        -- Отдельное представление по sold_out (по желанию)
+        --------------------------------------------------------------------
+        CREATE VIEW IF NOT EXISTS v_sold_out AS
+        SELECT
+            so.run_id,
+            sr.run_at,
+            sh.code      AS shop_code,
+            s.id         AS ski_id,
+            s.brand,
+            s.model,
+            s.length_cm,
+            s.condition,
+            s.url
+        FROM changes_sold_out so
+        JOIN skis       s  ON s.id = so.ski_id
+        JOIN shops      sh ON sh.id = s.shop_id
+        JOIN scrape_runs sr ON sr.id = so.run_id;
         """
     )
 
     conn.executescript(schema_sql)
     conn.commit()
+
 
 
 def main() -> None:
