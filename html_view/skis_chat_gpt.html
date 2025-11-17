@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Фильтр лыж из CSV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- PapaParse для парсинга CSV -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: light;
+    }
+
+    body {
+      margin: 0;
+      padding: 12px;
+      background: #f4f5f7;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      margin-bottom: 8px;
+    }
+
+    .panel-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .file-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    label {
+      font-size: 12px;
+      color: #555;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      padding: 3px 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 12px;
+      min-width: 70px;
+      max-width: 200px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+      transform: translateY(1px);
+    }
+
+    button {
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 12px;
+      cursor: pointer;
+      background: #0052cc;
+      color: #fff;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 6px 10px;
+      align-items: end;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      background: #e9efff;
+      color: #003a99;
+      font-weight: 500;
+    }
+
+    .table-wrapper {
+      max-height: 80vh;
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid #dde1ea;
+      background: #ffffff;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+      background: #f7f8fb;
+      z-index: 2;
+    }
+
+    th, td {
+      padding: 5px 6px;
+      border-bottom: 1px solid #edf0f4;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      font-weight: 600;
+      font-size: 11px;
+      color: #444;
+    }
+
+    th[data-sort-key] {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .sort-indicator {
+      margin-left: 4px;
+      font-size: 9px;
+      opacity: 0.6;
+      color: #aaa;
+    }
+
+    .sort-indicator.active {
+      opacity: 1;
+      color: #0052cc;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fafbff;
+    }
+
+    tbody tr:hover {
+      background: #eaf3ff;
+    }
+
+    td.url-cell a {
+      color: #0052cc;
+      text-decoration: none;
+    }
+
+    td.url-cell a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: #777;
+      font-size: 11px;
+    }
+
+    .status-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 10px;
+      background: #f1f3f7;
+      color: #333;
+    }
+
+    .pill-new {
+      background: #e8fbe8;
+      color: #196b19;
+    }
+
+    .pill-used {
+      background: #fff3cd;
+      color: #8a6d3b;
+    }
+
+    .pill-discount {
+      background: #ffecec;
+      color: #a72828;
+    }
+
+    .rating-cell {
+      text-align: center;
+    }
+
+    .toolbar-right {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .export-config-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .secondary-btn {
+      background: #eef1f6;
+      color: #333;
+    }
+
+    .export-panel {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #dde1ea;
+      padding: 8px 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      min-width: 260px;
+      display: none;
+      z-index: 10;
+    }
+
+    .export-panel.open {
+      display: block;
+    }
+
+    .export-cols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      margin-top: 6px;
+    }
+
+    .export-cols label {
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .file-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      input[type="number"],
+      input[type="text"],
+      select {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Импорт / экспорт (основной CSV + рекомендации + экспорт) -->
+  <div class="panel">
+    <div class="panel-title">
+      <span>1. Импорт / экспорт</span>
+      <span class="badge">основной CSV + рекомендации + выгрузка</span>
+    </div>
+
+    <!-- Основной CSV -->
+    <div class="file-row">
+      <div>
+        <label for="fileInput"><strong>Файлы CSV с лыжами:</strong></label><br />
+        <input id="fileInput" type="file" accept=".csv" multiple />
+        <div class="muted">
+          Можно выбрать несколько файлов из <code>data/exports</code>, затем выбрать нужный из списка.
+        </div>
+      </div>
+
+      <div>
+        <label for="fileSelect"><strong>Текущий файл:</strong></label><br />
+        <select id="fileSelect" disabled></select>
+      </div>
+
+      <div>
+        <button id="loadBtn" disabled>Загрузить CSV</button>
+      </div>
+    </div>
+
+    <div class="status-line">
+      <span id="fileInfo" class="muted">Файл не загружен.</span>
+      <span id="rowInfo" class="muted"></span>
+    </div>
+
+    <hr style="border:none;border-top:1px solid #edf0f4;margin:8px 0;" />
+
+    <!-- Рекомендации + экспорт -->
+    <div class="file-row">
+      <div>
+        <label for="recFileInput"><strong>CSV рекомендаций ChatGPT (опционально):</strong></label><br />
+        <input id="recFileInput" type="file" accept=".csv" />
+        <div class="muted">
+          Формат: <code>id, gpt_stars, reviews_stars</code>.<br />
+          <code>id</code> должен совпадать с номером (&laquo;№&raquo;/id) в основном CSV.
+        </div>
+      </div>
+
+      <div>
+        <button id="recLoadBtn" type="button" disabled>Загрузить рекомендации</button>
+      </div>
+
+      <div class="export-config-wrapper">
+        <button id="exportBtn" type="button">Сохранить выбранные в CSV</button>
+        <button id="exportConfigToggle" type="button" class="secondary-btn">Поля экспорта ▾</button>
+        <div id="exportPanel" class="export-panel">
+          <div class="muted">
+            Выбери, какие поля включать в экспорт. Настройки сохраняются в браузере.
+          </div>
+          <div class="export-cols">
+            <label><input type="checkbox" class="export-col" data-col-key="id" checked /> id (№)</label>
+            <label><input type="checkbox" class="export-col" data-col-key="shop" checked /> shop</label>
+            <label><input type="checkbox" class="export-col" data-col-key="brand" checked /> brand</label>
+            <label><input type="checkbox" class="export-col" data-col-key="model" checked /> model</label>
+            <label><input type="checkbox" class="export-col" data-col-key="length_cm" checked /> length_cm</label>
+            <label><input type="checkbox" class="export-col" data-col-key="condition" checked /> condition</label>
+            <label><input type="checkbox" class="export-col" data-col-key="orig_price" /> orig_price</label>
+            <label><input type="checkbox" class="export-col" data-col-key="price" checked /> price</label>
+            <label><input type="checkbox" class="export-col" data-col-key="url" checked /> url</label>
+            <label><input type="checkbox" class="export-col" data-col-key="gpt_stars" checked /> gpt_stars</label>
+            <label><input type="checkbox" class="export-col" data-col-key="reviews_stars" checked /> reviews_stars</label>
+          </div>
+          <div class="muted" style="margin-top:4px;">
+            Если галочки в строках не стоят — экспортируется весь текущий отфильтрованный список.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-line">
+      <span id="recInfo" class="muted">Файл с рекомендациями не загружен.</span>
+    </div>
+  </div>
+
+  <!-- 2. Фильтры -->
+  <div class="panel">
+    <div class="panel-title">
+      <span>2. Фильтры</span>
+      <button id="resetFiltersBtn" type="button">Сбросить фильтры</button>
+    </div>
+
+    <div class="filters-grid">
+      <div class="filter-item">
+        <label for="brandFilter">Бренд</label>
+        <select id="brandFilter">
+          <option value="">(все)</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="shopFilter">Магазин</label>
+        <select id="shopFilter">
+          <option value="">(все)</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="conditionFilter">Состояние</label>
+        <select id="conditionFilter">
+          <option value="">(все)</option>
+          <option value="new">new (новые)</option>
+          <option value="used">used (б/у)</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="modelSearch">Модель / текст</label>
+        <input id="modelSearch" type="text" placeholder="Kore, Sender, RC4..." />
+      </div>
+
+      <div class="filter-item">
+        <label>Длина, см (от / до)</label>
+        <div style="display:flex; gap:4px;">
+          <input id="lenMin" type="number" step="1" placeholder="min" />
+          <input id="lenMax" type="number" step="1" placeholder="max" />
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label>Цена, ₾ (от / до)</label>
+        <div style="display:flex; gap:4px;">
+          <input id="priceMin" type="number" step="1" placeholder="min" />
+          <input id="priceMax" type="number" step="1" placeholder="max" />
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label>&nbsp;</label>
+        <div>
+          <label>
+            <input id="discountOnly" type="checkbox" />
+            только со скидкой
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label>&nbsp;</label>
+        <div>
+          <label>
+            <input id="gptRecommendedOnly" type="checkbox" />
+            рекомендовано ChatGPT
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Таблица -->
+  <div>
+    <div class="status-line" style="margin-bottom: 4px;">
+      <span><strong>Результаты</strong></span>
+      <span id="filteredInfo" class="muted"></span>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <input type="checkbox" id="selectAll" title="Выделить всё / снять" />
+            </th>
+            <th data-sort-key="id" data-sort-type="num">
+              № <span class="sort-indicator">⇅</span>
+            </th>
+            <th data-sort-key="shop" data-sort-type="str">
+              Магазин <span class="sort-indicator">⇅</span>
+            </th>
+            <th data-sort-key="brand" data-sort-type="str">
+              Бренд <span class="sort-indicator">⇅</span>
+            </th>
+            <th data-sort-key="model" data-sort-type="str">
+              Модель <span class="sort-indicator">⇅</span>
+            </th>
+            <th class="nowrap" data-sort-key="length_cm" data-sort-type="num">
+              Длина, см <span class="sort-indicator">⇅</span>
+            </th>
+            <th>Сост.</th>
+            <th class="nowrap" data-sort-key="orig_price" data-sort-type="num">
+              Orig, ₾ <span class="sort-indicator">⇅</span>
+            </th>
+            <th class="nowrap" data-sort-key="price" data-sort-type="num">
+              Цена, ₾ <span class="sort-indicator">⇅</span>
+            </th>
+            <th class="nowrap">Ссылка</th>
+            <th class="nowrap" data-sort-key="gpt_stars" data-sort-type="num">
+              GPT ★ <span class="sort-indicator">⇅</span>
+            </th>
+            <th class="nowrap" data-sort-key="reviews_stars" data-sort-type="num">
+              Обзоры ★ <span class="sort-indicator">⇅</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- строки добавляются скриптом -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const fileInput       = document.getElementById("fileInput");
+    const fileSelect      = document.getElementById("fileSelect");
+    const loadBtn         = document.getElementById("loadBtn");
+    const fileInfo        = document.getElementById("fileInfo");
+    const rowInfo         = document.getElementById("rowInfo");
+    const filteredInfo    = document.getElementById("filteredInfo");
+    const tableBody       = document.getElementById("tableBody");
+    const selectAll       = document.getElementById("selectAll");
+
+    const brandFilter       = document.getElementById("brandFilter");
+    const shopFilter        = document.getElementById("shopFilter");
+    const conditionFilter   = document.getElementById("conditionFilter");
+    const modelSearch       = document.getElementById("modelSearch");
+    const lenMinInput       = document.getElementById("lenMin");
+    const lenMaxInput       = document.getElementById("lenMax");
+    const priceMinInput     = document.getElementById("priceMin");
+    const priceMaxInput     = document.getElementById("priceMax");
+    const discountOnly      = document.getElementById("discountOnly");
+    const gptRecommendedOnly = document.getElementById("gptRecommendedOnly");
+    const resetFiltersBtn   = document.getElementById("resetFiltersBtn");
+
+    const recFileInput    = document.getElementById("recFileInput");
+    const recLoadBtn      = document.getElementById("recLoadBtn");
+    const recInfo         = document.getElementById("recInfo");
+
+    const exportBtn       = document.getElementById("exportBtn");
+    const exportConfigToggle = document.getElementById("exportConfigToggle");
+    const exportPanel     = document.getElementById("exportPanel");
+
+    const EXPORT_STORAGE_KEY = "skis_export_columns_v1";
+
+    const EXPORT_COLUMN_LABELS = {
+      id: "id",
+      shop: "shop",
+      brand: "brand",
+      model: "model",
+      length_cm: "length_cm",
+      condition: "condition",
+      orig_price: "orig_price",
+      price: "price",
+      url: "url",
+      gpt_stars: "gpt_stars",
+      reviews_stars: "reviews_stars"
+    };
+
+    let allRows = [];
+    let lastFilteredRows = [];
+    let recommendationsById = {};
+    let sortState = [];
+
+    /* ---------- Основной CSV ---------- */
+    fileInput.addEventListener("change", () => {
+      const files = Array.from(fileInput.files || []);
+      fileSelect.innerHTML = "";
+      if (!files.length) {
+        fileSelect.disabled = true;
+        loadBtn.disabled = true;
+        fileInfo.textContent = "Файл не загружен.";
+        return;
+      }
+      files.forEach((file, idx) => {
+        const option = document.createElement("option");
+        option.value = idx.toString();
+        option.textContent = file.name;
+        fileSelect.appendChild(option);
+      });
+      fileSelect.disabled = false;
+      loadBtn.disabled = false;
+      fileInfo.textContent = `Выбрано файлов: ${files.length}. Выбран: ${files[0].name}`;
+    });
+
+    fileSelect.addEventListener("change", () => {
+      const files = Array.from(fileInput.files || []);
+      const idx = Number(fileSelect.value);
+      if (files[idx]) {
+        fileInfo.textContent = `Выбрано файлов: ${files.length}. Выбран: ${files[idx].name}`;
+      }
+    });
+
+    loadBtn.addEventListener("click", () => {
+      const files = Array.from(fileInput.files || []);
+      const idx = Number(fileSelect.value);
+      const file = files[idx];
+      if (!file) return;
+
+      fileInfo.textContent = `Загружаем: ${file.name}...`;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const csvText = String(e.target.result || "");
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (results) => {
+            const data = results.data || [];
+            allRows = data.map((row, idx) => ({ ...row, _idx: idx + 1 }));
+            fileInfo.textContent = `Загружен файл: ${file.name}`;
+            rowInfo.textContent = `Всего строк: ${allRows.length}`;
+            initFiltersFromData(allRows);
+            applyFiltersAndRender();
+          },
+          error: (err) => {
+            console.error(err);
+            fileInfo.textContent = "Ошибка парсинга CSV.";
+          }
+        });
+      };
+      reader.onerror = () => {
+        fileInfo.textContent = "Ошибка чтения файла.";
+      };
+      reader.readAsText(file, "utf-8");
+    });
+
+    /* ---------- CSV рекомендаций ---------- */
+    recFileInput.addEventListener("change", () => {
+      recLoadBtn.disabled = !recFileInput.files?.length;
+      if (!recFileInput.files?.length) {
+        recInfo.textContent = "Файл с рекомендациями не загружен.";
+      } else {
+        recInfo.textContent = `Выбран файл: ${recFileInput.files[0].name}`;
+      }
+    });
+
+    recLoadBtn.addEventListener("click", () => {
+      const file = recFileInput.files?.[0];
+      if (!file) return;
+
+      recInfo.textContent = `Загружаем рекомендации: ${file.name}...`;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const csvText = String(e.target.result || "");
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (results) => {
+            const rows = results.data || [];
+            recommendationsById = {};
+            let matchCount = 0;
+
+            rows.forEach((r, idx) => {
+              const id = getRowId(r, idx);
+              if (!id) return;
+
+              const gpt = toNumberOrNull(
+                r.gpt_stars ?? r.gpt ?? r.ai ?? r.recommendation ?? r["gpt_rating"]
+              );
+              const reviews = toNumberOrNull(
+                r.reviews_stars ?? r.reviews ?? r["review_rating"]
+              );
+
+              if (gpt === null && reviews === null) return;
+
+              recommendationsById[String(id)] = { gpt, reviews };
+            });
+
+            if (allRows.length) {
+              allRows.forEach((row, idx) => {
+                const id = String(getRowId(row, row._idx ? row._idx - 1 : idx));
+                if (recommendationsById[id]) matchCount++;
+              });
+            }
+
+            recInfo.textContent = `Загружен файл рекомендаций: ${file.name}. Строк: ${rows.length}. Совпадений по id: ${matchCount}.`;
+            applyFiltersAndRender();
+          },
+          error: (err) => {
+            console.error(err);
+            recInfo.textContent = "Ошибка парсинга CSV рекомендаций.";
+          }
+        });
+      };
+      reader.onerror = () => {
+        recInfo.textContent = "Ошибка чтения файла рекомендаций.";
+      };
+      reader.readAsText(file, "utf-8");
+    });
+
+    /* ---------- Фильтры ---------- */
+    function initFiltersFromData(rows) {
+      const brands = new Set();
+      const shops  = new Set();
+
+      rows.forEach(row => {
+        if (row.brand) brands.add(row.brand);
+        if (row.shop)  shops.add(row.shop);
+      });
+
+      fillSelectOptions(brandFilter, brands);
+      fillSelectOptions(shopFilter, shops);
+    }
+
+    function fillSelectOptions(selectEl, valuesSet) {
+      const currentValue = selectEl.value;
+      selectEl.innerHTML = "";
+      const def = document.createElement("option");
+      def.value = "";
+      def.textContent = "(все)";
+      selectEl.appendChild(def);
+
+      Array.from(valuesSet)
+        .sort((a, b) => a.localeCompare(b))
+        .forEach(value => {
+          const opt = document.createElement("option");
+          opt.value = value;
+          opt.textContent = value;
+          selectEl.appendChild(opt);
+        });
+
+      const hasCurrent = Array.from(selectEl.options).some(o => o.value === currentValue);
+      if (hasCurrent) selectEl.value = currentValue;
+    }
+
+    function applyFiltersAndRender() {
+      if (!allRows.length) {
+        tableBody.innerHTML = "";
+        filteredInfo.textContent = "Нет данных.";
+        return;
+      }
+
+      const brandVal  = brandFilter.value;
+      const shopVal   = shopFilter.value;
+      const condVal   = conditionFilter.value;
+      const searchVal = modelSearch.value.trim().toLowerCase();
+      const lenMin    = toNumberOrNull(lenMinInput.value);
+      const lenMax    = toNumberOrNull(lenMaxInput.value);
+      const priceMin  = toNumberOrNull(priceMinInput.value);
+      const priceMax  = toNumberOrNull(priceMaxInput.value);
+      const discOnly  = discountOnly.checked;
+      const gptOnly   = gptRecommendedOnly.checked;
+
+      let filtered = allRows.filter((row, idx) => {
+        if (brandVal && row.brand !== brandVal) return false;
+        if (shopVal && row.shop !== shopVal) return false;
+
+        if (condVal) {
+          const c = (row.condition || "").toLowerCase();
+          if (c !== condVal) return false;
+        }
+
+        if (searchVal) {
+          const m = ((row.model || "") + " " + (row.brand || "")).toLowerCase();
+          if (!m.includes(searchVal)) return false;
+        }
+
+        const length = toNumberOrNull(row.length_cm);
+        if (lenMin !== null && (length === null || length < lenMin)) return false;
+        if (lenMax !== null && (length === null || length > lenMax)) return false;
+
+        const price = toNumberOrNull(row.price);
+        const orig  = toNumberOrNull(row.orig_price);
+        if (priceMin !== null && (price === null || price < priceMin)) return false;
+        if (priceMax !== null && (price === null || price > priceMax)) return false;
+
+        if (discOnly) {
+          if (orig === null || price === null) return false;
+          if (!(orig > price)) return false;
+        }
+
+        if (gptOnly) {
+          const id = String(getRowId(row, row._idx ? row._idx - 1 : idx));
+          const rec = recommendationsById[id];
+          if (!rec || (rec.gpt == null && rec.reviews == null)) return false;
+        }
+
+        return true;
+      });
+
+      const sorted = sortRows(filtered);
+      lastFilteredRows = sorted;
+      renderTable(sorted);
+      filteredInfo.textContent = `Показано: ${sorted.length} / ${allRows.length}`;
+    }
+
+    function toNumberOrNull(value) {
+      if (value === null || value === undefined) return null;
+      const s = String(value).trim().replace(",", ".");
+      if (!s) return null;
+      const n = Number(s);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function getRowId(row, fallbackIndex) {
+      if (!row) return null;
+      const direct =
+        row.id ??
+        row.ID ??
+        row["Id"] ??
+        row["№"] ??
+        row["#"] ??
+        row._idx ??
+        null;
+
+      if (direct !== null && direct !== undefined && String(direct).trim() !== "") {
+        return String(direct).trim();
+      }
+      if (typeof fallbackIndex === "number") {
+        return String(fallbackIndex + 1);
+      }
+      return null;
+    }
+
+    /* ---------- Сортировка (мульти, как Excel) ---------- */
+    const headerCells = document.querySelectorAll("thead th[data-sort-key]");
+    headerCells.forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.sortKey;
+        const type = th.dataset.sortType || "str";
+        updateSortState(key, type);
+        applyFiltersAndRender();
+      });
+    });
+
+    function updateSortState(key, type) {
+      const existingIndex = sortState.findIndex(c => c.key === key);
+      if (existingIndex === 0) {
+        sortState[0].dir = sortState[0].dir === "asc" ? "desc" : "asc";
+      } else {
+        let dir = "asc";
+        if (existingIndex > 0) {
+          dir = sortState[existingIndex].dir || "asc";
+          sortState.splice(existingIndex, 1);
+        }
+        sortState.unshift({ key, dir, type });
+      }
+      updateSortIndicators();
+    }
+
+    function updateSortIndicators() {
+      headerCells.forEach(th => {
+        const key = th.dataset.sortKey;
+        const span = th.querySelector(".sort-indicator");
+        if (!span) return;
+        span.classList.remove("active");
+        span.textContent = "⇅";
+        const critIndex = sortState.findIndex(c => c.key === key);
+        if (critIndex === 0) {
+          const dir = sortState[0].dir || "asc";
+          span.textContent = dir === "asc" ? "▲" : "▼";
+          span.classList.add("active");
+        }
+      });
+    }
+
+    function getSortValue(row, key, type) {
+      let val = null;
+      const id = getRowId(row);
+      const rec = recommendationsById[String(id)] || {};
+      switch (key) {
+        case "id":
+          val = toNumberOrNull(id);
+          break;
+        case "shop":
+        case "brand":
+        case "model":
+        case "condition":
+          val = row[key] ?? "";
+          break;
+        case "length_cm":
+        case "orig_price":
+        case "price":
+          val = toNumberOrNull(row[key]);
+          break;
+        case "gpt_stars":
+          val = toNumberOrNull(rec.gpt);
+          break;
+        case "reviews_stars":
+          val = toNumberOrNull(rec.reviews);
+          break;
+        default:
+          val = row[key];
+      }
+      if (type === "num") {
+        return val == null ? null : Number(val);
+      }
+      return val == null ? "" : String(val);
+    }
+
+    function sortRows(rows) {
+      if (!sortState.length) return rows.slice();
+      const sorted = rows.slice();
+      sorted.sort((a, b) => {
+        for (const crit of sortState) {
+          const va = getSortValue(a, crit.key, crit.type);
+          const vb = getSortValue(b, crit.key, crit.type);
+          let cmp = 0;
+          if (crit.type === "num") {
+            const na = va == null ? (crit.dir === "asc" ? Infinity : -Infinity) : Number(va);
+            const nb = vb == null ? (crit.dir === "asc" ? Infinity : -Infinity) : Number(vb);
+            cmp = na - nb;
+          } else {
+            const sa = va == null ? "" : String(va).toLowerCase();
+            const sb = vb == null ? "" : String(vb).toLowerCase();
+            cmp = sa.localeCompare(sb);
+          }
+          if (cmp !== 0) {
+            return crit.dir === "asc" ? cmp : -cmp;
+          }
+        }
+        const ia = toNumberOrNull(a._idx) ?? 0;
+        const ib = toNumberOrNull(b._idx) ?? 0;
+        return ia - ib;
+      });
+      return sorted;
+    }
+
+    updateSortIndicators(); // показать стрелочки сразу
+
+    /* ---------- Рендер таблицы ---------- */
+    function renderTable(rows) {
+      tableBody.innerHTML = "";
+      selectAll.checked = false;
+
+      rows.forEach((row, idx) => {
+        const tr = document.createElement("tr");
+        const rowId = getRowId(row, row._idx ? row._idx - 1 : idx);
+        const length = toNumberOrNull(row.length_cm);
+        const price  = toNumberOrNull(row.price);
+        const orig   = toNumberOrNull(row.orig_price);
+        const cond   = (row.condition || "").toLowerCase();
+        const hasDiscount = orig !== null && price !== null && orig > price;
+        const rec = recommendationsById[String(rowId)] || {};
+
+        const num = row["№"] || row["#"] || rowId || (idx + 1);
+
+        tr.dataset.rowId = String(rowId ?? "");
+
+        tr.innerHTML = `
+          <td>
+            <input type="checkbox" class="row-select" data-row-id="${escapeHtml(rowId ?? "")}" />
+          </td>
+          <td>${escapeHtml(num)}</td>
+          <td>${escapeHtml(row.shop || "")}</td>
+          <td>${escapeHtml(row.brand || "")}</td>
+          <td>${escapeHtml(row.model || "")}</td>
+          <td>${length !== null ? length : ""}</td>
+          <td>${renderConditionPill(cond, hasDiscount)}</td>
+          <td>${orig !== null ? orig.toFixed(0) : ""}</td>
+          <td>${price !== null ? price.toFixed(0) : ""}</td>
+          <td class="url-cell">${renderUrlCell(row.url)}</td>
+          <td class="rating-cell">${renderStars(rec.gpt)}</td>
+          <td class="rating-cell">${renderStars(rec.reviews)}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function renderConditionPill(cond, hasDiscount) {
+      const pills = [];
+      if (cond === "new") {
+        pills.push(`<span class="pill pill-new">new</span>`);
+      } else if (cond === "used") {
+        pills.push(`<span class="pill pill-used">used</span>`);
+      } else if (cond) {
+        pills.push(`<span class="pill">${escapeHtml(cond)}</span>`);
+      }
+      if (hasDiscount) {
+        pills.push(`<span class="pill pill-discount">↓ скидка</span>`);
+      }
+      return pills.join(" ");
+    }
+
+    function renderUrlCell(url) {
+      if (!url) return "";
+      const safe = escapeHtml(String(url));
+      return `<a href="${safe}" target="_blank" rel="noopener noreferrer">открыть</a>`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;/")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderStars(n) {
+      const v = Number(n);
+      if (!Number.isFinite(v) || v <= 0) return "";
+      const full = Math.max(0, Math.min(5, Math.round(v)));
+      let s = "";
+      for (let i = 0; i < 5; i++) {
+        s += i < full ? "★" : "☆";
+      }
+      return `<span title="${v} из 5">${s}</span>`;
+    }
+
+    /* ---------- Сброс фильтров ---------- */
+    resetFiltersBtn.addEventListener("click", () => {
+      brandFilter.value = "";
+      shopFilter.value = "";
+      conditionFilter.value = "";
+      modelSearch.value = "";
+      lenMinInput.value = "";
+      lenMaxInput.value = "";
+      priceMinInput.value = "";
+      priceMaxInput.value = "";
+      discountOnly.checked = false;
+      gptRecommendedOnly.checked = false;
+      applyFiltersAndRender();
+    });
+
+    [
+      brandFilter,
+      shopFilter,
+      conditionFilter,
+      modelSearch,
+      lenMinInput,
+      lenMaxInput,
+      priceMinInput,
+      priceMaxInput,
+      discountOnly,
+      gptRecommendedOnly
+    ].forEach(el => {
+      el.addEventListener("input", applyFiltersAndRender);
+      el.addEventListener("change", applyFiltersAndRender);
+    });
+
+    /* ---------- Галочки строк ---------- */
+    selectAll.addEventListener("change", () => {
+      const rowCheckboxes = document.querySelectorAll(".row-select");
+      rowCheckboxes.forEach(chb => {
+        chb.checked = selectAll.checked;
+      });
+    });
+
+    tableBody.addEventListener("change", (e) => {
+      const target = e.target;
+      if (target.classList && target.classList.contains("row-select") && !target.checked) {
+        selectAll.checked = false;
+      }
+    });
+
+    /* ---------- Настройки колонок экспорта ---------- */
+    function getSelectedExportColumns() {
+      const checkboxes = document.querySelectorAll(".export-col");
+      const cols = [];
+      checkboxes.forEach(chb => {
+        if (chb.checked) cols.push(chb.dataset.colKey);
+      });
+      return cols;
+    }
+
+    function saveExportColumnsToStorage() {
+      const cols = getSelectedExportColumns();
+      try {
+        localStorage.setItem(EXPORT_STORAGE_KEY, JSON.stringify(cols));
+      } catch (e) {
+        console.warn("Не удалось сохранить настройки экспорта:", e);
+      }
+    }
+
+    function loadExportColumnsFromStorage() {
+      try {
+        const saved = localStorage.getItem(EXPORT_STORAGE_KEY);
+        if (!saved) return;
+        const cols = JSON.parse(saved);
+        const checkboxes = document.querySelectorAll(".export-col");
+        checkboxes.forEach(chb => {
+          chb.checked = cols.includes(chb.dataset.colKey);
+        });
+      } catch (e) {
+        console.warn("Не удалось загрузить настройки экспорта:", e);
+      }
+    }
+
+    document.querySelectorAll(".export-col").forEach(chb => {
+      chb.addEventListener("change", saveExportColumnsToStorage);
+    });
+    loadExportColumnsFromStorage();
+
+    exportConfigToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      exportPanel.classList.toggle("open");
+    });
+
+    exportPanel.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+
+    document.addEventListener("click", () => {
+      exportPanel.classList.remove("open");
+    });
+
+    /* ---------- Экспорт ---------- */
+    exportBtn.addEventListener("click", () => {
+      if (!lastFilteredRows.length) {
+        alert("Нет данных для экспорта.");
+        return;
+      }
+
+      const cols = getSelectedExportColumns();
+      if (!cols.length) {
+        alert("Выбери хотя бы одну колонку для экспорта (через «Поля экспорта ▾»).");
+        return;
+      }
+
+      const selectedCheckboxes = document.querySelectorAll(".row-select:checked");
+      let rowsToExport;
+
+      if (selectedCheckboxes.length > 0) {
+        const ids = new Set();
+        selectedCheckboxes.forEach(chb => {
+          ids.add(String(chb.dataset.rowId || ""));
+        });
+        rowsToExport = lastFilteredRows.filter((row, idx) => {
+          const id = String(getRowId(row, row._idx ? row._idx - 1 : idx));
+          return ids.has(id);
+        });
+      } else {
+        rowsToExport = lastFilteredRows.slice();
+      }
+
+      if (!rowsToExport.length) {
+        alert("Нет выбранных строк для экспорта.");
+        return;
+      }
+
+      const headerRow = cols.map(c => EXPORT_COLUMN_LABELS[c] || c);
+      const dataRows = rowsToExport.map((row, idx) => {
+        const id = String(getRowId(row, row._idx ? row._idx - 1 : idx));
+        const rec = recommendationsById[id] || {};
+        return cols.map(colKey => {
+          switch (colKey) {
+            case "id":
+              return id;
+            case "shop":
+            case "brand":
+            case "model":
+            case "condition":
+            case "url":
+              return row[colKey] ?? "";
+            case "length_cm":
+              return row.length_cm ?? "";
+            case "orig_price":
+              return row.orig_price ?? "";
+            case "price":
+              return row.price ?? "";
+            case "gpt_stars":
+              return rec.gpt ?? "";
+            case "reviews_stars":
+              return rec.reviews ?? "";
+            default:
+              return row[colKey] ?? "";
+          }
+        });
+      });
+
+      const csv = toCsv([headerRow, ...dataRows]);
+      downloadCsv(csv);
+    });
+
+    function toCsv(rows) {
+      return rows
+        .map(cols =>
+          cols
+            .map(v => {
+              if (v === null || v === undefined) return "";
+              const s = String(v).replace(/"/g, '""');
+              if (/[",\n;]/.test(s)) {
+                return `"${s}"`;
+              }
+              return s;
+            })
+            .join(",")
+        )
+        .join("\r\n");
+    }
+
+    function downloadCsv(csvText) {
+      const blob = new Blob([csvText], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+
+      const now = new Date();
+      const pad = n => String(n).padStart(2, "0");
+      const fileName = `skis_selected_${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}.csv`;
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
