@@ -1,0 +1,552 @@
+№,shop,brand,model,length_cm,condition,orig_price,price,url
+1,xtreme.ge,HEAD,Ambition Pro,140,new,1199.0,799.0,https://www.xtreme.ge/en/shop/ambition-pro-103456?page=3
+2,xtreme.ge,HEAD,Ambition Pro,170,new,1199.0,799.0,https://www.xtreme.ge/en/shop/ambition-pro-103456?page=3
+3,xtreme.ge,HEAD,Ambition Pro R Track SET,160,new,999.0,799.0,https://www.xtreme.ge/en/shop/ambition-pro-r-track-set-103502?page=5
+4,xtreme.ge,HEAD,Ambition R,130,new,999.0,699.0,https://www.xtreme.ge/en/shop/ambition-r-103478?page=4
+5,xtreme.ge,HEAD,Ambition R,170,new,999.0,699.0,https://www.xtreme.ge/en/shop/ambition-r-103478?page=4
+6,xtreme.ge,HEAD,Ambtion Pro R,170,new,699.0,549.0,https://www.xtreme.ge/en/shop/ambtion-pro-r-103488?page=4
+7,xtreme.ge,ARMADA,ARV 116 JJ UL S26,175,new,,2815.0,https://www.xtreme.ge/en/shop/arv-116-jj-ul-s26-218107?page=6
+8,xtreme.ge,ARMADA,ARV 84 S26,150,new,,1235.0,https://www.xtreme.ge/en/shop/arv-84-s26-218114?page=6
+9,xtreme.ge,ARMADA,ARV 84 S26,157,new,,1235.0,https://www.xtreme.ge/en/shop/arv-84-s26-218114?page=6
+10,xtreme.ge,ARMADA,ARV 88 S26,161,new,,1759.0,https://www.xtreme.ge/en/shop/arv-88-s26-218111?page=6
+11,xtreme.ge,ARMADA,ARV 88 S26,166,new,,1759.0,https://www.xtreme.ge/en/shop/arv-88-s26-218111?page=6
+12,xtreme.ge,ARMADA,ARV 88 S26,171,new,,1759.0,https://www.xtreme.ge/en/shop/arv-88-s26-218111?page=6
+13,xtreme.ge,ARMADA,ARV 94 S26,164,new,,1935.0,https://www.xtreme.ge/en/shop/arv-94-s26-218108?page=6
+14,xtreme.ge,ARMADA,BDOG 94 S26,172,new,,2119.0,https://www.xtreme.ge/en/shop/bdog-94-s26-218127?page=6
+15,xtreme.ge,ATOMIC,BENT 100 S26,165,new,,2499.0,https://www.xtreme.ge/en/shop/bent-100-s26-218141?page=7
+16,xtreme.ge,ATOMIC,BENT 110 S26,180,new,,2789.0,https://www.xtreme.ge/en/shop/bent-110-s26-218139?page=7
+17,xtreme.ge,ATOMIC,BENT 85 S26,160,new,,1525.0,https://www.xtreme.ge/en/shop/bent-85-s26-218148?page=7
+18,xtreme.ge,ATOMIC,BENT 90 S26,157,new,,2369.0,https://www.xtreme.ge/en/shop/bent-90-s26-218144?page=7
+19,xtreme.ge,ATOMIC,BENT CHETLER 120 S24,184,new,2599.0,1949.0,https://www.xtreme.ge/en/shop/bent-chetler-120-s24-103376?page=2
+20,xtreme.ge,ATOMIC,BENT CHETLER 120 S26,176,new,,2999.0,https://www.xtreme.ge/en/shop/bent-chetler-120-s26-218134?page=7
+21,xtreme.ge,ATOMIC,BLACK HEAVEN + M 10 GW,156,new,1479.0,1179.0,https://www.xtreme.ge/en/shop/black-heaven-m-10-gw-103402?page=2
+22,xtreme.ge,ATOMIC,CLOUD C7 BLACK  M 10 GW S26,142,new,,1599.0,https://www.xtreme.ge/en/shop/cloud-c7-black-m-10-gw-s26-218163?page=7
+23,xtreme.ge,ATOMIC,CLOUD C7 WHITE + M 10 GW,138,new,1499.0,1199.0,https://www.xtreme.ge/en/shop/cloud-c7-white-m-10-gw-103420?page=2
+24,xtreme.ge,ATOMIC,CLOUD C7 WHITE + M 10 GW,142,new,1499.0,1199.0,https://www.xtreme.ge/en/shop/cloud-c7-white-m-10-gw-103420?page=2
+25,xtreme.ge,ATOMIC,CLOUD C7 WHITE + M 10 GW,149,new,1499.0,1199.0,https://www.xtreme.ge/en/shop/cloud-c7-white-m-10-gw-103420?page=2
+26,xtreme.ge,ATOMIC,CLOUD C9 RVSK LIGHT  M 10 GW S26,150,new,,2125.0,https://www.xtreme.ge/en/shop/cloud-c9-rvsk-light-m-10-gw-s26-218161?page=7
+27,xtreme.ge,ATOMIC,CLOUD Q8  M 10 GW S26,147,new,,1999.0,https://www.xtreme.ge/en/shop/cloud-q8-m-10-gw-s26-218159?page=7
+28,xtreme.ge,ATOMIC,CLOUD Q8  M 10 GW S26,154,new,,1999.0,https://www.xtreme.ge/en/shop/cloud-q8-m-10-gw-s26-218159?page=7
+29,xtreme.ge,ATOMIC,CLOUD Q9  M 10 GW S26,147,new,,2289.0,https://www.xtreme.ge/en/shop/cloud-q9-m-10-gw-s26-218156?page=7
+30,xtreme.ge,ATOMIC,CLOUD Q9  M 10 GW S26,154,new,,2289.0,https://www.xtreme.ge/en/shop/cloud-q9-m-10-gw-s26-218156?page=7
+31,xtreme.ge,ATOMIC,CLOUD Q9  M 10 GW S26,161,new,,2289.0,https://www.xtreme.ge/en/shop/cloud-q9-m-10-gw-s26-218156?page=7
+32,xtreme.ge,Hagan,CORE83,178,new,1569.0,1259.0,https://www.xtreme.ge/en/shop/core83-103348
+33,xtreme.ge,Hagan,CORE83-L,170,new,1569.0,1259.0,https://www.xtreme.ge/en/shop/core83-l-103352
+34,xtreme.ge,Hagan,CORE88,184,new,1569.0,1259.0,https://www.xtreme.ge/en/shop/core88-103350
+35,xtreme.ge,HEAD,CRUX 99 Pro,170,new,1969.0,1579.0,https://www.xtreme.ge/en/shop/crux-99-pro-103452?page=3
+36,xtreme.ge,HEAD,CRUX 99 Pro,177,new,1969.0,1579.0,https://www.xtreme.ge/en/shop/crux-99-pro-103452?page=3
+37,xtreme.ge,NORDICA,DOB.GS WC DEPT PLATE SET,193,new,3399.0,2549.0,https://www.xtreme.ge/en/shop/dob-gs-wc-dept-plate-set-103522?page=5
+38,xtreme.ge,NORDICA,DOB.MULTIGARA DC +XCELL 14 FDT,165,new,3999.0,2899.0,https://www.xtreme.ge/en/shop/dob-multigara-dc-xcell-14-fdt-103372
+39,xtreme.ge,NORDICA,DOB.SLR DC + XCELL14 FDT,160,new,3999.0,2899.0,https://www.xtreme.ge/en/shop/dob-slr-dc-xcell14-fdt-103371
+40,xtreme.ge,HEAD,E-Super Joy SW SLR BB Joy Pro Set,158,new,,1449.0,https://www.xtreme.ge/en/shop/e-super-joy-sw-slr-bb-joy-pro-set-219037?page=9
+41,xtreme.ge,HEAD,e-total Joy SW SLR BB Joy Pro  Set,,new,2199.0,1759.0,https://www.xtreme.ge/en/shop/e-total-joy-sw-slr-bb-joy-pro-set-218976?page=9
+42,xtreme.ge,ARMADA,EDOLLO 91 S26,162,new,,2119.0,https://www.xtreme.ge/en/shop/edollo-91-s26-218124?page=6
+43,xtreme.ge,ARMADA,EDOLLO S25,172,new,2469.0,1979.0,https://www.xtreme.ge/en/shop/edollo-s25-103423?page=3
+44,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski,156,new,,2199.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-215253?page=5
+45,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski,163,new,,2199.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-215253?page=5
+46,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski,170,new,,2199.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-215253?page=5
+47,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski,177,new,,2199.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-215253?page=5
+48,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski,184,new,,2199.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-215253?page=5
+49,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski Set,156,new,,2769.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-set-215330?page=6
+50,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski Set,163,new,,2769.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-set-215330?page=6
+51,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski Set,170,new,,2769.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-set-215330?page=6
+52,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski Set,177,new,,2769.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-set-215330?page=6
+53,xtreme.ge,HEAD,KORE 100 Ti Freeride Ski Set,184,new,,2769.0,https://www.xtreme.ge/en/shop/kore-100-ti-freeride-ski-set-215330?page=6
+54,xtreme.ge,HEAD,Kore 103 W,177,new,2299.0,1390.0,https://www.xtreme.ge/en/shop/kore-103-w-103469?page=4
+55,xtreme.ge,HEAD,Kore 103 W SET,177,new,2449.0,1959.0,https://www.xtreme.ge/en/shop/kore-103-w-set-103500?page=4
+56,xtreme.ge,HEAD,Kore 117 SETa,180,new,2599.0,2079.0,https://www.xtreme.ge/en/shop/kore-117-seta-103365
+57,xtreme.ge,HEAD,Kore 85 W,170,new,1199.0,959.0,https://www.xtreme.ge/en/shop/kore-85-w-103470?page=4
+58,xtreme.ge,HEAD,Kore 85 w SET,170,new,2299.0,1399.0,https://www.xtreme.ge/en/shop/kore-85-w-set-103464?page=3
+59,xtreme.ge,HEAD,Kore 85 w  SET1,156,new,2299.0,1599.0,https://www.xtreme.ge/en/shop/kore-85-w-set1-103463?page=3
+60,xtreme.ge,HEAD,Kore 85 W w/o binding,170,new,1199.0,959.0,https://www.xtreme.ge/en/shop/kore-85-w-w-o-binding-103408?page=2
+61,xtreme.ge,HEAD,KORE 87 GREY,163,new,1249.0,999.0,https://www.xtreme.ge/en/shop/kore-87-grey-103490?page=4
+62,xtreme.ge,HEAD,KORE 88 Ti Freeride Ski,170,new,,2199.0,https://www.xtreme.ge/en/shop/kore-88-ti-freeride-ski-215249?page=5
+63,xtreme.ge,HEAD,KORE 88 Ti Freeride Ski,177,new,,2199.0,https://www.xtreme.ge/en/shop/kore-88-ti-freeride-ski-215249?page=5
+64,xtreme.ge,HEAD,Kore 91 W,163,new,1519.0,1219.0,https://www.xtreme.ge/en/shop/kore-91-w-103471?page=4
+65,xtreme.ge,HEAD,Kore 91 W w/o binding,170,new,1199.0,959.0,https://www.xtreme.ge/en/shop/kore-91-w-w-o-binding-103411?page=2
+66,xtreme.ge,HEAD,KORE 94 Ti Freeride Ski,170,new,,2199.0,https://www.xtreme.ge/en/shop/kore-94-ti-freeride-ski-215251?page=5
+67,xtreme.ge,HEAD,KORE 94 Ti Freeride Ski,177,new,,2199.0,https://www.xtreme.ge/en/shop/kore-94-ti-freeride-ski-215251?page=5
+68,xtreme.ge,HEAD,KORE 99 RED SET,163,new,2449.0,1959.0,https://www.xtreme.ge/en/shop/kore-99-red-set-103497?page=4
+69,xtreme.ge,HEAD,KORE 99 RED SET,170,new,2449.0,1959.0,https://www.xtreme.ge/en/shop/kore-99-red-set-103497?page=4
+70,xtreme.ge,HEAD,KORE 99 RED SET1,177,new,2449.0,1959.0,https://www.xtreme.ge/en/shop/kore-99-red-set1-103496?page=4
+71,xtreme.ge,HEAD,KORE 99 RED SET2,170,new,2449.0,1959.0,https://www.xtreme.ge/en/shop/kore-99-red-set2-103499?page=4
+72,xtreme.ge,HEAD,Kore MX 80 LYT-PR SET,163,new,1399.0,1119.0,https://www.xtreme.ge/en/shop/kore-mx-80-lyt-pr-set-103508?page=5
+73,xtreme.ge,HEAD,Kore X 90,177,new,1469.0,1179.0,https://www.xtreme.ge/en/shop/kore-x-90-103489?page=4
+74,xtreme.ge,HEAD,Kore X 90 R,163,new,1479.0,1179.0,https://www.xtreme.ge/en/shop/kore-x-90-r-103473?page=4
+75,xtreme.ge,HEAD,Kore X 90 R,177,new,1479.0,1179.0,https://www.xtreme.ge/en/shop/kore-x-90-r-103473?page=4
+76,xtreme.ge,STOECKLI,Laser GS FIS,176,new,,4299.0,https://www.xtreme.ge/en/shop/laser-gs-fis-218218?page=8
+77,xtreme.ge,STOECKLI,Laser GS FIS Set,176,new,,4499.0,https://www.xtreme.ge/en/shop/laser-gs-fis-set-219053?page=9
+78,xtreme.ge,STOECKLI,Laser GS  Set,175,new,,4499.0,https://www.xtreme.ge/en/shop/laser-gs-set-218959?page=8
+79,xtreme.ge,STOECKLI,Laser MP SL Set,148,new,,4649.0,https://www.xtreme.ge/en/shop/laser-mp-sl-set-218944?page=8
+80,xtreme.ge,STOECKLI,Laser SC Set,152,new,,4649.0,https://www.xtreme.ge/en/shop/laser-sc-set-218947?page=8
+81,xtreme.ge,STOECKLI,Laser SL FIS,165,new,,4549.0,https://www.xtreme.ge/en/shop/laser-sl-fis-218222?page=8
+82,xtreme.ge,STOECKLI,Laser SL FIS  Set,156,new,,6199.0,https://www.xtreme.ge/en/shop/laser-sl-fis-set-218950?page=8
+83,xtreme.ge,STOECKLI,Laser WRT  PRO Set,158,new,,6499.0,https://www.xtreme.ge/en/shop/laser-wrt-pro-set-218955?page=8
+84,xtreme.ge,ATOMIC,MAVERICK 88 CTI,172,new,,2379.0,https://www.xtreme.ge/en/shop/maverick-88-cti-218132?page=6
+85,xtreme.ge,ATOMIC,MAVERICK 88 CTI,179,new,,2379.0,https://www.xtreme.ge/en/shop/maverick-88-cti-218132?page=6
+86,xtreme.ge,ATOMIC,MAVERICK 88 CTI S26,165,new,,2379.0,https://www.xtreme.ge/en/shop/maverick-88-cti-s26-218131?page=6
+87,xtreme.ge,Hamax,Mini Ski Max. 50kg,,new,,79.0,https://www.xtreme.ge/en/shop/mini-ski-max-50kg-103362
+88,xtreme.ge,STOECKLI,Montero AR Set,170,new,,5119.0,https://www.xtreme.ge/en/shop/montero-ar-set-218964?page=8
+89,xtreme.ge,STOECKLI,Montero AX Orea Set,168,new,,6199.0,https://www.xtreme.ge/en/shop/montero-ax-orea-set-218967?page=9
+90,xtreme.ge,ATOMIC,N BENT 85 S25,160,new,1499.0,1199.0,https://www.xtreme.ge/en/shop/n-bent-85-s25-103397?page=2
+91,xtreme.ge,ATOMIC,N REDSTER J2 70-90,90,new,299.0,239.0,https://www.xtreme.ge/en/shop/n-redster-j2-70-90-103361
+92,xtreme.ge,ATOMIC,N REDSTER J2 70-90 S25,,new,419.0,339.0,https://www.xtreme.ge/en/shop/n-redster-j2-70-90-s25-103398?page=2
+93,xtreme.ge,ATOMIC,N REDSTER J2 70-90 S25,,new,419.0,339.0,https://www.xtreme.ge/en/shop/n-redster-j2-70-90-s25-103398?page=2
+94,xtreme.ge,ATOMIC,N REDSTER J2 70-90 S25,90,new,419.0,339.0,https://www.xtreme.ge/en/shop/n-redster-j2-70-90-s25-103398?page=2
+95,xtreme.ge,ATOMIC,NY REDSTER S9 FIS M  Icon 12 Set,165,new,,4729.0,https://www.xtreme.ge/en/shop/ny-redster-s9-fis-m-icon-12-set-218191?page=7
+96,xtreme.ge,ATOMIC,NY REDSTER S9 FIS M  Icon 16 Set,165,new,,4999.0,https://www.xtreme.ge/en/shop/ny-redster-s9-fis-m-icon-16-set-218190?page=7
+97,xtreme.ge,ATOMIC,NY REDSTER S9 FIS w  Icon 12 Set,157,new,,4445.0,https://www.xtreme.ge/en/shop/ny-redster-s9-fis-w-icon-12-set-218192?page=7
+98,xtreme.ge,HEAD,OBLIVION 94 w/o binding,163,new,1169.0,939.0,https://www.xtreme.ge/en/shop/oblivion-94-w-o-binding-103426?page=3
+99,xtreme.ge,HEAD,OBLIVION 94 w/o binding,170,new,1169.0,939.0,https://www.xtreme.ge/en/shop/oblivion-94-w-o-binding-103426?page=3
+100,xtreme.ge,HEAD,Oblivion Team JRS SET,107,new,559.0,449.0,https://www.xtreme.ge/en/shop/oblivion-team-jrs-set-103460?page=3
+101,xtreme.ge,STOECKLI,Orea SC Set,176,new,,5999.0,https://www.xtreme.ge/en/shop/orea-sc-set-218960?page=8
+102,xtreme.ge,HEAD,Paw Patrol JRS SET,,new,719.0,579.0,https://www.xtreme.ge/en/shop/paw-patrol-jrs-set-103433?page=3
+103,xtreme.ge,HEAD,Paw Patrol JRS SET,,new,719.0,579.0,https://www.xtreme.ge/en/shop/paw-patrol-jrs-set-103433?page=3
+104,xtreme.ge,HEAD,Paw Patrol JRS SET,,new,719.0,579.0,https://www.xtreme.ge/en/shop/paw-patrol-jrs-set-103433?page=3
+105,xtreme.ge,HEAD,Paw Patrol JRS SET,97,new,719.0,579.0,https://www.xtreme.ge/en/shop/paw-patrol-jrs-set-103433?page=3
+106,xtreme.ge,HEAD,Paw Patrol JRS SET1,,new,759.0,609.0,https://www.xtreme.ge/en/shop/paw-patrol-jrs-set1-103435?page=3
+107,xtreme.ge,ATOMIC,PM REDSTER Q4  M 10 GW Gy/BLA,161,new,,2229.0,https://www.xtreme.ge/en/shop/pm-redster-q4-m-10-gw-gy-bla-218151?page=7
+108,xtreme.ge,ATOMIC,PM REDSTER RX ERA + M 10 GW S25,149,new,1459.0,1169.0,https://www.xtreme.ge/en/shop/pm-redster-rx-era-m-10-gw-s25-103401?page=2
+109,xtreme.ge,ATOMIC,PM REDSTER RX ERA + M 10 GW S25,156,new,1459.0,1169.0,https://www.xtreme.ge/en/shop/pm-redster-rx-era-m-10-gw-s25-103401?page=2
+110,xtreme.ge,HEAD,PORSCHE 7 SERIES SW SF-PR SET,170,new,3999.0,3199.0,https://www.xtreme.ge/en/shop/porsche-7-series-sw-sf-pr-set-103368
+111,xtreme.ge,HEAD,PORSCHE 8 SERIES SW SF-PR SET,170,new,3999.0,3199.0,https://www.xtreme.ge/en/shop/porsche-8-series-sw-sf-pr-set-103369
+112,xtreme.ge,Hagan,PURE87,176,new,1679.0,1339.0,https://www.xtreme.ge/en/shop/pure87-103351
+113,xtreme.ge,HEAD,RazzleDazzle SET,94,new,1139.0,909.0,https://www.xtreme.ge/en/shop/razzledazzle-set-103425?page=3
+114,xtreme.ge,ATOMIC,REDSTER G8 REVOSHOCK C  I 12 GW,155,new,,3485.0,https://www.xtreme.ge/en/shop/redster-g8-revoshock-c-i-12-gw-218175?page=7
+115,xtreme.ge,ATOMIC,REDSTER G8 REVOSHOCK C  I 12 GW,162,new,,3485.0,https://www.xtreme.ge/en/shop/redster-g8-revoshock-c-i-12-gw-218175?page=7
+116,xtreme.ge,ATOMIC,REDSTER G8 REVOSHOCK C  I 12 GW,167,new,,3485.0,https://www.xtreme.ge/en/shop/redster-g8-revoshock-c-i-12-gw-218175?page=7
+117,xtreme.ge,ATOMIC,REDSTER G8 REVOSHOCK C  I 12 GW,174,new,,3485.0,https://www.xtreme.ge/en/shop/redster-g8-revoshock-c-i-12-gw-218175?page=7
+118,xtreme.ge,ATOMIC,REDSTER J2 100-120 Red,100,new,469.0,379.0,https://www.xtreme.ge/en/shop/redster-j2-100-120-red-103386?page=2
+119,xtreme.ge,ATOMIC,REDSTER J2 100-120 Red,110,new,469.0,379.0,https://www.xtreme.ge/en/shop/redster-j2-100-120-red-103386?page=2
+120,xtreme.ge,ATOMIC,REDSTER J2 70-90 + COLT 5 GW,,new,699.0,559.0,https://www.xtreme.ge/en/shop/redster-j2-70-90-colt-5-gw-103353
+121,xtreme.ge,ATOMIC,REDSTER J2 70-90 + COLT 5 GW,,new,699.0,559.0,https://www.xtreme.ge/en/shop/redster-j2-70-90-colt-5-gw-103353
+122,xtreme.ge,ATOMIC,REDSTER J2 70-90 Red,,new,389.0,309.0,https://www.xtreme.ge/en/shop/redster-j2-70-90-red-103388?page=2
+123,xtreme.ge,ATOMIC,REDSTER J2 70-90 Red,,new,389.0,309.0,https://www.xtreme.ge/en/shop/redster-j2-70-90-red-103388?page=2
+124,xtreme.ge,ATOMIC,REDSTER J2 70-90 Red,90,new,389.0,309.0,https://www.xtreme.ge/en/shop/redster-j2-70-90-red-103388?page=2
+125,xtreme.ge,ATOMIC,REDSTER Q4  M 10 GW S26,154,new,,2229.0,https://www.xtreme.ge/en/shop/redster-q4-m-10-gw-s26-218153?page=7
+126,xtreme.ge,ATOMIC,REDSTER Q4  M 10 GW S26,161,new,,2229.0,https://www.xtreme.ge/en/shop/redster-q4-m-10-gw-s26-218153?page=7
+127,xtreme.ge,ATOMIC,REDSTER Q4  M 10 GW S26,169,new,,2229.0,https://www.xtreme.ge/en/shop/redster-q4-m-10-gw-s26-218153?page=7
+128,xtreme.ge,ATOMIC,REDSTER Q7 REVOSHOCK C  MI 12 GW,160,new,,3149.0,https://www.xtreme.ge/en/shop/redster-q7-revoshock-c-mi-12-gw-218184?page=7
+129,xtreme.ge,ATOMIC,REDSTER Q7 REVOSHOCK C  MI 12 GW,168,new,,3149.0,https://www.xtreme.ge/en/shop/redster-q7-revoshock-c-mi-12-gw-218184?page=7
+130,xtreme.ge,ATOMIC,REDSTER Q7 REVOSHOCK C  MI 12 GW,176,new,,3149.0,https://www.xtreme.ge/en/shop/redster-q7-revoshock-c-mi-12-gw-218184?page=7
+131,xtreme.ge,ATOMIC,REDSTER Q9.8 REVOSHOCK S  I 12 GW,166,new,,3759.0,https://www.xtreme.ge/en/shop/redster-q9-8-revoshock-s-i-12-gw-218182?page=7
+132,xtreme.ge,ATOMIC,REDSTER S9 REVOSHOCK S I 12 GW,155,new,,4079.0,https://www.xtreme.ge/en/shop/redster-s9-revoshock-s-i-12-gw-218172?page=7
+133,xtreme.ge,ATOMIC,REDSTER S9 REVOSHOCK S + X 12 GW,160,new,3579.0,2859.0,https://www.xtreme.ge/en/shop/redster-s9-revoshock-s-x-12-gw-103404?page=2
+134,xtreme.ge,ATOMIC,REDSTER X7 REVOSHOCK C  MI 12 GW,161,new,,3219.0,https://www.xtreme.ge/en/shop/redster-x7-revoshock-c-mi-12-gw-218179?page=7
+135,xtreme.ge,ATOMIC,REDSTER X7 REVOSHOCK C  MI 12 GW,168,new,,3219.0,https://www.xtreme.ge/en/shop/redster-x7-revoshock-c-mi-12-gw-218179?page=7
+136,xtreme.ge,ATOMIC,REDSTER X7 REVOSHOCK C  MI 12 GW,175,new,,3219.0,https://www.xtreme.ge/en/shop/redster-x7-revoshock-c-mi-12-gw-218179?page=7
+137,xtreme.ge,ARMADA,RELIANCE 82 Ti,158,new,2799.0,2239.0,https://www.xtreme.ge/en/shop/reliance-82-ti-103519?page=5
+138,xtreme.ge,HEAD,Shape Black Edition SW LYT-PR Set,149,new,,1799.0,https://www.xtreme.ge/en/shop/shape-black-edition-sw-lyt-pr-set-215337?page=6
+139,xtreme.ge,HEAD,Shape Black Edition SW LYT-PR Set,156,new,,1799.0,https://www.xtreme.ge/en/shop/shape-black-edition-sw-lyt-pr-set-215337?page=6
+140,xtreme.ge,HEAD,Shape Black Edition SW LYT-PR Set,163,new,,1799.0,https://www.xtreme.ge/en/shop/shape-black-edition-sw-lyt-pr-set-215337?page=6
+141,xtreme.ge,HEAD,Shape Black Edition SW LYT-PR Set,170,new,,1799.0,https://www.xtreme.ge/en/shop/shape-black-edition-sw-lyt-pr-set-215337?page=6
+142,xtreme.ge,HEAD,Shape Black Edition SW LYT-PR Set,177,new,,1799.0,https://www.xtreme.ge/en/shop/shape-black-edition-sw-lyt-pr-set-215337?page=6
+143,xtreme.ge,HEAD,Shape e-V8 SW AMT-PR  Set,,new,1799.0,1439.0,https://www.xtreme.ge/en/shop/shape-e-v8-sw-amt-pr-set-219059?page=9
+144,xtreme.ge,HEAD,Shape NX R LYT-PR  Set,163,new,,1399.0,https://www.xtreme.ge/en/shop/shape-nx-r-lyt-pr-set-218189?page=7
+145,xtreme.ge,HEAD,Shape SX Black Edition SW LYT-PR Set,156,new,,1699.0,https://www.xtreme.ge/en/shop/shape-sx-black-edition-sw-lyt-pr-set-215342?page=6
+146,xtreme.ge,HEAD,Shape SX Black Edition SW LYT-PR Set,163,new,,1699.0,https://www.xtreme.ge/en/shop/shape-sx-black-edition-sw-lyt-pr-set-215342?page=6
+147,xtreme.ge,HEAD,Shape SX Black Edition SW LYT-PR Set,170,new,,1699.0,https://www.xtreme.ge/en/shop/shape-sx-black-edition-sw-lyt-pr-set-215342?page=6
+148,xtreme.ge,HEAD,Shape SX R SW LYT-PR R Set,,new,1999.0,1599.0,https://www.xtreme.ge/en/shop/shape-sx-r-sw-lyt-pr-r-set-218977?page=9
+149,xtreme.ge,HEAD,Shape SX R SW LYT-PR SET,170,new,1549.0,1239.0,https://www.xtreme.ge/en/shop/shape-sx-r-sw-lyt-pr-set-103373
+150,xtreme.ge,HEAD,Shape VR LYT-PR SET,163,new,1199.0,959.0,https://www.xtreme.ge/en/shop/shape-vr-lyt-pr-set-103366
+151,xtreme.ge,HEAD,Shape VR LYT-PR SET,170,new,1199.0,959.0,https://www.xtreme.ge/en/shop/shape-vr-lyt-pr-set-103366
+152,xtreme.ge,HEAD,Shape VX R SLR Pro,130,new,999.0,459.0,https://www.xtreme.ge/en/shop/shape-vx-r-slr-pro-103455?page=3
+153,xtreme.ge,HEAD,Shape VX R SLR Pro SET,130,new,699.0,559.0,https://www.xtreme.ge/en/shop/shape-vx-r-slr-pro-set-103462?page=3
+154,xtreme.ge,HEAD,Shape VX R SLR Pro SET1 130 ORANGE/BLACK (10104303+11500601) 316340,130,new,,699.0,https://www.xtreme.ge/en/shop/shape-vx-r-slr-pro-set1-130-orange-black-10104303-11500601-316340-159091?page=5
+155,xtreme.ge,SALOMON,SKI SET E ADDIKT + MI12 GW F80,149,new,2179.0,1739.0,https://www.xtreme.ge/en/shop/ski-set-e-addikt-mi12-gw-f80-103418?page=2
+156,xtreme.ge,SALOMON,SKI SET E ADDIKT PRO 66 + MI12 GW F8,,new,,3599.0,https://www.xtreme.ge/en/shop/ski-set-e-addikt-pro-66-mi12-gw-f8-218423?page=8
+157,xtreme.ge,SALOMON,SKI SET E ADDIKT PRO 76 + MI12 GW F8,,new,,3599.0,https://www.xtreme.ge/en/shop/ski-set-e-addikt-pro-76-mi12-gw-f8-218408?page=8
+158,xtreme.ge,SALOMON,SKI SET E ADDIKT + Z12 GW F80,163,new,2179.0,1739.0,https://www.xtreme.ge/en/shop/ski-set-e-addikt-z12-gw-f80-103381?page=2
+159,xtreme.ge,SALOMON,SKI SET E S/MAX 8 XT + M10 GW L80,,new,,2159.0,https://www.xtreme.ge/en/shop/ski-set-e-s-max-8-xt-m10-gw-l80-218405?page=8
+160,xtreme.ge,SALOMON,SKI SET E S/MAX 8 XT + M10 GW L80 Oi,163,new,,2159.0,https://www.xtreme.ge/en/shop/ski-set-e-s-max-8-xt-m10-gw-l80-oi-103391?page=2
+161,xtreme.ge,SALOMON,SKI SET E S/MAX 8 XT + M11 GW L80 Oi S26,,new,,2279.0,https://www.xtreme.ge/en/shop/ski-set-e-s-max-8-xt-m11-gw-l80-oi-s26-218417?page=8
+162,xtreme.ge,SALOMON,SKI SET E S/MAX N°6 XT + M10 GW L80,,new,,1965.0,https://www.xtreme.ge/en/shop/ski-set-e-s-max-ndeg6-xt-m10-gw-l80-218369?page=8
+163,xtreme.ge,SALOMON,SKI SET E SHORTMAX + M10 GW L80,125,new,1479.0,1179.0,https://www.xtreme.ge/en/shop/ski-set-e-shortmax-m10-gw-l80-103446?page=3
+164,xtreme.ge,SALOMON,SKIS N QST 100,100,new,,2695.0,https://www.xtreme.ge/en/shop/skis-n-qst-100-218349?page=8
+165,xtreme.ge,SALOMON,SKIS N QST 94 BLACK Freeride,,new,,2665.0,https://www.xtreme.ge/en/shop/skis-n-qst-94-black-freeride-218364?page=8
+166,xtreme.ge,SALOMON,SKIS N QST 94 ICED AQUA Freeride,,new,,2665.0,https://www.xtreme.ge/en/shop/skis-n-qst-94-iced-aqua-freeride-218361?page=8
+167,xtreme.ge,SALOMON,SKIS N S/LAB QST BLANK,,new,,3145.0,https://www.xtreme.ge/en/shop/skis-n-s-lab-qst-blank-218427?page=8
+168,xtreme.ge,SALOMON,SKIS N S/LAB QST BLANK Freeride,,new,,3145.0,https://www.xtreme.ge/en/shop/skis-n-s-lab-qst-blank-freeride-218360?page=8
+169,xtreme.ge,SALOMON,SKIS NI S/RACE FIS SL  Set,,new,,4699.0,https://www.xtreme.ge/en/shop/skis-ni-s-race-fis-sl-set-218961?page=8
+170,xtreme.ge,SALOMON,SKIS NX S/RACE PRIME SL 12m R SET,165,new,3399.0,2799.0,https://www.xtreme.ge/en/shop/skis-nx-s-race-prime-sl-12m-r-set-103377?page=2
+171,xtreme.ge,HEAD,Supershape e-Magnum Performance Ski Set,149,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-magnum-performance-ski-set-215311?page=5
+172,xtreme.ge,HEAD,Supershape e-Magnum Performance Ski Set,156,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-magnum-performance-ski-set-215311?page=5
+173,xtreme.ge,HEAD,Supershape e-Magnum Performance Ski Set,163,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-magnum-performance-ski-set-215311?page=5
+174,xtreme.ge,HEAD,Supershape e-Rally Performance Ski Set,156,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-rally-performance-ski-set-215314?page=5
+175,xtreme.ge,HEAD,Supershape e-Rally Performance Ski Set,163,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-rally-performance-ski-set-215314?page=5
+176,xtreme.ge,HEAD,Supershape e-Rally Performance Ski Set,170,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-rally-performance-ski-set-215314?page=5
+177,xtreme.ge,HEAD,Supershape e-Speed Performance Set,170,new,1999.0,1639.0,https://www.xtreme.ge/en/shop/supershape-e-speed-performance-set-219057?page=9
+178,xtreme.ge,HEAD,Supershape e-Speed Performance Ski Set,170,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-speed-performance-ski-set-215319?page=5
+179,xtreme.ge,HEAD,Supershape e-Speed Performance Ski Set,177,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-speed-performance-ski-set-215319?page=5
+180,xtreme.ge,HEAD,Supershape e-Titan Performance Ski Set,156,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-titan-performance-ski-set-215321?page=5
+181,xtreme.ge,HEAD,Supershape e-Titan Performance Ski Set,163,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-titan-performance-ski-set-215321?page=5
+182,xtreme.ge,HEAD,Supershape e-Titan Performance Ski Set,170,new,,2739.0,https://www.xtreme.ge/en/shop/supershape-e-titan-performance-ski-set-215321?page=5
+183,xtreme.ge,HEAD,Supershape Easy HRS D,107,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-easy-hrs-d-103482?page=4
+184,xtreme.ge,HEAD,Supershape Easy HRS S,,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-easy-hrs-s-103480?page=4
+185,xtreme.ge,HEAD,Supershape Easy HRS S,,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-easy-hrs-s-103480?page=4
+186,xtreme.ge,HEAD,Supershape Team Easy JRS SET,107,new,699.0,559.0,https://www.xtreme.ge/en/shop/supershape-team-easy-jrs-set-103438?page=3
+187,xtreme.ge,HEAD,Supershape Team Easy JRS SET,117,new,699.0,559.0,https://www.xtreme.ge/en/shop/supershape-team-easy-jrs-set-103438?page=3
+188,xtreme.ge,HEAD,Supershape Team Easy S25,107,new,479.0,379.0,https://www.xtreme.ge/en/shop/supershape-team-easy-s25-103406?page=2
+189,xtreme.ge,HEAD,Supershape Team Easy S25,117,new,479.0,379.0,https://www.xtreme.ge/en/shop/supershape-team-easy-s25-103406?page=2
+190,xtreme.ge,HEAD,Supershape Team HRS C,117,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-team-hrs-c-103355
+191,xtreme.ge,HEAD,Supershape Team HRS D,,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-team-hrs-d-103356
+192,xtreme.ge,HEAD,Supershape Team HRS D,97,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-team-hrs-d-103356
+193,xtreme.ge,HEAD,Supershape Team HRS D SET1,97,new,599.0,310.0,https://www.xtreme.ge/en/shop/supershape-team-hrs-d-set1-103358
+194,xtreme.ge,HEAD,Supershape Team HRS T,,new,389.0,299.0,https://www.xtreme.ge/en/shop/supershape-team-hrs-t-103359
+195,xtreme.ge,NORDICA,Team AM Fdt (70-90) + J4.5 FDT,,new,679.0,539.0,https://www.xtreme.ge/en/shop/team-am-fdt-70-90-j4-5-fdt-103441?page=3
+196,xtreme.ge,NORDICA,TEAM J R(100-140)+J4.5 FDT,100,new,949.0,759.0,https://www.xtreme.ge/en/shop/team-j-r-100-140-j4-5-fdt-103445?page=3
+197,xtreme.ge,NORDICA,TEAM J R(70-90)+J4.5 FDT,,new,749.0,599.0,https://www.xtreme.ge/en/shop/team-j-r-70-90-j4-5-fdt-103442?page=3
+198,xtreme.ge,NORDICA,TEAM J R(70-90)+J4.5 FDT,,new,749.0,599.0,https://www.xtreme.ge/en/shop/team-j-r-70-90-j4-5-fdt-103442?page=3
+199,xtreme.ge,NORDICA,TEAM J R(70-90)+J4.5 FDT,90,new,749.0,599.0,https://www.xtreme.ge/en/shop/team-j-r-70-90-j4-5-fdt-103442?page=3
+200,xtreme.ge,HEAD,the Link Pro R SET,170,new,799.0,639.0,https://www.xtreme.ge/en/shop/the-link-pro-r-set-103364
+201,xtreme.ge,ARMADA,Tracer 88,172,new,1619.0,1219.0,https://www.xtreme.ge/en/shop/tracer-88-103384?page=2
+202,xtreme.ge,NORDICA,UNLEASHED J FLAT,128,new,,369.0,https://www.xtreme.ge/en/shop/unleashed-j-flat-103520?page=5
+203,xtreme.ge,VOLANT,VOLANT 9000+ MI 12 GW GUNMETAL,155,new,7499.0,5999.0,https://www.xtreme.ge/en/shop/volant-9000-mi-12-gw-gunmetal-103403?page=2
+204,xtreme.ge,VOLANT,VOLANT 9000+ MI 12 GW GUNMETAL,160,new,7499.0,5999.0,https://www.xtreme.ge/en/shop/volant-9000-mi-12-gw-gunmetal-103403?page=2
+205,xtreme.ge,HEAD,WC e.Race Team SW JRS Set,,new,,1199.0,https://www.xtreme.ge/en/shop/wc-e-race-team-sw-jrs-set-215435?page=6
+206,xtreme.ge,HEAD,WC e.Race Team SW  Set,150,new,899.0,699.0,https://www.xtreme.ge/en/shop/wc-e-race-team-sw-set-215349?page=6
+207,xtreme.ge,HEAD,WC Rebels e-GS RD FIS SW RP WCR 14 SET,183,new,3219.0,1999.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-fis-sw-rp-wcr-14-set-103458?page=3
+208,xtreme.ge,HEAD,WC Rebels e-GS RD FIS SW RP WCR 14 SET,193,new,3219.0,1999.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-fis-sw-rp-wcr-14-set-103458?page=3
+209,xtreme.ge,HEAD,WC Rebels e-GS RD FIS SW RP WCR 14 SET1,188,new,2199.0,1799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-fis-sw-rp-wcr-14-set1-103514?page=5
+210,xtreme.ge,HEAD,WC Rebels e-GS RD Pro SW RP WCR 14 Set,189,new,2199.0,1799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-pro-sw-rp-wcr-14-set-215335?page=6
+211,xtreme.ge,HEAD,WC Rebels e-GS RD Pro SW RP WCR 14 Set,191,new,2199.0,1799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-pro-sw-rp-wcr-14-set-215335?page=6
+212,xtreme.ge,HEAD,WC Rebels e-GS RD SW RP WCR 14 SET,188,new,2199.0,1799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-sw-rp-wcr-14-set-103515?page=5
+213,xtreme.ge,HEAD,WC Rebels e-GS RD SW RP WCR T SET,181,new,2199.0,1759.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gs-rd-sw-rp-wcr-t-set-103414?page=2
+214,xtreme.ge,HEAD,WC Rebels e.GSR LYT-PR Set,,new,1899.0,1519.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gsr-lyt-pr-set-219056?page=9
+215,xtreme.ge,HEAD,WC Rebels e.GSR SW LYT-PR SET,163,new,1899.0,1519.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gsr-sw-lyt-pr-set-103505?page=5
+216,xtreme.ge,HEAD,WC Rebels e.GSR SW LYT-PR SET,177,new,1899.0,1519.0,https://www.xtreme.ge/en/shop/wc-rebels-e-gsr-sw-lyt-pr-set-103505?page=5
+217,xtreme.ge,HEAD,WC Rebels e-Race RP EVO Set,165,new,,2499.0,https://www.xtreme.ge/en/shop/wc-rebels-e-race-rp-evo-set-215345?page=6
+218,xtreme.ge,HEAD,WC Rebels e-Race RP EVO Set,170,new,,2499.0,https://www.xtreme.ge/en/shop/wc-rebels-e-race-rp-evo-set-215345?page=6
+219,xtreme.ge,HEAD,WC Rebels e-SL Pro RP WCR 14 SET1,165,new,2989.0,2289.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-pro-rp-wcr-14-set1-103492?page=4
+220,xtreme.ge,HEAD,WC Rebels e-SL Pro RP WCR 14 SET1a,155,new,2989.0,2289.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-pro-rp-wcr-14-set1a-103493?page=4
+221,xtreme.ge,HEAD,WC Rebels e-SL Pro RP WCR 14 SET2b,155,new,2989.0,2289.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-pro-rp-wcr-14-set2b-103494?page=4
+222,xtreme.ge,HEAD,WC Rebels e-SL Pro RP WCR 14 SET3,155,new,2989.0,2289.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-pro-rp-wcr-14-set3-103495?page=4
+223,xtreme.ge,HEAD,WC Rebels e-SL Pro RP WCR Set,155,new,2989.0,2289.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-pro-rp-wcr-set-215353?page=6
+224,xtreme.ge,HEAD,WC Rebels e-SL RP EVO 14  Set,,new,,2899.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-rp-evo-14-set-218974?page=9
+225,xtreme.ge,HEAD,WC Rebels e-SL RP  Set,150,new,,2799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-rp-set-215325?page=5
+226,xtreme.ge,HEAD,WC Rebels e-SL RP  Set,160,new,,2799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-rp-set-215325?page=5
+227,xtreme.ge,HEAD,WC Rebels e-SL RP  Set,165,new,,2799.0,https://www.xtreme.ge/en/shop/wc-rebels-e-sl-rp-set-215325?page=5
+228,xtreme.ge,HEAD,WC Rebels e.SLR LYT-PR SET3,156,new,1899.0,1519.0,https://www.xtreme.ge/en/shop/wc-rebels-e-slr-lyt-pr-set3-103517?page=5
+229,xtreme.ge,HEAD,WC Rebels e.SLR LYT-PR SET3,163,new,1899.0,1519.0,https://www.xtreme.ge/en/shop/wc-rebels-e-slr-lyt-pr-set3-103517?page=5
+230,xtreme.ge,HEAD,WC Rebels e-Speed RP    Set,170,new,2399.0,1919.0,https://www.xtreme.ge/en/shop/wc-rebels-e-speed-rp-set-215324?page=5
+231,xtreme.ge,HEAD,WC Rebels iGS RD Pro SW RP EVO 14 SET1,181,new,2199.0,1759.0,https://www.xtreme.ge/en/shop/wc-rebels-igs-rd-pro-sw-rp-evo-14-set1-103413?page=2
+232,xtreme.ge,HEAD,WC Rebels iGS RD Team SW RP WCR T SET,124,new,1249.0,819.0,https://www.xtreme.ge/en/shop/wc-rebels-igs-rd-team-sw-rp-wcr-t-set-103459?page=3
+233,xtreme.ge,HEAD,WC Rebels Race Ti SF-PR  Set,,new,2199.0,1789.0,https://www.xtreme.ge/en/shop/wc-rebels-race-ti-sf-pr-set-219058?page=9
+234,xtreme.ge,HEAD,WCR e.GS Rebel Team SW RP WCR T,159,new,1199.0,959.0,https://www.xtreme.ge/en/shop/wcr-e-gs-rebel-team-sw-rp-wcr-t-103486?page=4
+235,xtreme.ge,HEAD,WCR e.GS Rebel Team SW RP WCR T,166,new,1199.0,959.0,https://www.xtreme.ge/en/shop/wcr-e-gs-rebel-team-sw-rp-wcr-t-103486?page=4
+236,xtreme.ge,HEAD,WCR e-SL Rebel  FIS SW  RP WCR 14 wh/bk Set,165,new,,3499.0,https://www.xtreme.ge/en/shop/wcr-e-sl-rebel-fis-sw-rp-wcr-14-wh-bk-set-215333?page=6
+237,xtreme.ge,HEAD,WCR e-SL Rebel FIS SW RP WCR 14 wh/bk SET1,165,new,3699.0,2959.0,https://www.xtreme.ge/en/shop/wcr-e-sl-rebel-fis-sw-rp-wcr-14-wh-bk-set1-103440?page=3
+238,xtreme.ge,HEAD,WCR e.SL Rebel Team SW RP WCR T,126,new,1199.0,899.0,https://www.xtreme.ge/en/shop/wcr-e-sl-rebel-team-sw-rp-wcr-t-103491?page=4
+239,xtreme.ge,ARMADA,WHITEWALKER 116 S26,175,new,,2815.0,https://www.xtreme.ge/en/shop/whitewalker-116-s26-218122?page=6
+240,xtreme.ge,ARMADA,WHITEWALKER 121 S26,183,new,,2815.0,https://www.xtreme.ge/en/shop/whitewalker-121-s26-217092?page=6
+241,xtreme.ge,HEAD,Worldcup Rebels e.GSR LYT-PR SET,170,new,1899.0,1519.0,https://www.xtreme.ge/en/shop/worldcup-rebels-e-gsr-lyt-pr-set-103509?page=5
+242,xtreme.ge,HEAD,Worldcup Rebels e.SLR Ski Set,156,new,,1899.0,https://www.xtreme.ge/en/shop/worldcup-rebels-e-slr-ski-set-215348?page=6
+243,xtreme.ge,HEAD,Worldcup Rebels e.SLR Ski Set,163,new,,1899.0,https://www.xtreme.ge/en/shop/worldcup-rebels-e-slr-ski-set-215348?page=6
+244,xtreme.ge,Hagan,Y-King 16/17,172,new,1239.0,989.0,https://www.xtreme.ge/en/shop/y-king-16-17-103347
+245,snowmania.ge,ATOMIC,ATOMIC BENT 100 + BINDINGS STR 11,179,new,2990.0,2093.0,https://snowmania.ge/product/atomic-bent-100-bindings-str-11/
+246,snowmania.ge,ATOMIC,ATOMIC BENT 100 + BINDINGS STR 11,184,new,2990.0,2093.0,https://snowmania.ge/product/atomic-bent-100-bindings-str-11/
+247,snowmania.ge,ATOMIC,ATOMIC MAVERICK 84,162,new,2650.0,1855.0,https://snowmania.ge/product/atomic-maverick-84/
+248,snowmania.ge,ATOMIC,ATOMIC MAVERICK 84,171,new,2650.0,1855.0,https://snowmania.ge/product/atomic-maverick-84/
+249,snowmania.ge,ATOMIC,ATOMIC MAVERICK 84,180,new,2650.0,1855.0,https://snowmania.ge/product/atomic-maverick-84/
+250,snowmania.ge,ATOMIC,ATOMIC REDSTER TI + MI12,147,new,2240.0,1480.0,https://snowmania.ge/product/atomic/
+251,snowmania.ge,ATOMIC,ATOMIC REDSTER TI + MI12,154,new,2240.0,1480.0,https://snowmania.ge/product/atomic/
+252,snowmania.ge,ATOMIC,ATOMIC REDSTER TI + MI12,161,new,2240.0,1480.0,https://snowmania.ge/product/atomic/
+253,snowmania.ge,ATOMIC,ATOMIC REDSTER TI + MI12,168,new,2240.0,1480.0,https://snowmania.ge/product/atomic/
+254,snowmania.ge,DYNASTAR,DYNASTAR,164,new,1450.0,890.0,https://snowmania.ge/product/dynastar/
+255,snowmania.ge,ELAN,ELAN IBEX 78,163,new,3400.0,1700.0,https://snowmania.ge/product/elan-ibex-78/
+256,snowmania.ge,ELAN,ELAN IBEX 78,170,new,3400.0,1700.0,https://snowmania.ge/product/elan-ibex-78/
+257,snowmania.ge,ELAN,ELAN IBEX 78,177,new,3400.0,1700.0,https://snowmania.ge/product/elan-ibex-78/
+258,snowmania.ge,ELAN,ELAN RIPSTICK TOUR 88,177,new,4500.0,2250.0,https://snowmania.ge/product/elan-ripstick-tour-88/
+259,snowmania.ge,MCKINLEY,McKINLEY Vector CARBON,110,new,220.0,132.0,https://snowmania.ge/product/mckinley-vector-plus/
+260,snowmania.ge,MCKINLEY,McKINLEY Vector CARBON,115,new,220.0,132.0,https://snowmania.ge/product/mckinley-vector-plus/
+261,snowmania.ge,MCKINLEY,McKINLEY Vector CARBON,120,new,220.0,132.0,https://snowmania.ge/product/mckinley-vector-plus/
+262,snowmania.ge,MCKINLEY,McKINLEY Vector CARBON,125,new,220.0,132.0,https://snowmania.ge/product/mckinley-vector-plus/
+263,snowmania.ge,MCKINLEY,McKINLEY Vector CARBON,130,new,220.0,132.0,https://snowmania.ge/product/mckinley-vector-plus/
+264,snowmania.ge,ROSSIGNOL,ROSSIGNOL,156,new,1450.0,990.0,https://snowmania.ge/product/rossignol-2/
+265,snowmania.ge,ROSSIGNOL,ROSSIGNOL,164,new,1450.0,990.0,https://snowmania.ge/product/rossignol-2/
+266,snowmania.ge,ROSSIGNOL,ROSSIGNOL,171,new,1450.0,990.0,https://snowmania.ge/product/rossignol-2/
+267,snowmania.ge,ROSSIGNOL,ROSSIGNOL HERO LTD XP11,152,new,2790.0,1675.0,https://snowmania.ge/product/rossignol-hero/
+268,snowmania.ge,ROSSIGNOL,ROSSIGNOL HERO LTD XP11,157,new,2790.0,1675.0,https://snowmania.ge/product/rossignol-hero/
+269,snowmania.ge,ROSSIGNOL,ROSSIGNOL HERO LTD XP11,162,new,2790.0,1675.0,https://snowmania.ge/product/rossignol-hero/
+270,snowmania.ge,ROSSIGNOL,ROSSIGNOL HERO LTD XP11,167,new,2790.0,1675.0,https://snowmania.ge/product/rossignol-hero/
+271,snowmania.ge,ROSSIGNOL,ROSSIGNOL HERO LTD XP11,172,new,2790.0,1675.0,https://snowmania.ge/product/rossignol-hero/
+272,snowmania.ge,ROSSIGNOL,ROSSIGNOL SPRAYER PRO XP 10,158,new,1450.0,1015.0,https://snowmania.ge/product/rossignol-sprayer-pro-xp-10/
+273,snowmania.ge,ROSSIGNOL,ROSSIGNOL SPRAYER PRO XP 10,168,new,1450.0,1015.0,https://snowmania.ge/product/rossignol-sprayer-pro-xp-10/
+274,snowmania.ge,ROSSIGNOL,ROSSIGNOL SPRAYER PRO XP 10,178,new,1450.0,1015.0,https://snowmania.ge/product/rossignol-sprayer-pro-xp-10/
+275,snowmania.ge,VOLKL,VOLKL DEACON 7.2,163,new,1750.0,1300.0,https://snowmania.ge/product/volkl-2/
+276,snowmania.ge,VOLKL,VOLKL FLAIR 76 LTD,147,new,1750.0,1250.0,https://snowmania.ge/product/volkl-4/
+277,snowmania.ge,VOLKL,VOLKL FLAIR 76 LTD,161,new,1750.0,1250.0,https://snowmania.ge/product/volkl-4/
+278,snowmania.ge,VOLKL,VOLKL FLAIR ALESSIA,144,new,1650.0,1250.0,https://snowmania.ge/product/volkl-3/
+279,snowmania.ge,VOLKL,VOLKL FLAIR ALESSIA,151,new,1650.0,1250.0,https://snowmania.ge/product/volkl-3/
+280,snowmania.ge,VOLKL,VOLKL FLAIR ALESSIA,158,new,1650.0,1250.0,https://snowmania.ge/product/volkl-3/
+281,snowmania.ge,ARMADA,ARMADA,179,used,1650.0,999.0,https://snowmania.ge/product/armada/
+282,snowmania.ge,ATOMIC,Atomic Redster G9,183,used,1350.0,810.0,https://snowmania.ge/product/atomic-redster-g9/
+283,snowmania.ge,ATOMIC,Atomic Redster S9,171,used,1350.0,810.0,https://snowmania.ge/product/atomic-redster-s9/
+284,snowmania.ge,ATOMIC,ATOMIC REDSTER XT,178,used,1450.0,725.0,https://snowmania.ge/product/atomic-redster-xt/
+285,snowmania.ge,Black Crows,Black Crows,170,used,1450.0,750.0,https://snowmania.ge/product/black-crows/
+286,snowmania.ge,BOMBER,Bomber Pro Terrain 84 masters Blue,161,used,1700.0,1150.0,https://snowmania.ge/product/bomber-pro-terrain-84-masters-blue/
+287,snowmania.ge,BOMBER,Bomber Pro Terrain 84 masters Blue,171,used,1700.0,1150.0,https://snowmania.ge/product/bomber-pro-terrain-84-masters-blue/
+288,snowmania.ge,BOMBER,Bomber Ski Pro Carve Black,156,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-black/
+289,snowmania.ge,BOMBER,Bomber Ski Pro Carve Black,166,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-black/
+290,snowmania.ge,BOMBER,Bomber Ski Pro Carve Black,176,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-black/
+291,snowmania.ge,BOMBER,Bomber Ski Pro Carve Black,186,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-black/
+292,snowmania.ge,BOMBER,Bomber Ski Pro Carve White,156,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-white/
+293,snowmania.ge,BOMBER,Bomber Ski Pro Carve White,161,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-white/
+294,snowmania.ge,BOMBER,Bomber Ski Pro Carve White,166,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-white/
+295,snowmania.ge,BOMBER,Bomber Ski Pro Carve White,176,used,1700.0,1150.0,https://snowmania.ge/product/bomber-ski-pro-carve-white/
+296,snowmania.ge,DYNASTAR,Dynastar Legend 88,166,used,1450.0,750.0,https://snowmania.ge/product/dynastar-legend-88/
+297,snowmania.ge,DYNASTAR,Dynastar Legend 88,173,used,1450.0,750.0,https://snowmania.ge/product/dynastar-legend-88/
+298,snowmania.ge,DYNASTAR,Dynastar Legend 88,188,used,1450.0,750.0,https://snowmania.ge/product/dynastar-legend-88/
+299,snowmania.ge,DYNASTAR,Dynastar Legend 96,165,used,1350.0,750.0,https://snowmania.ge/product/dynastar-legend-96/
+300,snowmania.ge,DYNASTAR,Dynastar Speed Zone 12 Ti,174,used,830.0,480.0,https://snowmania.ge/product/dynastar-speed-zone-12-ti/
+301,snowmania.ge,DYNASTAR,Dynastar Speed Zone 12 Ti,182,used,830.0,480.0,https://snowmania.ge/product/dynastar-speed-zone-12-ti/
+302,snowmania.ge,ELAN,ELAN Amphibio,178,used,1350.0,650.0,https://snowmania.ge/product/elan-amphibio/
+303,snowmania.ge,ELAN,Elan Element,160,used,1000.0,650.0,https://snowmania.ge/product/elan-element/
+304,snowmania.ge,ELAN,Elan Element,168,used,1000.0,650.0,https://snowmania.ge/product/elan-element/
+305,snowmania.ge,ELAN,Elan Element,176,used,1000.0,650.0,https://snowmania.ge/product/elan-element/
+306,snowmania.ge,ELAN,ELAN IBEX 84,163,used,2700.0,1350.0,https://snowmania.ge/product/elan-ibex-84/
+307,snowmania.ge,ELAN,ELAN IBEX 84,170,used,2700.0,1350.0,https://snowmania.ge/product/elan-ibex-84/
+308,snowmania.ge,ELAN,ELAN IBEX 84,177,used,2700.0,1350.0,https://snowmania.ge/product/elan-ibex-84/
+309,snowmania.ge,ELAN,Elan Jett QS,100,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+310,snowmania.ge,ELAN,Elan Jett QS,110,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+311,snowmania.ge,ELAN,Elan Jett QS,120,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+312,snowmania.ge,ELAN,Elan Jett QS,130,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+313,snowmania.ge,ELAN,Elan Jett QS,140,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+314,snowmania.ge,ELAN,Elan Jett QS,150,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+315,snowmania.ge,ELAN,Elan Jett QS,90,used,670.0,239.0,https://snowmania.ge/product/elan-jett-qs/
+316,snowmania.ge,ELAN,Elan RipStick 88,188,used,1450.0,830.0,https://snowmania.ge/product/elan-ripstick-88/
+317,snowmania.ge,ELAN,Elan Ripstick 88 W Skis  2022,178,used,1450.0,850.0,https://snowmania.ge/product/elan-ripstick-88-w-skis-%c2%b7-womens-%c2%b7-2022/
+318,snowmania.ge,ELAN,Elan Ripstick 96,174,used,1550.0,930.0,https://snowmania.ge/product/elan-ripstick-96/
+319,snowmania.ge,ELAN,Elan Ripstick 96,180,used,1550.0,930.0,https://snowmania.ge/product/elan-ripstick-96/
+320,snowmania.ge,ELAN,Elan Ripstick 96,181,used,1550.0,930.0,https://snowmania.ge/product/elan-ripstick-96/
+321,snowmania.ge,ELAN,ELAN SLINGSHOT 86 Flat,176,used,1450.0,750.0,https://snowmania.ge/product/elan-slingshot-86-flat/
+322,snowmania.ge,ELAN,Elan STARR QS,100,used,670.0,239.0,https://snowmania.ge/product/elan-starr-qs/
+323,snowmania.ge,ELAN,Elan STARR QS,110,used,670.0,239.0,https://snowmania.ge/product/elan-starr-qs/
+324,snowmania.ge,ELAN,Elan STARR QS,120,used,670.0,239.0,https://snowmania.ge/product/elan-starr-qs/
+325,snowmania.ge,ELAN,Elan STARR QS,130,used,670.0,239.0,https://snowmania.ge/product/elan-starr-qs/
+326,snowmania.ge,ROSSIGNOL,Experience 80x,168,used,830.0,390.0,https://snowmania.ge/product/experience-80x/
+327,snowmania.ge,ROSSIGNOL,Experience 80x,188,used,830.0,390.0,https://snowmania.ge/product/experience-80x/
+328,snowmania.ge,FISCHER,Fischer Pro Mtn 77,159,used,950.0,470.0,https://snowmania.ge/product/fischer-pro-mtn-77/
+329,snowmania.ge,FISCHER,Fischer Pro Mtn 77,173,used,950.0,470.0,https://snowmania.ge/product/fischer-pro-mtn-77/
+330,snowmania.ge,FISCHER,Fischer rc4 curv pro,140,used,870.0,559.0,https://snowmania.ge/product/fischer-rc4-curv-pro/
+331,snowmania.ge,FISCHER,Fischer rc4 curv pro,150,used,870.0,559.0,https://snowmania.ge/product/fischer-rc4-curv-pro/
+332,snowmania.ge,FISCHER,Fischer rc4 curv pro,160,used,870.0,559.0,https://snowmania.ge/product/fischer-rc4-curv-pro/
+333,snowmania.ge,FISCHER,FISCHER RC4 WORLDCUP SC,160,used,1450.0,850.0,https://snowmania.ge/product/fischer-rc4-worldcup-sc/
+334,snowmania.ge,FISCHER,Fischer Xtr Rc4 Speed Rt,160,used,870.0,490.0,https://snowmania.ge/product/fischer-xtr-rc4-speed-rt/
+335,snowmania.ge,FISCHER,Fischer XTR THE CURV RT,164,used,880.0,590.0,https://snowmania.ge/product/fischer-xtr-the-curv-rt/
+336,snowmania.ge,FISCHER,Fischer XTR THE CURV RT,178,used,880.0,590.0,https://snowmania.ge/product/fischer-xtr-the-curv-rt/
+337,snowmania.ge,HEAD,HEAD AMBITION 83,177,used,1300.0,650.0,https://snowmania.ge/product/head-ambition-83/
+338,snowmania.ge,HEAD,HEAD KORE 117 FREERIDE SKI,189,used,1950.0,1170.0,https://snowmania.ge/product/head-kore-117-freeride-ski/
+339,snowmania.ge,HEAD,HEAD KORE 87,184,used,1550.0,850.0,https://snowmania.ge/product/head-kore-87/
+340,snowmania.ge,HEAD,HEAD KORE 93,162,used,1450.0,950.0,https://snowmania.ge/product/head-kore-93/
+341,snowmania.ge,HEAD,HEAD KORE 93,171,used,1450.0,950.0,https://snowmania.ge/product/head-kore-93/
+342,snowmania.ge,HEAD,HEAd Supershape e-Magnum,156,used,1750.0,1050.0,https://snowmania.ge/product/head-supershape-e-magnum/
+343,snowmania.ge,HEAD,HEAd Supershape e-Magnum,163,used,1750.0,1050.0,https://snowmania.ge/product/head-supershape-e-magnum/
+344,snowmania.ge,HEAD,HEAd Supershape e-Magnum,170,used,1750.0,1050.0,https://snowmania.ge/product/head-supershape-e-magnum/
+345,snowmania.ge,HEAD,HEAd Supershape e-Magnum,177,used,1750.0,1050.0,https://snowmania.ge/product/head-supershape-e-magnum/
+346,snowmania.ge,HEAD,Head V-SHAPE V10,170,used,1350.0,810.0,https://snowmania.ge/product/head-v-shape-v10/
+347,snowmania.ge,HEAD,Head V-SHAPE V10,177,used,1350.0,810.0,https://snowmania.ge/product/head-v-shape-v10/
+348,snowmania.ge,HEAD,Head V-SHAPE V10,184,used,1350.0,810.0,https://snowmania.ge/product/head-v-shape-v10/
+349,snowmania.ge,KASTLE,Kastle DX85 W + K10 SLR GW,160,used,1200.0,650.0,https://snowmania.ge/product/kastle-dx85-w-k10-slr-gw/
+350,snowmania.ge,KASTLE,KASTLE FX96,164,used,1750.0,870.0,https://snowmania.ge/product/kastle-fx96/
+351,snowmania.ge,KASTLE,Kästle PX71 PREM,162,used,1300.0,780.0,https://snowmania.ge/product/kastle-px71-prem/
+352,snowmania.ge,KASTLE,Kästle PX71 PREM,169,used,1300.0,780.0,https://snowmania.ge/product/kastle-px71-prem/
+353,snowmania.ge,KASTLE,Kästle PX71 PREM,171,used,1300.0,780.0,https://snowmania.ge/product/kastle-px71-prem/
+354,snowmania.ge,LACROIX,LACROIX,168,used,1750.0,1050.0,https://snowmania.ge/product/lacroix/
+355,snowmania.ge,LACROIX,LACROIX,176,used,1750.0,1050.0,https://snowmania.ge/product/lacroix/
+356,snowmania.ge,LACROIX,LACROIX,156,used,1740.0,870.0,https://snowmania.ge/product/lacroix-3/
+357,snowmania.ge,LACROIX,LACROIX,165,used,1740.0,870.0,https://snowmania.ge/product/lacroix-3/
+358,snowmania.ge,LACROIX,LACROIX,172,used,1740.0,870.0,https://snowmania.ge/product/lacroix-3/
+359,snowmania.ge,LACROIX,LACROIX,146,used,1400.0,700.0,https://snowmania.ge/product/lacroix-2/
+360,snowmania.ge,LACROIX,LACROIX,152,used,1400.0,700.0,https://snowmania.ge/product/lacroix-2/
+361,snowmania.ge,LACROIX,LACROIX,162,used,1400.0,700.0,https://snowmania.ge/product/lacroix-2/
+362,snowmania.ge,ROSSIGNOL,ROSSIGNOL,100,used,750.0,370.0,https://snowmania.ge/product/rossignol-3/
+363,snowmania.ge,ROSSIGNOL,ROSSIGNOL,105,used,750.0,370.0,https://snowmania.ge/product/rossignol-3/
+364,snowmania.ge,ROSSIGNOL,ROSSIGNOL,110,used,750.0,370.0,https://snowmania.ge/product/rossignol-3/
+365,snowmania.ge,ROSSIGNOL,ROSSIGNOL,115,used,750.0,370.0,https://snowmania.ge/product/rossignol-3/
+366,snowmania.ge,ROSSIGNOL,Rossignol Black Ops Escaper,178,used,3200.0,1600.0,https://snowmania.ge/product/rossignol-black-ops-escaper/
+367,snowmania.ge,ROSSIGNOL,Rossignol Hero Elite Plus TI,167,used,1550.0,850.0,https://snowmania.ge/product/rossignol-hero-elite-plus-ti/
+368,snowmania.ge,ROSSIGNOL,Rossignol Hero Elite Plus TI,174,used,1550.0,850.0,https://snowmania.ge/product/rossignol-hero-elite-plus-ti/
+369,snowmania.ge,ROSSIGNOL,Rossignol Hero Elite Plus TI,182,used,1550.0,850.0,https://snowmania.ge/product/rossignol-hero-elite-plus-ti/
+370,snowmania.ge,ROSSIGNOL,Rossignol React 6 HP,177,used,1050.0,525.0,https://snowmania.ge/product/rossignol-react-6-hp/
+371,snowmania.ge,ROSSIGNOL,Rossignol REACT 7 LTD,177,used,1350.0,675.0,https://snowmania.ge/product/rossignol-react-7-ltd/
+372,snowmania.ge,ROSSIGNOL,Rossignol React R6,163,used,1300.0,650.0,https://snowmania.ge/product/rossignol-react-r6/
+373,snowmania.ge,ROSSIGNOL,ROSSIGNOL SPICY 7,154,used,1250.0,650.0,https://snowmania.ge/product/rossignol-spicy-7/
+374,snowmania.ge,ROSSIGNOL,ROSSIGNOL SPICY 7,162,used,1250.0,650.0,https://snowmania.ge/product/rossignol-spicy-7/
+375,snowmania.ge,ROSSIGNOL,ROSSIGNOL SPICY 7,168,used,1250.0,650.0,https://snowmania.ge/product/rossignol-spicy-7/
+376,snowmania.ge,SALOMON,SALOMON,153,used,1455.0,799.0,https://snowmania.ge/product/salomon-2/
+377,snowmania.ge,SALOMON,SALOMON,161,used,1455.0,799.0,https://snowmania.ge/product/salomon-2/
+378,snowmania.ge,SALOMON,SALOMON,169,used,1455.0,799.0,https://snowmania.ge/product/salomon-2/
+379,snowmania.ge,SALOMON,SALOMON,177,used,1455.0,799.0,https://snowmania.ge/product/salomon-2/
+380,snowmania.ge,SALOMON,SALOMON S/FORCE X6,160,used,900.0,550.0,https://snowmania.ge/product/salomon-s-force-x6/
+381,snowmania.ge,SALOMON,SALOMON S/FORCE X6,167,used,900.0,550.0,https://snowmania.ge/product/salomon-s-force-x6/
+382,snowmania.ge,SALOMON,SALOMON S/FORCE X6,175,used,900.0,550.0,https://snowmania.ge/product/salomon-s-force-x6/
+383,snowmania.ge,SALOMON,SALOMON SMAX X7,169,used,950.0,480.0,https://snowmania.ge/product/salomon-smax-x7/
+384,snowmania.ge,VOLANT,Volant Silver Skis w/M 11 GW,150,used,1500.0,999.0,https://snowmania.ge/product/volant-silver-skis-w-m-11-gw/
+385,snowmania.ge,VOLANT,Volant Silver Skis w/M 11 GW,155,used,1500.0,999.0,https://snowmania.ge/product/volant-silver-skis-w-m-11-gw/
+386,snowmania.ge,VOLANT,Volant Silver Skis w/M 11 GW,160,used,1500.0,999.0,https://snowmania.ge/product/volant-silver-skis-w-m-11-gw/
+387,snowmania.ge,VOLANT,Volant Silver Skis w/M 11 GW,165,used,1500.0,999.0,https://snowmania.ge/product/volant-silver-skis-w-m-11-gw/
+388,snowmania.ge,VOLKL,VOLKL FLAIR SC LIMITED,163,used,1050.0,550.0,https://snowmania.ge/product/volkl-flair-sc-limited/
+389,snowmania.ge,VOLKL,VOLKL Kanjo,175,used,1350.0,750.0,https://snowmania.ge/product/volkl-kanjo/
+390,snowmania.ge,VOLKL,Volkl Kendo 88,170,used,1700.0,1150.0,https://snowmania.ge/product/volkl-kendo-88/
+391,snowmania.ge,VOLKL,Volkl Kendo 88,184,used,1700.0,1150.0,https://snowmania.ge/product/volkl-kendo-88/
+392,snowmania.ge,VOLKL,Völkl M6 Mantra Flat,179,used,1700.0,1250.0,https://snowmania.ge/product/volkl-m6-mantra-flat/
+393,snowmania.ge,VOLKL,Völkl M6 Mantra Flat,184,used,1700.0,1250.0,https://snowmania.ge/product/volkl-m6-mantra-flat/
+394,snowmania.ge,VOLKL,VÖLKL RACETIGER SRX,168,used,1200.0,650.0,https://snowmania.ge/product/volkl-racetiger-srx/
+395,snowmania.ge,VOLKL,Völkl RTM 76,168,used,1050.0,550.0,https://snowmania.ge/product/volkl-rtm-76/
+396,burusports,Rossignol,STRATO COURSE,161,new,2550.0,1575.0,https://burusports.ge/en/product/strato-course/161
+397,burusports,Rossignol,Escaper 97 Nano,185,new,2800.0,1600.0,https://burusports.ge/en/product/escaper-97-nano/185
+398,burusports,Rossignol,SUPER VIRAGE VI TECH KONECT,171,new,2800.0,2800.0,https://burusports.ge/en/product/super-virage-vi-tech-konect/171
+399,burusports,Rossignol,SUPER VIRAGE VII OVERSIZE K,170,new,2950.0,2360.0,https://burusports.ge/en/product/super-virage-vii-oversize-k/164
+400,burusports,Rossignol,SUPER VIRAGE VII OVERSIZE K,164,new,2950.0,2360.0,https://burusports.ge/en/product/super-virage-vii-oversize-k/164
+401,burusports,Volkl,Peregrine 79,163,new,2550.0,2550.0,https://burusports.ge/en/product/peregrine-79/163
+402,burusports,Volkl,Blaze 94 Grey/Red,172,new,2100.0,2100.0,https://burusports.ge/en/product/blaze-94-greyred/172
+403,burusports,Volkl,BLAZE 94,165,new,1950.0,1950.0,https://burusports.ge/en/product/blaze-94/165
+404,burusports,,BLAZE 114,176,new,114.0,2250.0,https://burusports.ge/en/product/blaze-114/176
+405,burusports,Volkl,M6 MANTRA 100 YEARS,177,new,100.0,2550.0,https://burusports.ge/en/product/m6-mantra-100-years/177
+406,burusports,Volkl,M7 MANTRA 96,177,new,2550.0,2550.0,https://burusports.ge/en/product/m7-mantra-96/177
+407,burusports,Scott,SCO Ski W's Slight 93,165,new,2100.0,1260.0,https://burusports.ge/en/product/sco-ski-ws-slight-93/160sm-qali
+408,burusports,Scott,SCO Ski W's Slight 93,160,new,2100.0,1260.0,https://burusports.ge/en/product/sco-ski-ws-slight-93/160sm-qali
+409,burusports,Scott,SCO Ski Superguide Freetour,185,new,2250.0,1350.0,https://burusports.ge/en/product/sco-ski-superguide-freetour/178-katsi
+410,burusports,Scott,SCO Ski Superguide Freetour,178,new,2250.0,1350.0,https://burusports.ge/en/product/sco-ski-superguide-freetour/178-katsi
+411,burusports,Scott,SCO Ski Superguide 95,178,new,2070.0,1290.0,https://burusports.ge/en/product/sco-ski-superguide-95/178-katsi
+412,burusports,Scott,SCO Ski Scrapper 95 W's,168,new,1350.0,945.0,https://burusports.ge/en/product/sco-ski-scrapper-95-ws/168-qali
+413,burusports,Rossignol,HERO PRO TEAM,92,new,590.0,415.0,https://burusports.ge/en/product/hero-pro-team/92-bichi
+414,burusports,Rossignol,EXPERIENCE 86 TI,176,new,2580.0,1805.0,https://burusports.ge/en/product/experience-86-ti/167-katsi
+415,burusports,Rossignol,EXPERIENCE 86 TI,167,new,2580.0,1805.0,https://burusports.ge/en/product/experience-86-ti/167-katsi
+416,burusports,Rossignol,FAMOUS 6,163,new,1430.0,930.0,https://burusports.ge/en/product/famous-6/163-qali
+417,burusports,Rossignol,NOVA 6 XPRESS W,142,new,1695.0,1185.0,https://burusports.ge/en/product/nova-6-xpress-w/142-qali
+418,burusports,Rossignol,NOVA 4 CA XP10,154,new,1415.0,990.0,https://burusports.ge/en/product/nova-4-ca-xp10/154-qali
+419,burusports,Rossignol,SOUL 7 HD K NX12,188,new,2869.0,1300.0,https://burusports.ge/en/product/soul-7-hd-k-nx12/172-katsi
+420,burusports,Rossignol,SOUL 7 HD K NX12,180,new,2869.0,1300.0,https://burusports.ge/en/product/soul-7-hd-k-nx12/172-katsi
+421,burusports,Rossignol,SOUL 7 HD K NX12,172,new,2869.0,1300.0,https://burusports.ge/en/product/soul-7-hd-k-nx12/172-katsi
+422,burusports,Rossignol,SENDER 94 TI KONECT NX12,186,new,2395.0,1679.0,https://burusports.ge/en/product/sender-94-ti-konect-nx12/186-katsi
+423,burusports,Rossignol,SENDER 94 TI KONECT NX12,178,new,2395.0,1679.0,https://burusports.ge/en/product/sender-94-ti-konect-nx12/186-katsi
+424,burusports,Rossignol,SENDER 94 TI KONECT NX12,172,new,2395.0,1679.0,https://burusports.ge/en/product/sender-94-ti-konect-nx12/186-katsi
+425,burusports,Rossignol,REACT 10 TI K SPX12,182,new,2500.0,1750.0,https://burusports.ge/en/product/react-10-ti-k-spx12/182-katsi
+426,burusports,Rossignol,REACT 10 TI K SPX12,176,new,2500.0,1750.0,https://burusports.ge/en/product/react-10-ti-k-spx12/182-katsi
+427,burusports,Rossignol,REACT 10 TI K SPX12,168,new,2500.0,1750.0,https://burusports.ge/en/product/react-10-ti-k-spx12/182-katsi
+428,burusports,Rossignol,HERO ELITE LT TI K SPX14,177,new,2995.0,2095.0,https://burusports.ge/en/product/hero-elite-lt-ti-k-spx14/177-katsi
+429,burusports,Rossignol,HERO ELITE LT TI K SPX14,172,new,2995.0,2095.0,https://burusports.ge/en/product/hero-elite-lt-ti-k-spx14/177-katsi
+430,burusports,Rossignol,HERO ELITE LT TI K SPX14,167,new,2995.0,2095.0,https://burusports.ge/en/product/hero-elite-lt-ti-k-spx14/177-katsi
+431,burusports,Rossignol,HERO SL PRO,149,new,1870.0,1300.0,https://burusports.ge/en/product/hero-sl-pro/142-bichi
+432,burusports,Rossignol,HERO SL PRO,142,new,1870.0,1300.0,https://burusports.ge/en/product/hero-sl-pro/142-bichi
+433,burusports,Rossignol,HERO FIS SL FAC 165 SPX15,165,new,165.0,3200.0,https://burusports.ge/en/product/hero-fis-sl-fac-165-spx15/165sm
+434,burusports,Rossignol,HERO ELITE LT TI,177,new,2950.0,2065.0,https://burusports.ge/en/product/hero-elite-lt-ti/172
+435,burusports,Rossignol,HERO ELITE LT TI,172,new,2950.0,2065.0,https://burusports.ge/en/product/hero-elite-lt-ti/172
+436,burusports,Rossignol,HERO CARVE K NX12,157,new,2290.0,1600.0,https://burusports.ge/en/product/hero-carve-k-nx12/152
+437,burusports,Rossignol,HERO CARVE K NX12,162,new,2290.0,1600.0,https://burusports.ge/en/product/hero-carve-k-nx12/152
+438,burusports,Rossignol,HERO CARVE K NX12,167,new,2290.0,1600.0,https://burusports.ge/en/product/hero-carve-k-nx12/152
+439,burusports,Rossignol,HERO CARVE K NX12,152,new,2290.0,1600.0,https://burusports.ge/en/product/hero-carve-k-nx12/152
+440,burusports,Volkl,MANTRA 102,184,new,102.0,2450.0,https://burusports.ge/en/product/mantra-102/184
+441,burusports,Volkl,M6 MANTRA FLAT,177,new,1950.0,1365.0,https://burusports.ge/en/product/m6-mantra-flat/177
+442,burusports,Volkl,KATANA 108 FLAT,184,new,108.0,2500.0,https://burusports.ge/en/product/katana-108-flat/184
+443,burusports,Volkl,BLAZE 106 FLAT,165,new,106.0,2240.0,https://burusports.ge/en/product/blaze-106-flat/179
+444,burusports,Volkl,BLAZE 106 FLAT,172,new,106.0,2240.0,https://burusports.ge/en/product/blaze-106-flat/179
+445,burusports,Volkl,BLAZE 106 FLAT,179,new,106.0,2240.0,https://burusports.ge/en/product/blaze-106-flat/179
+446,burusports,Volkl,BLAZE 94 FLAT,165,new,1790.0,1550.0,https://burusports.ge/en/product/blaze-94-flat/165
+447,burusports,Volkl,RISE BEYOND 96 FLAT,170,new,1990.0,1395.0,https://burusports.ge/en/product/rise-beyond-96-flat/170
+448,burusports,Volkl,REVOLT 121 FLAT,177,new,121.0,2150.0,https://burusports.ge/en/product/revolt-121-flat/191
+449,burusports,Volkl,REVOLT 121 FLAT,184,new,121.0,2150.0,https://burusports.ge/en/product/revolt-121-flat/191
+450,burusports,Volkl,REVOLT 121 FLAT,191,new,121.0,2150.0,https://burusports.ge/en/product/revolt-121-flat/191
+451,burusports,Volkl,REVOLT 104 FLAT,172,new,104.0,1750.0,https://burusports.ge/en/product/revolt-104-flat/172
+452,burusports,Volkl,REVOLT 104 FLAT,188,new,104.0,1750.0,https://burusports.ge/en/product/revolt-104-flat/172
+453,burusports,Volkl,REVOLT 95 FLAT,157,new,1090.0,875.0,https://burusports.ge/en/product/revolt-95-flat/165
+454,burusports,Volkl,REVOLT 95 FLAT,165,new,1090.0,875.0,https://burusports.ge/en/product/revolt-95-flat/165
+455,burusports,Volkl,REVOLT 87 FLAT,169,new,1680.0,1345.0,https://burusports.ge/en/product/revolt-87-flat/169
+456,burusports,Volkl,REVOLT 84 FLAT,174,new,1530.0,1225.0,https://burusports.ge/en/product/revolt-84-flat/180sm
+457,burusports,Volkl,REVOLT 84 FLAT,180,new,1530.0,1225.0,https://burusports.ge/en/product/revolt-84-flat/180sm
+458,burusports,Volkl,BASH 86 FLAT,164,new,1110.0,885.0,https://burusports.ge/en/product/bash-86-flat/164
+459,burusports,Volkl,BASH 81 FLAT,158,new,960.0,750.0,https://burusports.ge/en/product/bash-81-flat/168
+460,burusports,Volkl,BASH 81 FLAT,168,new,960.0,750.0,https://burusports.ge/en/product/bash-81-flat/168
+461,burusports,Scott,Scrapper,180,new,1625.0,999.0,https://burusports.ge/en/product/scrapper/180-katsi
+462,burusports,Volkl,THREE FLAT,186,new,1899.0,990.0,https://burusports.ge/en/product/three-flat/186
+463,burusports,Volkl,REVOLT 86 FLAT,156,new,1090.0,780.0,https://burusports.ge/en/product/revolt-86-flat/156-katsi
+464,burusports,Volkl,REVOLT 86 FLAT,164,new,1090.0,780.0,https://burusports.ge/en/product/revolt-86-flat/156-katsi
+465,burusports,Volkl,MANTRA FLAT,184,new,2100.0,1050.0,https://burusports.ge/en/product/mantra-flat/184-katsi
+466,burusports,Volkl,M5 MANTRA FLAT,170,new,2180.0,1295.0,https://burusports.ge/en/product/m5-mantra-flat/170sm-katsi
+467,burusports,Volkl,MANTRA 102 FLAT,177,new,102.0,2450.0,https://burusports.ge/en/product/mantra-102-flat/177-katsi
+468,burusports,Volkl,KENDO 88 FLAT,163,new,2240.0,1350.0,https://burusports.ge/en/product/kendo-88-flat/177-katsi
+469,burusports,Volkl,KENDO 88 FLAT,177,new,2240.0,1350.0,https://burusports.ge/en/product/kendo-88-flat/177-katsi
+470,burusports,Volkl,KENDO 88 FLAT,170,new,2240.0,1350.0,https://burusports.ge/en/product/kendo-88-flat/177-katsi
+471,burusports,Volkl,KENDO 92 FLAT,170,new,2350.0,1880.0,https://burusports.ge/en/product/kendo-92-flat/170sm-katsi
+472,burusports,Volkl,DEACON XT VMOTION1,168,new,1450.0,870.0,https://burusports.ge/en/product/deacon-xt-vmotion1/168-katsi
+473,burusports,Volkl,DEACON XT VMOTION1,175,new,1450.0,870.0,https://burusports.ge/en/product/deacon-xt-vmotion1/168-katsi
+474,burusports,Volkl,DEACON 74 BLACK RMOT XLIGHT,163,new,2950.0,1770.0,https://burusports.ge/en/product/deacon-74-black-rmot-xlight/163-katsi
+475,burusports,Volkl,DEACON 74 BLACK RMOT XLIGHT,168,new,2950.0,1770.0,https://burusports.ge/en/product/deacon-74-black-rmot-xlight/163-katsi
+476,burusports,Volkl,CONFESSION FLAT,179,new,2350.0,950.0,https://burusports.ge/en/product/confession-flat/179-katsi
+477,burusports,Volkl,90EIGHT FLAT 118428,170,new,1184.0,1970.0,https://burusports.ge/en/product/90eight-flat-118428/170-katsi
+478,burusports,Volkl,90EIGHT FLAT,170,new,1970.0,1290.0,https://burusports.ge/en/product/90eight-flat/170sm
+479,burusports,Volkl,RACETIGER SRX BLK WH RE VMOT3,168,new,2000.0,1300.0,https://burusports.ge/en/product/racetiger-srx-blk-wh-re-vmot3/168-katsi
+480,burusports,Volkl,RACETIGER SRX BLK WH RE VMOT3,173,new,2000.0,1300.0,https://burusports.ge/en/product/racetiger-srx-blk-wh-re-vmot3/168-katsi
+481,burusports,Volkl,RACETIGER SRC ORANGE XMOTION,173,new,2400.0,1200.0,https://burusports.ge/en/product/racetiger-src-orange-xmotion/173-katsi
+482,burusports,Volkl,RTM 76 ELITE VMOTION2,168,new,1625.0,975.0,https://burusports.ge/en/product/rtm-76-elite-vmotion2/168-katsi
+483,burusports,Volkl,RTM 76 VMOTION1,175,new,1500.0,930.0,https://burusports.ge/en/product/rtm-76-vmotion1/175-katsi
+484,burusports,Volkl,RTM 8.0 w FDT PLATE,158,new,1800.0,900.0,https://burusports.ge/en/product/rtm-80-w-fdt-plate/158-katsi
+485,burusports,Volkl,FLAIR 73 WHITE VMOTION1,159,new,1650.0,830.0,https://burusports.ge/en/product/flair-73-white-vmotion1/153-qali
+486,burusports,Volkl,FLAIR 73 WHITE VMOTION1,153,new,1650.0,830.0,https://burusports.ge/en/product/flair-73-white-vmotion1/153-qali
+487,burusports,Volkl,FLAIR 73 BLACK VMOTION1,159,new,1650.0,830.0,https://burusports.ge/en/product/flair-73-black-vmotion1/159-qali
+488,burusports,Volkl,AURENA 4MOTION,159,new,1190.0,830.0,https://burusports.ge/en/product/aurena-4motion/159-qali
+489,burusports,Rossignol,FROZEN BABYTEAM 4 B76 WHT,,new,560.0,395.0,https://burusports.ge/en/product/frozen-babyteam-4-b76-wht/80sm
+490,burusports,Rossignol,FROZEN KXKID X 4 B76 WS,110,new,650.0,455.0,https://burusports.ge/en/product/frozen-kxkid-x-4-b76-ws/104
+491,burusports,Rossignol,FROZEN KXKID X 4 B76 WS,122,new,650.0,455.0,https://burusports.ge/en/product/frozen-kxkid-x-4-b76-ws/104
+492,burusports,Rossignol,FROZEN KXKID X 4 B76 WS,104,new,650.0,455.0,https://burusports.ge/en/product/frozen-kxkid-x-4-b76-ws/104
+493,burusports,Rossignol,NOVA  8 CA XPRESS PLUS W 11,149,new,2550.0,1785.0,https://burusports.ge/en/product/nova-8-ca-xpress-plus-w-11/149-qali
+494,burusports,Rossignol,NOVA 7 LTD,142,new,2175.0,1525.0,https://burusports.ge/en/product/nova-7-ltd/142-qali
+495,burusports,Rossignol,NOVA 7 LTD,149,new,2175.0,1525.0,https://burusports.ge/en/product/nova-7-ltd/142-qali
+496,burusports,Rossignol,NOVA 6 XP W 11 GW B83 BK GOLD,142,new,2069.0,1449.0,https://burusports.ge/en/product/nova-6-xp-w-11-gw-b83-bk-gold/142-qali
+497,burusports,Rossignol,NOVA 6 XP W 11 GW B83 BK GOLD,149,new,2069.0,1449.0,https://burusports.ge/en/product/nova-6-xp-w-11-gw-b83-bk-gold/142-qali
+498,burusports,Rossignol,NOVA 6 XP W 11 GW B83 BK GOLD,156,new,2069.0,1449.0,https://burusports.ge/en/product/nova-6-xp-w-11-gw-b83-bk-gold/142-qali
+499,burusports,Rossignol,NOVA 4 CA XP W 10 GW BK SPKL,154,new,1795.0,1255.0,https://burusports.ge/en/product/nova-4-ca-xp-w-10-gw-bk-spkl/samoyvarulo-154-qali
+500,megasport,BURTON,YEASAYER NO COLOR,148,new,,1939.0,https://megasport.ge/products/burton-yeasayer-no-color
+501,megasport,DYNASTAR-LANGE,E LITE 5 XP11DRNZ301,162,new,,1918.0,https://megasport.ge/products/dynastar-lange-e-lite-5-xp11drnz301
+502,megasport,DYNASTAR-LANGE,LEGEND CARBON SAFETY,110,new,,250.0,https://megasport.ge/products/dynastar-lange-legend-carbon-safety
+503,megasport,DYNASTAR-LANGE,LEGEND CARBON SAFETY,130,new,,250.0,https://megasport.ge/products/dynastar-lange-legend-carbon-safety
+504,megasport,DYNASTAR-LANGE,LEMON GIRL KID4,110,new,,748.0,https://megasport.ge/products/dynastar-lange-lemon-girl-kid4
+505,megasport,DYNASTAR-LANGE,LEMON GIRL KID4,116,new,,748.0,https://megasport.ge/products/dynastar-lange-lemon-girl-kid4
+506,megasport,DYNASTAR-LANGE,LEMON GIRL KID4,122,new,,748.0,https://megasport.ge/products/dynastar-lange-lemon-girl-kid4
+507,megasport,DYNASTAR-LANGE,M-CROSS 88 SPX12 MTXDR,176,new,,3029.0,https://megasport.ge/products/dynastar-lange-m-cross-88-spx12-mtxdr
+508,megasport,DYNASTAR-LANGE,M-CROSS 88 SPX12 MTXDR,184,new,,3029.0,https://megasport.ge/products/dynastar-lange-m-cross-88-spx12-mtxdr
+509,megasport,DYNASTAR-LANGE,SPEED 4X4 563 K,171,new,,2057.0,https://megasport.ge/products/dynastar-lange-speed-4x4-563-k
+510,megasport,DYNASTAR-LANGE,SPEED 4X4 563 TI K,167,new,,2347.0,https://megasport.ge/products/dynastar-lange-speed-4x4-563-ti-k
+511,megasport,DYNASTAR-LANGE,SPEED 563 K,162,new,,2188.0,https://megasport.ge/products/dynastar-lange-speed-563-k
+512,megasport,DYNASTAR-LANGE,SPEED 563 K,166,new,,2188.0,https://megasport.ge/products/dynastar-lange-speed-563-k
+513,megasport,DYNASTAR-LANGE,SPEED 563 K,168,new,,2188.0,https://megasport.ge/products/dynastar-lange-speed-563-k
+514,megasport,DYNASTAR-LANGE,SPEED 563 K,170,new,,2188.0,https://megasport.ge/products/dynastar-lange-speed-563-k
+515,megasport,DYNASTAR-LANGE,SPEED 563 K,173,new,,2188.0,https://megasport.ge/products/dynastar-lange-speed-563-k
+516,megasport,DYNASTAR-LANGE,SPEED CRS WC GS,175,new,,3550.0,https://megasport.ge/products/dynastar-lange-speed-crs-wc-gs
+517,megasport,DYNASTAR-LANGE,SPEED GS-SG,130,new,,255.0,https://megasport.ge/products/dynastar-lange-speed-gs-sg
+518,megasport,DYNASTAR-LANGE,SPEED SL SR DDMG,120,new,,280.0,https://megasport.ge/products/dynastar-lange-speed-sl-sr-ddmg
+519,megasport,DYNASTAR-LANGE,SPEED SL SR DDMG,125,new,,280.0,https://megasport.ge/products/dynastar-lange-speed-sl-sr-ddmg
+520,megasport,DYNASTAR-LANGE,SPEED SL SR DDMG,130,new,,280.0,https://megasport.ge/products/dynastar-lange-speed-sl-sr-ddmg
+521,megasport,DYNASTAR-LANGE,SPEED WC FIS SL FAC 1,165,new,,3750.0,https://megasport.ge/products/dynastar-lange-speed-wc-fis-sl-fac-1
+522,megasport,DYNASTAR-LANGE,TEAM COMP,130,new,,1197.0,https://megasport.ge/products/dynastar-lange-team-comp
+523,megasport,DYNASTAR-LANGE,TEAM COMP,140,new,,1197.0,https://megasport.ge/products/dynastar-lange-team-comp
+524,megasport,DYNASTAR-LANGE,TEAM SPEED 100-130 KID4,100,new,,776.0,https://megasport.ge/products/dynastar-lange-team-speed-100-130-kid4
+525,megasport,DYNASTAR-LANGE,TEAM SPEED 100-130 KID4,110,new,,776.0,https://megasport.ge/products/dynastar-lange-team-speed-100-130-kid4
+526,megasport,DYNASTAR-LANGE,TEAM SPEED 100-130 KID4,120,new,,776.0,https://megasport.ge/products/dynastar-lange-team-speed-100-130-kid4
+527,megasport,DYNASTAR-LANGE,TEAM SPEED 100-130 KID4,130,new,,776.0,https://megasport.ge/products/dynastar-lange-team-speed-100-130-kid4
+528,megasport,DYNASTAR-LANGE,TEAM SPEED 100-130 KID4,140,new,,776.0,https://megasport.ge/products/dynastar-lange-team-speed-100-130-kid4
+529,megasport,DYNASTAR-LANGE,TEAM SPEED 100-130 KID4,150,new,,776.0,https://megasport.ge/products/dynastar-lange-team-speed-100-130-kid4
+530,megasport,DYNASTAR-LANGE,VECTOR BLACK DDI,110,new,,117.0,https://megasport.ge/products/dynastar-lange-vector-black-ddi
+531,megasport,DYNASTAR-LANGE,VECTOR BLACK DDI,120,new,,117.0,https://megasport.ge/products/dynastar-lange-vector-black-ddi
+532,megasport,DYNASTAR-LANGE,VECTOR BLACK DDI,125,new,,117.0,https://megasport.ge/products/dynastar-lange-vector-black-ddi
+533,megasport,DYNASTAR-LANGE,VECTOR BLACK DDI,130,new,,117.0,https://megasport.ge/products/dynastar-lange-vector-black-ddi
+534,megasport,DYNASTAR-LANGE,VECTOR TEAM DDI,100,new,,88.0,https://megasport.ge/products/dynastar-lange-vector-team-ddi
+535,megasport,DYNASTAR-LANGE,VECTOR TEAM DDI,105,new,,88.0,https://megasport.ge/products/dynastar-lange-vector-team-ddi
+536,megasport,DYNASTAR-LANGE,VECTOR TEAM GIRL DDI,100,new,,88.0,https://megasport.ge/products/dynastar-lange-vector-team-girl-ddi
+537,megasport,FISCHER,P12522-THE CURV PRO JRS,120,new,,950.0,https://megasport.ge/products/fischer-M5b
+538,megasport,FISCHER,P12822-THE CURV PRO JRS,120,new,,950.0,https://megasport.ge/products/fischer-p12822-the-curv-pro-jrs-fs7-ca-jrs
+539,megasport,FISCHER,THE CURV DTI AR + RS 11 PR,171,new,,2431.0,https://megasport.ge/products/fischer-the-curv-dti-ar-rs-11-pr
+540,megasport,FISCHER,THE CURV GT 76 TPR,173,new,,2125.0,https://megasport.ge/products/fischer-the-curv-gt-76-tpr
+541,megasport,FISCHER,THE CURV GT 85 MT,168,new,,2945.0,https://megasport.ge/products/fischer-the-curv-gt-85-mt
+542,megasport,FISCHER,THE CURV JR (70-120) JRS,100,new,,638.0,https://megasport.ge/products/fischer-the-curv-jr-(70-120)-jrs
+543,megasport,FISCHER,THE CURV TI TPR,171,new,,1976.0,https://megasport.ge/products/fischer-the-curv-ti-tpr
+544,megasport,TECNICA-BLIZZARD,B.THUNDERBIRD R15WIDE BODY 01 TBD,174,new,,3895.0,https://megasport.ge/products/tecnica-blizzard-b.thunderbird-r15wide-body-01-tbd
+545,megasport,TECNICA-BLIZZARD,B.THUNDERBIRD R18LTD 001 TBD,180,new,,3895.0,https://megasport.ge/products/tecnica-blizzard-b.thunderbird-r18ltd-001-tbd
+546,megasport,TECNICA-BLIZZARD,B.THUNDERBIRD R18LTD 001 TBD,185,new,,3895.0,https://megasport.ge/products/tecnica-blizzard-b.thunderbird-r18ltd-001-tbd
+547,megasport,TECNICA-BLIZZARD,COCHISE 106 FLAT ORANGE,185,new,,2550.0,https://megasport.ge/products/tecnica-blizzard-cochise-106-flat-orange
+548,megasport,TECNICA-BLIZZARD,FIREBIRD JR 100-140 BLUE/ORANGE,100,new,,755.0,https://megasport.ge/products/tecnica-blizzard-firebird-jr-100-140-blue-orange
+549,megasport,TECNICA-BLIZZARD,FIREBIRD JR 100-140 BLUE/ORANGE,110,new,,755.0,https://megasport.ge/products/tecnica-blizzard-firebird-jr-100-140-blue-orange
+550,megasport,TECNICA-BLIZZARD,FIREBIRD WRC 001 TBD,170,new,,3738.0,https://megasport.ge/products/tecnica-blizzard-firebird-wrc-001-tbd
+551,megasport,TECNICA-BLIZZARD,FIREBIRD WRC 001 TBD,175,new,,3738.0,https://megasport.ge/products/tecnica-blizzard-firebird-wrc-001-tbd
