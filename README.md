@@ -12,6 +12,7 @@ parsing_ski/
 │  README.md
 │  requirements.txt
 │  run_scrapers.py
+│  compare_last_exports.py
 │
 ├─ src/
 │   └─ parsing_ski/
@@ -20,6 +21,7 @@ parsing_ski/
 │       │  models.py
 │       │  db.py
 │       │  export_unified.py
+│       │  diff_exports.py
 │       │
 │       └─ shops/
 │           │  shop_extreme_ge.py
@@ -55,6 +57,14 @@ python run_scrapers.py
 По умолчанию:
 - парсятся **все магазины**
 - CSV сохраняется в `data/exports/skis_unified_YYYYMMDD_HHMM.csv`
+
+```bash
+python compare_last_exports.py
+```
+Ищет 2 последних файла с выгрузкой и определяет изменения:
+- продано
+- новые поступления
+- изменение цены
 
 ---
 
@@ -104,7 +114,8 @@ python run_scrapers.py --output results/myfile.csv
 - `cli.py` — аргументы, запуск, объединение данных  
 - `shops/*.py` — парсеры магазинов  
 - `export_unified.py` — экспорт CSV  
-- `models.py` — модель товара  
+- `models.py` — модель товара 
+- `diff_exports.py` - сравнение изменений 
 
 ---
 
