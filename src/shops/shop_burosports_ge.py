@@ -3,7 +3,7 @@ import time
 import re
 from typing import List, Optional, Tuple, Dict
 from urllib.parse import urljoin
-from models import Product, MIN_SKI_LENGTH_CM, MAX_SKI_LENGTH_CM
+from src.parsing_ski.models import Product, MIN_SKI_LENGTH_CM, MAX_SKI_LENGTH_CM
 
 import requests
 from bs4 import BeautifulSoup
@@ -275,7 +275,7 @@ def product_to_unified_rows(p: Product) -> List[dict]:
         for L in lengths:
             rows.append(
                 {
-                    "shop": p.shop,
+                    "shops": p.shop,
                     "brand": p.brand,
                     "model": p.model,
                     "condition": p.condition,
@@ -297,7 +297,7 @@ def product_to_unified_rows(p: Product) -> List[dict]:
 
     rows.append(
         {
-            "shop": p.shop,
+            "shops": p.shop,
             "brand": p.brand,
             "model": p.model,
             "condition": p.condition,

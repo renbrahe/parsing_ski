@@ -3,15 +3,15 @@ import re
 from typing import Dict, List, Callable
 
 from models import Product
-from shop_extreme_ge import scrape_xtreme
-from shop_snowmania_ge import scrape_snowmania
-from shop_burosports_ge import (
+from src.shops.shop_extreme_ge import scrape_xtreme
+from src.shops.shop_snowmania_ge import scrape_snowmania
+from src.shops.shop_burosports_ge import (
     scrape_burosports,
     product_to_unified_rows as burosports_product_to_unified_rows,
 )
-from shop_megasport_ge import scrape_megasport
+from src.shops.shop_megasport_ge import scrape_megasport
 
-from export_unified import export_unified_to_csv
+from .export_unified import export_unified_to_csv, get_default_export_path
 
 
 def product_to_unified_rows(p: Product) -> List[dict]:
@@ -19,7 +19,7 @@ def product_to_unified_rows(p: Product) -> List[dict]:
     Преобразует Product из models.py в унифицированный dict
     под export_unified_to_csv.
     """
-    if getattr(p, "shop", None) == "burusports":
+    if getattr(p, "shops", None) == "burusports":
         return burosports_product_to_unified_rows(p)
 
     # длина лыжи: берём первый размер из списка sizes
@@ -35,7 +35,7 @@ def product_to_unified_rows(p: Product) -> List[dict]:
                 length_cm = None
 
     row = {
-        "shop": p.shop,
+        "shops": p.shop,
         "brand": p.brand,
         # если model пустая — подставим title
         "model": p.model or p.title,
@@ -53,7 +53,7 @@ def parse_args():
     parser.add_argument(
         "--test",
         action="store_true",
-        help="Test mode: only first page per shop",
+        help="Test mode: only first page per shops",
     )
     parser.add_argument(
         "--shops",
@@ -99,11 +99,15 @@ def build_runners(test_mode: bool) -> Dict[str, Callable[[], List[Product]]]:
         # при желании сюда тоже можно добавить test_mode
         return scrape_burosports(test_mode=test_mode)
 
+    def megasport_runner() -> List[Product]:
+        # при желании сюда тоже можно добавить test_mode
+        return scrape_megasport(test_mode=test_mode)
+
     return {
         "xtreme": xtreme_runner,
         "snowmania": snowmania_runner,
         "burosports": burosports_runner,
-        "megasport": scrape_megasport,
+        "megasport": megasport_runner,
     }
 
 
@@ -121,7 +125,7 @@ def validate_shops(
         if s_norm in available:
             valid.append(s_norm)
         else:
-            print(f"[WARN] Unknown shop '{s}', skipping.")
+            print(f"[WARN] Unknown shops '{s}', skipping.")
 
     if not valid:
         print("[ERROR] No valid shops selected. Exiting.")
@@ -152,12 +156,14 @@ def main():
         for p in products:
             all_items.extend(product_to_unified_rows(p))
 
+    out_path = args.output or get_default_export_path()
     export_unified_to_csv(
         all_items,
         filename="skis_unified.csv",
         min_length=args.min_length,
         max_length=args.max_length,
     )
+    print(f"Saved: {out_path}")
     print("[OK] Export finished: skis_unified.csv")
 
 

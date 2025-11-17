@@ -1,9 +1,17 @@
 import csv
 from datetime import datetime
+from pathlib import Path
+
+DEFAULT_EXPORT_DIR = Path(__file__).resolve().parents[2] / "data" / "exports"
+
+def get_default_export_path(prefix: str = "skis_unified") -> Path:
+    DEFAULT_EXPORT_DIR.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M")
+    return DEFAULT_EXPORT_DIR / f"{prefix}_{ts}.csv"
 
 UNIFIED_HEADER = [
     "№",
-    "shop",
+    "shops",
     "brand",
     "model",
     "length_cm",
@@ -17,7 +25,7 @@ def export_unified_to_csv(items, filename, min_length=None, max_length=None):
     """
     items — список dict вида:
       {
-        "shop": "xtreme",
+        "shops": "xtreme",
         "brand": "HEAD",
         "model": "Kore X 90",
         "condition": "new" / "used",
@@ -57,7 +65,7 @@ def export_unified_to_csv(items, filename, min_length=None, max_length=None):
         for idx, item in enumerate(filtered, start=1):
             row = {
                 "№": idx,
-                "shop": item.get("shop"),
+                "shops": item.get("shops"),
                 "brand": item.get("brand"),
                 "model": item.get("model"),
                 "condition": item.get("condition"),

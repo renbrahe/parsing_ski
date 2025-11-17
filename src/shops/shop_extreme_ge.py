@@ -1,13 +1,13 @@
 # shop_extreme_ge.py
 import time
 import re
-from typing import List, Tuple, Optional
+from typing import List, Optional
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, urljoin
 
 import requests
 from bs4 import BeautifulSoup
 
-from models import Product
+from src.parsing_ski.models import Product
 
 
 BASE_URL = "https://www.xtreme.ge/en/shop/category/ski-skis-2"

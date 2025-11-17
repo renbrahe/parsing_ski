@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-from models import Product, MIN_SKI_LENGTH_CM, MAX_SKI_LENGTH_CM
+from src.parsing_ski.models import Product, MIN_SKI_LENGTH_CM, MAX_SKI_LENGTH_CM
 
 BASE_DOMAIN = "https://snowmania.ge"
 
@@ -452,7 +452,7 @@ def iter_category_products(
                     continue
 
                 yield {
-                    "shop": SHOP_NAME,
+                    "shops": SHOP_NAME,
                     "condition": condition,  # "new" / "used"
                     "brand": details["brand"],
                     "model": details["model"],

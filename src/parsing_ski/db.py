@@ -4,8 +4,7 @@ from datetime import datetime
 from typing import Optional
 from pathlib import Path
 
-DB_PATH = Path(__file__).with_name("skis.sqlite")
-
+DB_PATH = Path(__file__).resolve().parents[2] / "data" / "db" / "skis.sqlite"
 
 def get_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
@@ -21,7 +20,7 @@ def init_db() -> None:
         """
         CREATE TABLE IF NOT EXISTS products (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            shop TEXT NOT NULL,
+            shops TEXT NOT NULL,
             url TEXT NOT NULL,
             brand TEXT,
             model TEXT,
@@ -36,7 +35,7 @@ def init_db() -> None:
             is_interesting INTEGER,        -- NULL=не решено, 1=интересно, 0=неинтересно
             created_at TEXT NOT NULL,
             last_seen TEXT NOT NULL,
-            UNIQUE (shop, url)
+            UNIQUE (shops, url)
         )
         """
     )
@@ -50,7 +49,7 @@ def _get_existing_product(cur: sqlite3.Cursor, shop: str, url: str):
         """
         SELECT id, is_interesting
           FROM products
-         WHERE shop = ?
+         WHERE shops = ?
            AND url = ?
         """,
         (shop, url),
@@ -94,14 +93,14 @@ def upsert_product(
         cur.execute(
             """
             INSERT INTO products (
-                shop, url, brand, model, title, sizes,
+                shops, url, brand, model, title, sizes,
                 current_price, old_price, currency,
                 in_stock, quantity, shop_sku,
                 is_interesting,
                 created_at, last_seen
             )
             VALUES (
-                :shop, :url, :brand, :model, :title, :sizes,
+                :shops, :url, :brand, :model, :title, :sizes,
                 :current_price, :old_price, :currency,
                 :in_stock, :quantity, :shop_sku,
                 :is_interesting,
@@ -109,7 +108,7 @@ def upsert_product(
             )
             """,
             {
-                "shop": shop,
+                "shops": shop,
                 "url": url,
                 "brand": brand,
                 "model": model,
@@ -188,12 +187,12 @@ def set_interesting(shop: str, url: str, is_interesting: bool) -> None:
         """
         UPDATE products
            SET is_interesting = :val
-         WHERE shop = :shop
+         WHERE shops = :shops
            AND url = :url
         """,
         {
             "val": 1 if is_interesting else 0,
-            "shop": shop,
+            "shops": shop,
             "url": url,
         },
     )
