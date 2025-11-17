@@ -1,170 +1,184 @@
 import argparse
-import re
-from typing import Dict, List, Callable
+from pathlib import Path
+from typing import List, Dict
 
-from models import Product
-from src.shops.shop_extreme_ge import scrape_xtreme
-from src.shops.shop_snowmania_ge import scrape_snowmania
-from src.shops.shop_burosports_ge import (
+from parsing_ski.models import Product, MIN_SKI_LENGTH_CM, MAX_SKI_LENGTH_CM
+from shops.shop_extreme_ge import scrape_xtreme
+from shops.shop_snowmania_ge import scrape_snowmania
+from shops.shop_burosports_ge import (
     scrape_burosports,
     product_to_unified_rows as burosports_product_to_unified_rows,
 )
-from src.shops.shop_megasport_ge import scrape_megasport
+from shops.shop_megasport_ge import scrape_megasport
 
 from .export_unified import export_unified_to_csv, get_default_export_path
 
 
-def product_to_unified_rows(p: Product) -> List[dict]:
-    """
-    Преобразует Product из models.py в унифицированный dict
-    под export_unified_to_csv.
-    """
-    if getattr(p, "shops", None) == "burusports":
-        return burosports_product_to_unified_rows(p)
-
-    # длина лыжи: берём первый размер из списка sizes
-    length_cm = None
-    sizes = getattr(p, "sizes", []) or []
-    if sizes:
-        s0 = str(sizes[0])
-        m = re.search(r"\d+", s0)
-        if m:
-            try:
-                length_cm = int(m.group(0))
-            except ValueError:
-                length_cm = None
-
-    row = {
-        "shops": p.shop,
-        "brand": p.brand,
-        # если model пустая — подставим title
-        "model": p.model or p.title,
-        "condition": p.condition,
-        "orig_price": p.old_price,
-        "price": p.current_price,
-        "length_cm": length_cm,
-        "url": p.url,
-    }
-    return [row]
-
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--test",
-        action="store_true",
-        help="Test mode: only first page per shops",
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Scrape Georgian ski shops and export unified CSV."
     )
     parser.add_argument(
         "--shops",
         nargs="+",
-        choices=["xtreme", "snowmania", "burosports", "megasport"],
-        required=True,
-        help="Shops to scrape",
+        default=["all"],
+        help=(
+            "Какие магазины парсить: xtreme snowmania burosports megasport "
+            "или 'all' чтобы спарсить все (по умолчанию all)."
+        ),
+    )
+    parser.add_argument(
+        "--test",
+        action="store_true",
+        help="Тестовый режим: только первая страница на магазин (где применимо).",
     )
     parser.add_argument(
         "--min",
         dest="min_length",
         type=int,
         default=None,
-        help="Min ski length in cm (e.g. 150)",
+        help="Минимальная длина лыжи в см (например 150).",
     )
     parser.add_argument(
         "--max",
         dest="max_length",
         type=int,
         default=None,
-        help="Max ski length in cm (e.g. 190)",
+        help="Максимальная длина лыжи в см (например 190).",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default=None,
+        help=(
+            "Путь к CSV. Если не указан — файл создаётся в data/exports/ "
+            "с таймстампом."
+        ),
     )
     return parser.parse_args()
 
 
-def build_runners(test_mode: bool) -> Dict[str, Callable[[], List[Product]]]:
+def product_to_unified_rows_generic(p: Product) -> List[dict]:
     """
-    Создаёт раннеры, учитывающие test_mode.
+    Превратить Product в одну или несколько строк унифицированного формата.
+
+    - Пытаемся достать ВСЕ длины из p.sizes (типа '185', '185cm', '176 სმ').
+    - Если не получилось — пробуем 3-значное число из названия модели.
     """
+    rows: List[dict] = []
 
-    def xtreme_runner() -> List[Product]:
-        # внутри scrape_xtreme test_mode=True ограничит страницы
-        return scrape_xtreme(test_mode=test_mode)
+    sizes = getattr(p, "sizes", []) or []
 
-    def snowmania_runner() -> List[Product]:
-        # в тестовом режиме только 1 страница на категорию
-        return scrape_snowmania(
-            test_mode=test_mode,
-            test_max_pages=1,
+    # 1. Пытаемся парсить длины из sizes
+    lengths: List[int] = []
+    for s in sizes:
+        clean = "".join(
+            ch if ch.isdigit() or ch.isspace() else " " for ch in (s or "")
+        )
+        for chunk in clean.split():
+            if len(chunk) >= 2 and chunk.isdigit():
+                L = int(chunk)
+                if MIN_SKI_LENGTH_CM <= L <= MAX_SKI_LENGTH_CM and L not in lengths:
+                    lengths.append(L)
+
+    # 2. Если ничего не нашли — пробуем из model
+    if not lengths and (p.model or ""):
+        import re as _re
+
+        m = _re.search(r"(\d{3})", p.model)
+        if m:
+            L = int(m.group(1))
+            if MIN_SKI_LENGTH_CM <= L <= MAX_SKI_LENGTH_CM:
+                lengths.append(L)
+
+    # Если всё равно пусто — длину оставляем None
+    if not lengths:
+        lengths = [None]
+
+    for L in lengths:
+        rows.append(
+            {
+                "shops": p.shop,
+                "brand": p.brand,
+                "model": p.model,
+                "condition": p.condition,
+                "orig_price": p.old_price,
+                "price": p.current_price,
+                "length_cm": L,
+                "url": p.url,
+            }
         )
 
-    def burosports_runner() -> List[Product]:
-        # при желании сюда тоже можно добавить test_mode
-        return scrape_burosports(test_mode=test_mode)
-
-    def megasport_runner() -> List[Product]:
-        # при желании сюда тоже можно добавить test_mode
-        return scrape_megasport(test_mode=test_mode)
-
-    return {
-        "xtreme": xtreme_runner,
-        "snowmania": snowmania_runner,
-        "burosports": burosports_runner,
-        "megasport": megasport_runner,
-    }
+    return rows
 
 
-def validate_shops(
-    requested: List[str],
-    available: Dict[str, Callable[[], List[Product]]],
-) -> List[str]:
-    """
-    Проверяет корректность списка магазинов.
-    """
-    valid: List[str] = []
-
-    for s in requested:
-        s_norm = s.strip().lower()
-        if s_norm in available:
-            valid.append(s_norm)
-        else:
-            print(f"[WARN] Unknown shops '{s}', skipping.")
-
-    if not valid:
-        print("[ERROR] No valid shops selected. Exiting.")
-
-    return valid
-
-
-def main():
+def main() -> None:
     args = parse_args()
 
-    # создаём раннеры с учётом test_mode
-    runners = build_runners(test_mode=args.test)
+    # Нормализуем список магазинов
+    available_shops: Dict[str, str] = {
+        "xtreme": "xtreme.ge",
+        "snowmania": "snowmania.ge",
+        "burosports": "burusports.ge",
+        "megasport": "megasport.ge",
+    }
 
-    # нормализуем и проверяем список магазинов
-    shops = validate_shops(args.shops, runners)
-    if not shops:
+    requested = [s.lower() for s in args.shops]
+
+    if "all" in requested:
+        shop_codes = list(available_shops.keys())
+    else:
+        unknown = [s for s in requested if s not in available_shops]
+        if unknown:
+            raise SystemExit(f"Unknown shop codes: {', '.join(unknown)}")
+        shop_codes = requested
+
+    all_rows: List[dict] = []
+
+    for code in shop_codes:
+        print(f"[RUN] Scraping {available_shops[code]} ...")
+
+        # Вызываем нужный скрейпер с параметрами тестового режима
+        if code == "xtreme":
+            products = scrape_xtreme(
+                test_mode=args.test,
+                max_pages=1 if args.test else None,
+            )
+        elif code == "snowmania":
+            products = scrape_snowmania(
+                test_mode=args.test,
+                test_max_pages=1 if args.test else 99,
+            )
+        elif code == "burosports":
+            products = scrape_burosports(test_mode=args.test)
+        elif code == "megasport":
+            products = scrape_megasport(test_mode=args.test)
+        else:
+            # На всякий случай, сюда не должны попасть
+            continue
+
+        print(f"[INFO] {available_shops[code]}: {len(products)} products scraped")
+
+        for p in products:
+            if code == "burosports":
+                # Для burusports уже есть своя функция разбиения по длинам
+                rows = burosports_product_to_unified_rows(p)
+            else:
+                rows = product_to_unified_rows_generic(p)
+            all_rows.extend(rows)
+
+    if not all_rows:
+        print("[WARN] No rows scraped, nothing to export.")
         return
 
-    all_items = []
-
-    for shop_code in shops:
-        runner = runners[shop_code]
-        print(f"[RUN] Scraping {shop_code} ...")
-        products = runner()
-        print(f"[INFO] {shop_code}: {len(products)} products scraped")
-
-        # конвертируем Product → dict для export_unified_to_csv
-        for p in products:
-            all_items.extend(product_to_unified_rows(p))
-
-    out_path = args.output or get_default_export_path()
+    out_path = Path(args.output) if args.output else get_default_export_path()
     export_unified_to_csv(
-        all_items,
-        filename="skis_unified.csv",
+        all_rows,
+        filename=out_path,
         min_length=args.min_length,
         max_length=args.max_length,
     )
-    print(f"Saved: {out_path}")
-    print("[OK] Export finished: skis_unified.csv")
+    print(f"[OK] Export finished: {out_path}")
 
 
 if __name__ == "__main__":

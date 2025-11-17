@@ -1,79 +1,89 @@
 import csv
-from datetime import datetime
 from pathlib import Path
+from datetime import datetime
+from typing import Iterable, List, Optional, Union, Dict, Any
 
+# Каталог для экспорта относительно корня проекта
 DEFAULT_EXPORT_DIR = Path(__file__).resolve().parents[2] / "data" / "exports"
 
+
 def get_default_export_path(prefix: str = "skis_unified") -> Path:
+    """Вернуть путь вида data/exports/skis_unified_YYYYMMDD_HHMM.csv."""
     DEFAULT_EXPORT_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M")
     return DEFAULT_EXPORT_DIR / f"{prefix}_{ts}.csv"
+
 
 UNIFIED_HEADER = [
     "№",
     "shops",
     "brand",
     "model",
-    "length_cm",
     "condition",
     "orig_price",
     "price",
+    "length_cm",
     "url",
 ]
 
-def export_unified_to_csv(items, filename, min_length=None, max_length=None):
+
+def export_unified_to_csv(
+    items: Iterable[Dict[str, Any]],
+    filename: Union[str, Path],
+    min_length: Optional[int] = None,
+    max_length: Optional[int] = None,
+) -> None:
     """
-    items — список dict вида:
-      {
-        "shops": "xtreme",
-        "brand": "HEAD",
-        "model": "Kore X 90",
-        "condition": "new" / "used",
-        "orig_price": 1350.0,
-        "price": 999.0,
-        "length_cm": 177,  # int или None
-        "url": "https://..."
-      }
-    min_length / max_length — int или None
+    Экспортирует список словарей в CSV в унифицированном формате.
+
+    items — iterable словарей с ключами:
+        shops, brand, model, condition, orig_price, price, length_cm, url
+
+    filename — строка или Path до итогового CSV.
+
+    min_length / max_length — необязательные границы длины лыж в см.
     """
-    ts = datetime.now().strftime("%Y%m%d_%H%M")
+    path = Path(filename)
+    path.parent.mkdir(parents=True, exist_ok=True)
 
-    # если пользователь передал "output.csv", получим "output_20251115_2304.csv"
-    if filename.lower().endswith(".csv"):
-        filename = filename[:-4] + f"_{ts}.csv"
-    else:
-        filename = filename + f"_{ts}.csv"
-
-
-    filtered = []
+    # 1. Фильтрация по длине, если заданы границы
+    filtered: List[Dict[str, Any]] = []
     for item in items:
         length = item.get("length_cm")
 
-        # фильтрация по длине только если длина распознана
         if length is not None:
-            if min_length is not None and length < min_length:
+            try:
+                L = int(length)
+            except (TypeError, ValueError):
+                L = None
+        else:
+            L = None
+
+        if L is not None:
+            if min_length is not None and L < min_length:
                 continue
-            if max_length is not None and length > max_length:
+            if max_length is not None and L > max_length:
                 continue
 
         filtered.append(item)
 
-    with open(filename, "w", newline="", encoding="utf-8") as f:
+    # 2. Запись CSV
+    with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=UNIFIED_HEADER)
         writer.writeheader()
 
         for idx, item in enumerate(filtered, start=1):
             row = {
                 "№": idx,
-                "shops": item.get("shops"),
+                "shop": item.get("shops"),
                 "brand": item.get("brand"),
                 "model": item.get("model"),
+                "length_cm": item.get("length_cm"),
                 "condition": item.get("condition"),
                 "orig_price": item.get("orig_price"),
                 "price": item.get("price"),
-                "length_cm": item.get("length_cm"),
                 "url": item.get("url"),
             }
             writer.writerow(row)
 
-    print(f"[OK] Exported {len(filtered)} rows to {filename}")
+    print(f"[OK] Exported {len(filtered)} rows to {path}")

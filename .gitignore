@@ -1,0 +1,41 @@
+# --- Project specific ---
+db/
+logs/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+*.env
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.iml
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
