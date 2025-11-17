@@ -452,7 +452,7 @@ def iter_category_products(
                     continue
 
                 yield {
-                    "shops": SHOP_NAME,
+                    "shop": SHOP_NAME,
                     "condition": condition,  # "new" / "used"
                     "brand": details["brand"],
                     "model": details["model"],

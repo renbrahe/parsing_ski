@@ -16,7 +16,7 @@ def get_default_export_path(prefix: str = "skis_unified") -> Path:
 
 UNIFIED_HEADER = [
     "№",
-    "shops",
+    "shop",
     "brand",
     "model",
     "condition",
@@ -37,7 +37,7 @@ def export_unified_to_csv(
     Экспортирует список словарей в CSV в унифицированном формате.
 
     items — iterable словарей с ключами:
-        shops, brand, model, condition, orig_price, price, length_cm, url
+        shop, brand, model, condition, orig_price, price, length_cm, url
 
     filename — строка или Path до итогового CSV.
 
@@ -75,13 +75,13 @@ def export_unified_to_csv(
         for idx, item in enumerate(filtered, start=1):
             row = {
                 "№": idx,
-                "shop": item.get("shops"),
+                "shop": item.get("shop"),
                 "brand": item.get("brand"),
                 "model": item.get("model"),
-                "length_cm": item.get("length_cm"),
                 "condition": item.get("condition"),
                 "orig_price": item.get("orig_price"),
                 "price": item.get("price"),
+                "length_cm": item.get("length_cm"),
                 "url": item.get("url"),
             }
             writer.writerow(row)

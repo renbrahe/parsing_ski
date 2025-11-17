@@ -275,7 +275,7 @@ def product_to_unified_rows(p: Product) -> List[dict]:
         for L in lengths:
             rows.append(
                 {
-                    "shops": p.shop,
+                    "shop": p.shop,
                     "brand": p.brand,
                     "model": p.model,
                     "condition": p.condition,
@@ -297,7 +297,7 @@ def product_to_unified_rows(p: Product) -> List[dict]:
 
     rows.append(
         {
-            "shops": p.shop,
+            "shop": p.shop,
             "brand": p.brand,
             "model": p.model,
             "condition": p.condition,

@@ -1,4 +1,5 @@
 import argparse
+import logging
 from pathlib import Path
 from typing import List, Dict
 
@@ -12,6 +13,8 @@ from shops.shop_burosports_ge import (
 from shops.shop_megasport_ge import scrape_megasport
 
 from .export_unified import export_unified_to_csv, get_default_export_path
+
+logger = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
@@ -98,7 +101,7 @@ def product_to_unified_rows_generic(p: Product) -> List[dict]:
     for L in lengths:
         rows.append(
             {
-                "shops": p.shop,
+                "shop": p.shop,
                 "brand": p.brand,
                 "model": p.model,
                 "condition": p.condition,
@@ -115,7 +118,6 @@ def product_to_unified_rows_generic(p: Product) -> List[dict]:
 def main() -> None:
     args = parse_args()
 
-    # Нормализуем список магазинов
     available_shops: Dict[str, str] = {
         "xtreme": "xtreme.ge",
         "snowmania": "snowmania.ge",
@@ -130,15 +132,15 @@ def main() -> None:
     else:
         unknown = [s for s in requested if s not in available_shops]
         if unknown:
+            logger.error("Unknown shop codes: %s", ", ".join(unknown))
             raise SystemExit(f"Unknown shop codes: {', '.join(unknown)}")
         shop_codes = requested
 
     all_rows: List[dict] = []
 
     for code in shop_codes:
-        print(f"[RUN] Scraping {available_shops[code]} ...")
+        logger.info("[RUN] Scraping %s ...", available_shops[code])
 
-        # Вызываем нужный скрейпер с параметрами тестового режима
         if code == "xtreme":
             products = scrape_xtreme(
                 test_mode=args.test,
@@ -154,21 +156,23 @@ def main() -> None:
         elif code == "megasport":
             products = scrape_megasport(test_mode=args.test)
         else:
-            # На всякий случай, сюда не должны попасть
             continue
 
-        print(f"[INFO] {available_shops[code]}: {len(products)} products scraped")
+        logger.info(
+            "[INFO] %s: %d products scraped",
+            available_shops[code],
+            len(products),
+        )
 
         for p in products:
             if code == "burosports":
-                # Для burusports уже есть своя функция разбиения по длинам
                 rows = burosports_product_to_unified_rows(p)
             else:
                 rows = product_to_unified_rows_generic(p)
             all_rows.extend(rows)
 
     if not all_rows:
-        print("[WARN] No rows scraped, nothing to export.")
+        logger.warning("[WARN] No rows scraped, nothing to export.")
         return
 
     out_path = Path(args.output) if args.output else get_default_export_path()
@@ -178,8 +182,4 @@ def main() -> None:
         min_length=args.min_length,
         max_length=args.max_length,
     )
-    print(f"[OK] Export finished: {out_path}")
-
-
-if __name__ == "__main__":
-    main()
+    logger.info("[OK] Export finished: %s", out_path)
