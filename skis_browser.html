@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Фильтр лыж из CSV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- PapaParse для нормального парсинга CSV -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: light;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f4f5f7;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+    }
+
+    .panel-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .file-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    label {
+      font-size: 13px;
+      color: #555;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      padding: 4px 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 13px;
+      min-width: 80px;
+      max-width: 220px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+      transform: translateY(1px);
+    }
+
+    button {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 13px;
+      cursor: pointer;
+      background: #0052cc;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px 12px;
+      align-items: end;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #e9efff;
+      color: #003a99;
+      font-weight: 500;
+    }
+
+    .table-wrapper {
+      max-height: 70vh;
+      overflow: auto;
+      border-radius: 12px;
+      border: 1px solid #dde1ea;
+      background: #ffffff;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+      background: #f7f8fb;
+      z-index: 2;
+    }
+
+    th, td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #edf0f4;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      font-weight: 600;
+      font-size: 12px;
+      color: #444;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fafbff;
+    }
+
+    tbody tr:hover {
+      background: #eaf3ff;
+    }
+
+    td.url-cell a {
+      color: #0052cc;
+      text-decoration: none;
+    }
+
+    td.url-cell a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .status-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .status-line span {
+      font-size: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #f1f3f7;
+      color: #333;
+    }
+
+    .pill-new {
+      background: #e8fbe8;
+      color: #196b19;
+    }
+
+    .pill-used {
+      background: #fff3cd;
+      color: #8a6d3b;
+    }
+
+    .pill-discount {
+      background: #ffecec;
+      color: #a72828;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .file-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      input[type="number"],
+      input[type="text"],
+      select {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Выбор CSV файла -->
+  <div class="panel">
+    <div class="panel-title">
+      <span>1. Выбор CSV (экспорты лыж)</span>
+      <span class="badge">Сначала выбери CSV-файл(ы)</span>
+    </div>
+    <div class="file-row">
+      <div>
+        <label for="fileInput">
+          <strong>Файлы CSV:</strong>
+        </label><br />
+        <input id="fileInput" type="file" accept=".csv" multiple />
+        <div class="muted">
+          Можно выбрать сразу несколько файлов из <code>data/exports</code> — появятся в списке ниже.
+        </div>
+      </div>
+
+      <div>
+        <label for="fileSelect"><strong>Текущий файл:</strong></label><br />
+        <select id="fileSelect" disabled></select>
+      </div>
+
+      <div>
+        <button id="loadBtn" disabled>Загрузить выбранный CSV</button>
+      </div>
+    </div>
+
+    <div class="status-line">
+      <span id="fileInfo" class="muted">Файл не загружен.</span>
+      <span id="rowInfo" class="muted"></span>
+    </div>
+  </div>
+
+  <!-- Фильтры -->
+  <div class="panel">
+    <div class="panel-title">
+      <span>2. Фильтры по лыжам</span>
+      <button id="resetFiltersBtn" type="button">Сбросить фильтры</button>
+    </div>
+
+    <div class="filters-grid">
+      <div class="filter-item">
+        <label for="brandFilter">Бренд</label>
+        <select id="brandFilter">
+          <option value="">(все)</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="shopFilter">Магазин</label>
+        <select id="shopFilter">
+          <option value="">(все)</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="conditionFilter">Состояние</label>
+        <select id="conditionFilter">
+          <option value="">(все)</option>
+          <option value="new">new (новые)</option>
+          <option value="used">used (б/у)</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="modelSearch">Модель (поиск)</label>
+        <input id="modelSearch" type="text" placeholder="например, Kore, Sender, RC4..." />
+      </div>
+
+      <div class="filter-item">
+        <label>Длина, см (от / до)</label>
+        <div style="display:flex; gap:4px;">
+          <input id="lenMin" type="number" step="1" placeholder="min" />
+          <input id="lenMax" type="number" step="1" placeholder="max" />
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label>Цена, ₾ (от / до)</label>
+        <div style="display:flex; gap:4px;">
+          <input id="priceMin" type="number" step="1" placeholder="min" />
+          <input id="priceMax" type="number" step="1" placeholder="max" />
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label>&nbsp;</label>
+        <div>
+          <label>
+            <input id="discountOnly" type="checkbox" />
+            только со скидкой (orig &gt; price)
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label for="sortSelect">Сортировка</label>
+        <select id="sortSelect">
+          <option value="none">(без сортировки)</option>
+          <option value="priceAsc">Цена ↑</option>
+          <option value="priceDesc">Цена ↓</option>
+          <option value="lenAsc">Длина ↑</option>
+          <option value="lenDesc">Длина ↓</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Таблица -->
+  <div>
+    <div class="status-line" style="margin-bottom: 4px;">
+      <span><strong>3. Результаты</strong></span>
+      <span id="filteredInfo" class="muted"></span>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Магазин</th>
+            <th>Бренд</th>
+            <th>Модель</th>
+            <th class="nowrap">Длина, см</th>
+            <th>Сост.</th>
+            <th class="nowrap">Orig, ₾</th>
+            <th class="nowrap">Цена, ₾</th>
+            <th class="nowrap">Ссылка</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- строки добавляются скриптом -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const fileInput     = document.getElementById("fileInput");
+    const fileSelect    = document.getElementById("fileSelect");
+    const loadBtn       = document.getElementById("loadBtn");
+    const fileInfo      = document.getElementById("fileInfo");
+    const rowInfo       = document.getElementById("rowInfo");
+    const filteredInfo  = document.getElementById("filteredInfo");
+    const tableBody     = document.getElementById("tableBody");
+
+    const brandFilter   = document.getElementById("brandFilter");
+    const shopFilter    = document.getElementById("shopFilter");
+    const conditionFilter = document.getElementById("conditionFilter");
+    const modelSearch   = document.getElementById("modelSearch");
+    const lenMinInput   = document.getElementById("lenMin");
+    const lenMaxInput   = document.getElementById("lenMax");
+    const priceMinInput = document.getElementById("priceMin");
+    const priceMaxInput = document.getElementById("priceMax");
+    const discountOnly  = document.getElementById("discountOnly");
+    const sortSelect    = document.getElementById("sortSelect");
+    const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+
+    /** Все строки текущего CSV (массив объектов) */
+    let allRows = [];
+
+    /** Хэлпер: обновить селект файлов после выбора в <input type="file"> */
+    fileInput.addEventListener("change", () => {
+      const files = Array.from(fileInput.files || []);
+      fileSelect.innerHTML = "";
+      if (!files.length) {
+        fileSelect.disabled = true;
+        loadBtn.disabled = true;
+        fileInfo.textContent = "Файл не загружен.";
+        return;
+      }
+      files.forEach((file, idx) => {
+        const option = document.createElement("option");
+        option.value = idx.toString();
+        option.textContent = file.name;
+        fileSelect.appendChild(option);
+      });
+      fileSelect.disabled = false;
+      loadBtn.disabled = false;
+      fileInfo.textContent = `Выбрано файлов: ${files.length}. Выбран: ${files[0].name}`;
+    });
+
+    fileSelect.addEventListener("change", () => {
+      const files = Array.from(fileInput.files || []);
+      const idx = Number(fileSelect.value);
+      if (files[idx]) {
+        fileInfo.textContent = `Выбрано файлов: ${files.length}. Выбран: ${files[idx].name}`;
+      }
+    });
+
+    /** Загрузка и парсинг CSV */
+    loadBtn.addEventListener("click", () => {
+      const files = Array.from(fileInput.files || []);
+      const idx = Number(fileSelect.value);
+      const file = files[idx];
+      if (!file) return;
+
+      fileInfo.textContent = `Загружаем: ${file.name}...`;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const csvText = String(e.target.result || "");
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (results) => {
+            allRows = results.data || [];
+            fileInfo.textContent = `Загружен файл: ${file.name}`;
+            rowInfo.textContent = `Всего строк: ${allRows.length}`;
+            initFiltersFromData(allRows);
+            applyFiltersAndRender();
+          },
+          error: (err) => {
+            console.error(err);
+            fileInfo.textContent = "Ошибка парсинга CSV.";
+          }
+        });
+      };
+      reader.onerror = () => {
+        fileInfo.textContent = "Ошибка чтения файла.";
+      };
+      reader.readAsText(file, "utf-8");
+    });
+
+    /** Инициализация селектов бренда/магазина на основании данных */
+    function initFiltersFromData(rows) {
+      const brands = new Set();
+      const shops  = new Set();
+
+      rows.forEach(row => {
+        if (row.brand) brands.add(row.brand);
+        if (row.shop)  shops.add(row.shop);
+      });
+
+      fillSelectOptions(brandFilter, brands);
+      fillSelectOptions(shopFilter, shops);
+    }
+
+    function fillSelectOptions(selectEl, valuesSet) {
+      const currentValue = selectEl.value;
+      selectEl.innerHTML = "";
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = "(все)";
+      selectEl.appendChild(defaultOption);
+
+      Array.from(valuesSet)
+        .sort((a, b) => a.localeCompare(b))
+        .forEach(value => {
+          const opt = document.createElement("option");
+          opt.value = value;
+          opt.textContent = value;
+          selectEl.appendChild(opt);
+        });
+
+      // стараться сохранить выбранное значение, если оно есть
+      const hasCurrent = Array.from(selectEl.options).some(o => o.value === currentValue);
+      if (hasCurrent) {
+        selectEl.value = currentValue;
+      }
+    }
+
+    /** Применение фильтров и перерисовка таблицы */
+    function applyFiltersAndRender() {
+      if (!allRows.length) {
+        tableBody.innerHTML = "";
+        filteredInfo.textContent = "Нет данных.";
+        return;
+      }
+
+      const brandVal     = brandFilter.value;
+      const shopVal      = shopFilter.value;
+      const condVal      = conditionFilter.value;
+      const searchVal    = modelSearch.value.trim().toLowerCase();
+      const lenMin       = toNumberOrNull(lenMinInput.value);
+      const lenMax       = toNumberOrNull(lenMaxInput.value);
+      const priceMin     = toNumberOrNull(priceMinInput.value);
+      const priceMax     = toNumberOrNull(priceMaxInput.value);
+      const discountOnlyChecked = discountOnly.checked;
+      const sortVal      = sortSelect.value;
+
+      let filtered = allRows.filter(row => {
+        // бренд
+        if (brandVal && row.brand !== brandVal) return false;
+        // магазин
+        if (shopVal && row.shop !== shopVal) return false;
+        // состояние
+        if (condVal) {
+          const c = (row.condition || "").toLowerCase();
+          if (c !== condVal) return false;
+        }
+        // модель: поиск по подстроке
+        if (searchVal) {
+          const m = ((row.model || "") + " " + (row.brand || "")).toLowerCase();
+          if (!m.includes(searchVal)) return false;
+        }
+        // длина
+        const length = toNumberOrNull(row.length_cm);
+        if (lenMin !== null && (length === null || length < lenMin)) return false;
+        if (lenMax !== null && (length === null || length > lenMax)) return false;
+
+        // цена
+        const price = toNumberOrNull(row.price);
+        const orig  = toNumberOrNull(row.orig_price);
+        if (priceMin !== null && (price === null || price < priceMin)) return false;
+        if (priceMax !== null && (price === null || price > priceMax)) return false;
+
+        // только со скидкой
+        if (discountOnlyChecked) {
+          if (orig === null || price === null) return false;
+          if (!(orig > price)) return false;
+        }
+
+        return true;
+      });
+
+      // сортировка
+      if (sortVal !== "none") {
+        filtered.sort((a, b) => {
+          const priceA = toNumberOrNull(a.price) ?? Infinity;
+          const priceB = toNumberOrNull(b.price) ?? Infinity;
+          const lenA   = toNumberOrNull(a.length_cm) ?? Infinity;
+          const lenB   = toNumberOrNull(b.length_cm) ?? Infinity;
+          switch (sortVal) {
+            case "priceAsc":  return priceA - priceB;
+            case "priceDesc": return priceB - priceA;
+            case "lenAsc":    return lenA - lenB;
+            case "lenDesc":   return lenB - lenA;
+            default:          return 0;
+          }
+        });
+      }
+
+      renderTable(filtered);
+      filteredInfo.textContent = `Показано: ${filtered.length} / ${allRows.length}`;
+    }
+
+    function toNumberOrNull(value) {
+      if (value === null || value === undefined) return null;
+      const s = String(value).trim().replace(",", ".");
+      if (!s) return null;
+      const n = Number(s);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    /** Рендер таблицы */
+    function renderTable(rows) {
+      tableBody.innerHTML = "";
+      rows.forEach((row, idx) => {
+        const tr = document.createElement("tr");
+
+        const num = row["№"] || row["#"] || (idx + 1);
+
+        const length = toNumberOrNull(row.length_cm);
+        const price  = toNumberOrNull(row.price);
+        const orig   = toNumberOrNull(row.orig_price);
+        const cond   = (row.condition || "").toLowerCase();
+        const hasDiscount = orig !== null && price !== null && orig > price;
+
+        tr.innerHTML = `
+          <td>${num}</td>
+          <td>${escapeHtml(row.shop || "")}</td>
+          <td>${escapeHtml(row.brand || "")}</td>
+          <td>${escapeHtml(row.model || "")}</td>
+          <td>${length !== null ? length : ""}</td>
+          <td>${renderConditionPill(cond, hasDiscount)}</td>
+          <td>${orig !== null ? orig.toFixed(0) : ""}</td>
+          <td>${price !== null ? price.toFixed(0) : ""}</td>
+          <td class="url-cell">${renderUrlCell(row.url)}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function renderConditionPill(cond, hasDiscount) {
+      const pills = [];
+      if (cond === "new") {
+        pills.push(`<span class="pill pill-new">new</span>`);
+      } else if (cond === "used") {
+        pills.push(`<span class="pill pill-used">used</span>`);
+      } else if (cond) {
+        pills.push(`<span class="pill">${escapeHtml(cond)}</span>`);
+      }
+      if (hasDiscount) {
+        pills.push(`<span class="pill pill-discount">↓ скидка</span>`);
+      }
+      return pills.join(" ");
+    }
+
+    function renderUrlCell(url) {
+      if (!url) return "";
+      const safe = escapeHtml(String(url));
+      return `<a href="${safe}" target="_blank" rel="noopener noreferrer">открыть</a>`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    /** Сброс фильтров */
+    resetFiltersBtn.addEventListener("click", () => {
+      brandFilter.value = "";
+      shopFilter.value = "";
+      conditionFilter.value = "";
+      modelSearch.value = "";
+      lenMinInput.value = "";
+      lenMaxInput.value = "";
+      priceMinInput.value = "";
+      priceMaxInput.value = "";
+      discountOnly.checked = false;
+      sortSelect.value = "none";
+      applyFiltersAndRender();
+    });
+
+    /** Любое изменение фильтров — перерисовываем */
+    [
+      brandFilter,
+      shopFilter,
+      conditionFilter,
+      modelSearch,
+      lenMinInput,
+      lenMaxInput,
+      priceMinInput,
+      priceMaxInput,
+      discountOnly,
+      sortSelect
+    ].forEach(el => {
+      el.addEventListener("input", applyFiltersAndRender);
+      el.addEventListener("change", applyFiltersAndRender);
+    });
+  </script>
+</body>
+</html>

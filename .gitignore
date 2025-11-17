@@ -1,6 +1,7 @@
 # --- Project specific ---
 db/
 logs/
+raw/
 
 # --- Python ---
 __pycache__/
