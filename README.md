@@ -59,7 +59,7 @@ python run_scrapers.py
 - CSV сохраняется в `data/exports/skis_unified_YYYYMMDD_HHMM.csv`
 
 ```bash
-python compare_last_exports.py
+python manage_data.py
 ```
 Ищет 2 последних файла с выгрузкой и определяет изменения:
 - продано
