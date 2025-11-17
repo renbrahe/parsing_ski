@@ -19,10 +19,10 @@ UNIFIED_HEADER = [
     "shop",
     "brand",
     "model",
+    "length_cm",
     "condition",
     "orig_price",
     "price",
-    "length_cm",
     "url",
 ]
 

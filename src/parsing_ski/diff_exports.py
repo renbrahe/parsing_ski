@@ -5,10 +5,15 @@ from typing import Optional, Dict, Tuple, List
 
 logger = logging.getLogger(__name__)
 
+# Каталог с итоговыми CSV
 EXPORT_DIR = Path(__file__).resolve().parents[2] / "data" / "exports"
 
 
 def parse_length(value: str) -> Optional[int]:
+    """
+    Приводим length_cm к int (например '170.0' -> 170).
+    Если не получается — возвращаем None.
+    """
     if value is None:
         return None
     s = str(value).strip()
@@ -23,6 +28,9 @@ def parse_length(value: str) -> Optional[int]:
 
 
 def parse_price(value: str) -> Optional[float]:
+    """
+    Приводим price к float для сравнения.
+    """
     if value is None:
         return None
     s = str(value).strip()
@@ -36,11 +44,16 @@ def parse_price(value: str) -> Optional[float]:
 
 
 def read_csv_to_map(path: Path) -> Dict[Tuple[str, str, Optional[int]], dict]:
+    """
+    Читает CSV и строит словарь:
+        key = (shop, model, length_cm_int_or_None)
+        value = строка CSV (dict)
+    """
     mapping: Dict[Tuple[str, str, Optional[int]], dict] = {}
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            # поддерживаем и "shop", и "shops" на всякий случай
+            # поддерживаем и старый вариант "shops", и новый "shop"
             shop = row.get("shop") or row.get("shops") or ""
             model = row.get("model") or ""
             length = parse_length(row.get("length_cm"))
@@ -49,30 +62,61 @@ def read_csv_to_map(path: Path) -> Dict[Tuple[str, str, Optional[int]], dict]:
     return mapping
 
 
+def _key_sorter(key: Tuple[str, str, Optional[int]]):
+    """
+    Ключ сортировки для (shop, model, length_cm):
+    - сортируем по shop, model как по строкам
+    - длину None кладём «ниже» всех чисел, чтобы не было сравнения int и None
+    """
+    shop, model, length = key
+    # Если length is None, поставим его, например, в -1, чтобы шёл перед 0/70/90/...
+    # (или можно использовать большое число, чтобы шёл в конце — не критично)
+    length_sort = -1 if length is None else length
+    return (shop or "", model or "", length_sort)
+
+
 def compare_two_files(old_path: Path, new_path: Path, out_path: Path) -> Path:
+    """
+    Сравнивает два CSV и пишет третий с изменениями.
+
+    Ключ сравнения: (shop, model, length_cm).
+    Логика:
+      - есть в old, нет в new              -> sold_out
+      - нет в old, есть в new              -> new_arrival
+      - есть в обоих, но price отличается  -> price_change
+    """
     old_map = read_csv_to_map(old_path)
     new_map = read_csv_to_map(new_path)
 
     all_keys = set(old_map.keys()) | set(new_map.keys())
     diff_rows: List[dict] = []
 
-    for key in sorted(all_keys):
+    count_sold_out = 0
+    count_new = 0
+    count_price_change = 0
+
+    for key in sorted(all_keys, key=_key_sorter):
         in_old = key in old_map
         in_new = key in new_map
 
         if in_old and not in_new:
             status = "sold_out"
             base = old_map[key]
+            count_sold_out += 1
         elif not in_old and in_new:
             status = "new_arrival"
             base = new_map[key]
+            count_new += 1
         else:
+            # есть и там, и там — проверяем изменение цены
             old_price = parse_price(old_map[key].get("price"))
             new_price = parse_price(new_map[key].get("price"))
             if old_price == new_price:
+                # никаких изменений — пропускаем
                 continue
             status = "price_change"
-            base = new_map[key]
+            base = new_map[key]  # показываем новую цену
+            count_price_change += 1
 
         row = {
             "status": status,
@@ -89,6 +133,7 @@ def compare_two_files(old_path: Path, new_path: Path, out_path: Path) -> Path:
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Порядок колонок: №, status, shop, brand, ...
     fieldnames = [
         "№",
         "status",
@@ -110,7 +155,14 @@ def compare_two_files(old_path: Path, new_path: Path, out_path: Path) -> Path:
             row_to_write.update(row)
             writer.writerow(row_to_write)
 
-    logger.info("[OK] Diff saved to: %s (rows: %d)", out_path, len(diff_rows))
+    logger.info(
+        "[OK] Diff saved to: %s (rows: %d; sold_out=%d, new_arrival=%d, price_change=%d)",
+        out_path,
+        len(diff_rows),
+        count_sold_out,
+        count_new,
+        count_price_change,
+    )
     return out_path
 
 
@@ -119,6 +171,10 @@ def find_last_two_exports(
     prefix: str = "skis_unified_",
     suffix: str = ".csv",
 ) -> List[Path]:
+    """
+    Ищет два последних по имени файла типа skis_unified_YYYYMMDD_HHMM.csv
+    в каталоге export_dir.
+    """
     files = sorted(
         [p for p in export_dir.glob(f"{prefix}*{suffix}") if p.is_file()],
         key=lambda p: p.name,
@@ -129,6 +185,12 @@ def find_last_two_exports(
 
 
 def compare_last_two_exports() -> Optional[Path]:
+    """
+    Автоматическая функция:
+      - находит 2 последних export-файла
+      - строит diff-файл
+      - возвращает путь к diff-файлу
+    """
     last_two = find_last_two_exports(EXPORT_DIR)
     if len(last_two) < 2:
         logger.error(
